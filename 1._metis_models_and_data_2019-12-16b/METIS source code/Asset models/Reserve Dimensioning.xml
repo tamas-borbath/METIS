@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Reserve Dimensioning" label="Reserve Dimensioning Data" picture="pictures/Model.png" type="modelObject" tags="MODULE:RESERVE SIZING" doc="Object containing reserve sizing parameters">
+	<!-- Deprecated conventions. Do not reproduce. -->
+	<AssetData id="_isAnnualReserve"              type="Boolean"        default="True" show="true" editable="true" label="Reserve is annual"                                    unit="Boolean" doc="Boolean defining if reserve sizing is constant over the year or can vary hourly"/>
+	<AssetData id="_forecastHorizonForImbalances" type="Double"         default="1.0"  show="true" editable="true" label="Forecast horizon considered for reserve dimensioning" unit="h"       doc="Forecast horizon considered for reserve dimensioning"/>
+	
+</AssetModel>

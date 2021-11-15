@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="LNG liquefaction train" label="LNG liquefaction train" picture="pictures/LNG exports.png" type="Physical" tags="MODULE:GAS,EXPORT" doc="Liquefaction train used as connection between suppliers and a common global LNG market node">
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization" default="false"/>
+	
+	<EnergyPickup   name="CONSUMPTION" default="gas" unit="@POWER"/>
+	<EnergyDelivery name="PRODUCTION"  default="gas" unit="@POWER"/>
+	
+	<AssetData id="_capex"           type="Double" default="90000" show="true" editable="true" label="CAPEX"                 unit="@CURRENCY/@POWER/Year" doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"             type="Double" default="10000" show="true" editable="true" label="Fixed Operating Costs" unit="@CURRENCY/@POWER/Year" doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"            type="Double" default="1000"  show="true" editable="true" label="Capacity"              unit="@POWER"                behaviors="not OPTIM_PMAX" doc="Maximal liquefaction and transport capacity"/>
+	<AssetData id="_pmaxmin"         type="Double" default="0"     show="true" editable="true" label="Minimal Capacity"      unit="@POWER"                behaviors="OPTIM_PMAX"     doc="Capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"         type="Double" default="1000"  show="true" editable="true" label="Maximal Capacity"      unit="@POWER"                behaviors="OPTIM_PMAX"     doc="Capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"    type="Double" default="1"     show="true" editable="true" label="Availability"          unit="%"                 doc="Available capacity, expressed as a percentage of the maximal capacity"/>
+	<AssetData id="_consumptionCost" type="Double" default="0.002" show="true" editable="true" label="Liquefation cost"      unit="@CURRENCY/@ENERGY" doc="Liquefaction and shipping costs"/>
+	<AssetData id="_losses"          type="Double" default="0.001" show="true" editable="true" label="Losses"                unit="%"                 doc="Losses"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+addEnergyTransmission(asset, stateON)
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

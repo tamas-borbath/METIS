@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Gas storage" label="Gas storage" picture="pictures/Gas storage.png" type="Physical" tags="MODULE:GAS,STORAGE,GAS_STORAGE" doc="Gas storage">
+	<Behavior id="USE_PMAX_IN"      label="Use PmaxIn"            default="true"/>
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization" default="false"/>
+	<Behavior id="DISCHARGE_TIMES"  label="Use discharge times"   default="false"/>
+	
+	<EnergyPickup name="CONSUMPTION" default="gas" unit="@POWER"/>
+	<EnergyDelivery name="PRODUCTION" default="gas" unit="@POWER"/>
+	
+	<AssetData id="_capex"           type="Double" default="60000"  show="true" editable="true" label="CAPEX"                 unit="@CURRENCY/@POWER/Year" doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"             type="Double" default="10000"  show="true" editable="true" label="Fixed Operating Costs" unit="@CURRENCY/@POWER/Year" doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"            type="Double" default="0"   show="true" editable="true" label="Withdrawal capacity"           unit="@POWER"            doc="Withdrawal capacity (from the storage)" behaviors="not OPTIM_PMAX"/>
+	<AssetData id="_pmaxmin"         type="Double" default="0"     show="true" editable="true" label="Minimal Withdrawal Capacity"      unit="@POWER"                behaviors="OPTIM_PMAX" doc="Withdrawal capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"         type="Double" default="1000"  show="true" editable="true" label="Maximal Withdrawal Capacity"      unit="@POWER"                behaviors="OPTIM_PMAX" doc="Withdrawal capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"              type="Double" default="1"       show="true" editable="true" label="Output availability"             unit="%" doc="Available withdrawal capacity, expressed as a percentage of the installed capacity"/>
+	<AssetData id="_consumptionCost"           type="Double" default="0"   show="true" editable="true" label="Model stocking cost"                 unit="@CURRENCY/@ENERGY" doc="Consumption costs"/>
+	<AssetData id="_exitFee"                   type="Double" default="0"   show="true" editable="true" label="Fee for gas withdrawal from the internal network"         unit="@CURRENCY/@ENERGY" doc="Exit fee"/>
+	<AssetData id="_productionCost"            type="Double" default="0"   show="true" editable="true" label="Model destocking cost"               unit="@CURRENCY/@ENERGY" doc="Production cost (fuel cost not included)"/>
+	<AssetData id="_entryFee"                  type="Double" default="0"   show="true" editable="true" label="Fee for gas injection on the internal network"         unit="@CURRENCY/@ENERGY" doc="Entry fee"/>
+	<!-- Storage -->
+	<AssetData id="_storageCapex"           type="Double" default="1000"   show="true" editable="true" label="CAPEX (Storage)"               unit="@CURRENCY/@ENERGY/Year" doc="Capital expenditure for storage assets"/>
+	<AssetData id="_storageCapacity"        type="Double" default="0"      show="true" editable="true" label="Storage capacity"              unit="@ENERGY"                doc="Storage capacity" behaviors="not DISCHARGE_TIMES"/>
+	<AssetData id="_storageAvailability"    type="Double" default="1"      show="true" editable="true" label="Storage availability"          unit="%"                      doc="Storage availability, expressed as a percentage of the installed storage capacity"/>
+	<AssetData id="_minStorageLevel"        type="Double" default="0"      show="true" editable="true" label="Minimal storage level"         unit="%"                      doc="Minimum level for storage, expressed as a percentage of the installed storage capacity"/>
+	<AssetData id="_dischargeTime"          type="Double" default="8"      show="true" editable="true" label="Discharge time"                unit="h"                      doc="Discharge time" behaviors="DISCHARGE_TIMES" />
+	<AssetData id="_pmaxIn"                 type="Double" default="0"      show="true" editable="true" label="Injection capacity"            unit="@POWER"                 doc="Injection capacity (to the storage)" behaviors="not OPTIM_PMAX and USE_PMAX_IN"/>
+	<AssetData id="_availabilityIn"         type="Double" default="1"      show="true" editable="true" label="Input availability"            unit="%"                      doc="Injection capacity availability"/>
+	<AssetData id="_minInitialStorageLevel" type="Double" default="0"      show="true" editable="true" label="Minimal initial storage level" unit="%"                      doc="Minimal initial storage level, expressed as percentage of the storage capacity"/>
+	<AssetData id="_maxInitialStorageLevel" type="Double" default="0"      show="true" editable="true" label="Maximal initial storage level" unit="%"                      doc="Maximal initial storage level, expressed as percentage of the storage capacity"/>
+	<AssetData id="_pmaxInOutRatio"         type="Double" default="1"      show="true" editable="true" label="Withdrawal over Injection ratio (for capacity optimization)"      unit=""             behaviors="OPTIM_PMAX" doc="Injection (to the storage) over Withdrawal (from the storage) ratio (for capacity optimization)"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+moduleStock = addDischargeStock(asset, stateON, minStorageLevel="_minStorageLevel", initialStorageLevel=None, storageAvailability="_storageAvailability")
+variableStorageInjectionCapacity(MODEL, asset, stateON, moduleStock, pmaxInOutRatio = "_pmaxInOutRatio")
+variableStorageWithdrawalCapacity(MODEL, asset, stateON, moduleStock)
+addInitialStorageLevelBounds(asset, moduleStock, initialStorageLevel=None, minInitialStorageLevel="_minInitialStorageLevel", maxInitialStorageLevel= "_maxInitialStorageLevel")
+forceInitialEqualFinal(asset, moduleStock)
+
+# Computing overall cost to set on incoming flows (consumption cost + network exit fee)
+overallConsumptionCost  = getAssetData(asset, "_consumptionCost", dataName=LABELS[CONSUMPTION_COST], mustExist=False)
+exitFee = getAssetData(asset, "_exitFee", mustExist=False)
+if exitFee is not None:
+    overallConsumptionCost += exitFee
+
+# Computing overall cost to set on outcoming flows (production cost + network entry fee)
+overallProductionCost  = getAssetData(asset, "_productionCost", dataName=LABELS[PRODUCTION_COST], mustExist=False)
+entryFee = getAssetData(asset, "_entryFee", mustExist=False)
+if entryFee is not None:
+    overallProductionCost += entryFee
+
+addEnergyConsumption(asset, stateON, availability = "_availabilityIn", pmaxInOutRatio = "_pmaxInOutRatio", consumptionCost = overallConsumptionCost)
+addEnergyProduction(asset, stateON, productionCost = overallProductionCost)
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

@@ -1,0 +1,3 @@
+The technical note "Introduction to METIS models" serves as entry point for anyone interested in the understanding of the METIS models and data.
+
+The main objective of this note is to present the available documentation, source code and data used in METIS and explain how to use them to understand the model operation. With this note and the associated elements, the reader will be able to fully understand the equations behind the different energy models, apprehend how energy scenarios are built, and also which indicators are available to analyse the results of a simulated energy scenario.

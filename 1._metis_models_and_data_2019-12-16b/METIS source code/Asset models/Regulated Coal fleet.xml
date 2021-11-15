@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Regulated Coal fleet" label="Regulated Coal fleet" picture="pictures/Regulated Coal fleet.png" type="Physical" tags="PRODUCTION,RESERVE_PRODUCTION" doc="Coal-fired power plant with CO2 emission quotas">
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization" default="false"/>
+	<Behavior id="GRADIENTS"        label="Gradients"             default="false"/>
+	<Behavior id="FUEL"             label="Fuel consumption"      default="false"/>
+	<Behavior id="CLUSTER"          label="Cluster model"         default="false"/>
+	<Behavior id="RESERVE"          label="Reserve"               default="false"/>
+	<Behavior id="DISCHARGE_TIMES"  label="Use discharge times"	  default="false"/>
+	
+	<EnergyPickup   name="FUEL_CONSUMPTION" default="coal" unit="@ENERHEATVALUE" behaviors="FUEL"/>
+	<EnergyDelivery name="PRODUCTION"  default="electricity" unit="@POWER"/>
+	<EnergyDelivery name="CO2"         default="co2"         unit="@WEIGHT"/>
+	<EnergyDelivery name="SYNC_RESERVE_UP"   default="syncResUp"   unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="SYNC_RESERVE_DOWN" default="syncResDown" unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="MFRR_UP"           default="mfrrResUp"   unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="MFRR_DOWN"         default="mfrrResDown" unit="@POWER" behaviors="RESERVE"/>
+	
+	<AssetData id="_capex"           type="Double" default="200000"  show="true" editable="true" label="CAPEX (Pmax)"             unit="@CURRENCY/@POWER/Year" doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"             type="Double" default="50000"   show="true" editable="true" label="Fixed Operating Costs"    unit="@CURRENCY/@POWER/Year" doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"            type="Double" default="10000"   show="true" editable="true" label="Pmax"                     unit="@POWER"                 behaviors="not OPTIM_PMAX" doc="Installed power capacity"/>
+	<AssetData id="_pmaxmin"         type="Double" default="0"       show="true" editable="true" label="Min Pmax"                 unit="@POWER"                 behaviors="OPTIM_PMAX" doc="Installed capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"         type="Double" default="10000"   show="true" editable="true" label="Max Pmax"                 unit="@POWER"                 behaviors="OPTIM_PMAX" doc="Installed capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"    type="Double" default="1"       show="true" editable="true" label="Availability"             unit="%" doc="Available capacity, expressed as a percentage of the installed capacity"/>
+	<AssetData id="_variableCost"    type="Double" default="20"      show="true" editable="true" label="Variable cost"            unit="@CURRENCY/@ENERGY"      behaviors="FUEL" doc="Variable costs"/>
+	<AssetData id="_productionCost"  type="Double" default="20"      show="true" editable="true" label="Production cost"          unit="@CURRENCY/@ENERGY"      behaviors="not FUEL" doc="Production cost (fuel cost not included)"/>
+	<AssetData id="_fuelYield"       type="Double" default="1.0"     show="true" editable="true" label="Fuel yield w.r.t production" unit="@ENERGY/@ENERHEATVALUE"  behaviors="(not CLUSTER) and FUEL" doc="Yield between the production and the fuel consumption"/>
+	<AssetData id="_fuelCo2Content"  type="Double" default="0.85"    show="true" editable="true" label="Fuel CO2 emissions"       unit="@WEIGHT/@ENERHEATVALUE"  behaviors="FUEL" doc="Yield between the fuel consumption and the CO2 emissions"/>
+	<AssetData id="_co2Content"      type="Double" default="0.85"    show="true" editable="true" label="CO2 emissions"            unit="@WEIGHT/@ENERGY"       behaviors="not FUEL" doc="Yield between the CO2 emissions and the production"/>
+	<AssetData id="_minLoad"         type="Double" default="0"       show="true" editable="true" label="Fleet min load"           unit="%"                     behaviors="not CLUSTER" doc="Minimum production level, expressed as a percentage of the available capacity"/>
+	<AssetData id="_gradientUp"      type="Double" default="1"       show="true" editable="true" label="Gradient up"              unit="%/min"                  behaviors="GRADIENTS" doc="Maximal upward variation, expressed as a percentage of the available capacity per minute"/>
+	<AssetData id="_gradientDown"    type="Double" default="-1"      show="true" editable="true" label="Gradient down"            unit="%/min"                  behaviors="GRADIENTS" doc="Maximal downward variation, expressed as a percentage of the available capacity per minute"/>
+	<!-- Cluster -->
+	<AssetData id="_clusterStartingCost"    type="Double" default="65"  show="true" editable="true" label="Starting cost"                         unit="@CURRENCY/@POWER" behaviors="CLUSTER" doc="Cost to start additional capacity"/>
+	<AssetData id="_runningCost"            type="Double" default="0"   show="true" editable="true" label="Running cost"                          unit="@CURRENCY/@POWER/h" behaviors="CLUSTER" doc="Cost associated with maintaining a certain running capacity"/>
+	<AssetData id="_productionHeatRate"         type="Double" default="1"    show="true" editable="true" label="Heat rate"                                unit="@ENERHEATVALUE/@ENERGY"  behaviors="CLUSTER and FUEL" doc="Yield between the delivered energy and the associated fuel consumption"/>
+	<AssetData id="_runningCapaFuelConsumption" type="Double" default="1"    show="true" editable="true" label="Fuel consumption w.r.t. running capacity" unit="@ENERHEATVALUE/@POWER/h" behaviors="CLUSTER and FUEL" doc="Yield between the Running capacity and the associated fuel consumption"/> 
+	<AssetData id="_co2ContentRunningBound" type="Double" default="0"   show="true" editable="true" label="CO2 emissions w.r.t. running capacity" unit="@WEIGHT/@ENERGY"  behaviors="CLUSTER and not FUEL" doc="CO2 emissions with respect to running capacity"/>
+	<AssetData id="_runningCapacityMinLoad" type="Double" default="0"   show="true" editable="true" label="Running capacity min load"             unit="%"                behaviors="RESERVE or CLUSTER" doc="Minimum level for the production, expressed as a percentage of the running capacity (for assets in fleet mode with reserve, please refer to addReserveProduction(..) for the running capacity definition)"/>
+	<AssetData id="_minOffTime"             type="Double" default="6"   show="true" editable="true" label="Min off time"                          unit="h"                behaviors="CLUSTER" doc="When a part of the running capacity is switched off, this part cannot be switch on before a duration equals to _minOffTime"/>
+	<!-- Storage -->
+	<AssetData id="_storageCapex"         type="Double" default="200000"  show="true" editable="true" label="CAPEX (Storage)"          unit="@CURRENCY/@ENERGY/Year" doc="Capital expenditure for storage assets"/>
+	<AssetData id="_storageCapacity"      type="Double" default="5000000" show="true" editable="true" label="Storage capacity"         unit="@ENERGY"                behaviors="not DISCHARGE_TIMES" doc="Storage capacity"/>
+	<AssetData id="_dischargeTime"        type="Double" default="8"       show="true" editable="true" label="Discharge time"           unit="h"                      behaviors="DISCHARGE_TIMES" doc="Discharge time"/>
+	<AssetData id="_boundedSupply"        type="Double" default="0"       show="true" editable="true" label="Production quota"         unit="@POWER" doc="Production quota"/>
+	<!-- Reserve -->
+	<AssetData id="_maxShareSyncReserveUp"   type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to upward sync. reserve"      behaviors="RESERVE" doc="Maximal share of upward sync. reserve in running capacity"/>
+	<AssetData id="_maxShareSyncReserveDown" type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to downward sync. reserve"    behaviors="RESERVE" doc="Maximal share of downward sync. reserve in running capacity"/>
+	<AssetData id="_maxShareMfrrUp"          type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to upward reserve"            behaviors="RESERVE" doc="Maximal share of upward mFRR and sync. reserve in running capacity"/>
+	<AssetData id="_maxShareMfrrDown"        type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to downward reserve"          behaviors="RESERVE" doc="Maximal share of downward mFRR and sync. reserve in running capacity"/>
+	<AssetData id="_syncReserveUpCost"       type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of the upward sync. reserve"   behaviors="RESERVE" doc="Operating cost of the upward sync. reserve"/>
+	<AssetData id="_syncReserveDownCost"     type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of the downward sync. reserve" behaviors="RESERVE" doc="Operating cost of the downward sync. reserve"/>
+	<AssetData id="_mfrrUpCost"              type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of upward mFRR"                behaviors="RESERVE" doc="Operating cost of upward mFRR"/>
+	<AssetData id="_mfrrDownCost"            type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of downward mFRR"              behaviors="RESERVE" doc="Operating cost of downward mFRR"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+addDischargeStock(asset, stateON, energyPickup=None)
+addGradients(asset,stateON)
+addFuelConsumption(asset, stateON)
+addCo2Production(asset, stateON)
+addEnergyProduction(asset, stateON)
+addReserveProduction(asset, stateON)
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

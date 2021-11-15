@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Gas supply" label="Gas supply" picture="pictures/SupplyGas.png" type="financial" tags="SUPPLY,CONTRACT,FUEL_SUPPLY" doc="Gas supply">
+	<EnergyDelivery id="E" default="gas" unit="@ENERHEATVALUE"/>
+	<AssetData id="_price" 	type="Double" default="20" show="true" editable="true" label="Price" unit="@CURRENCY/@ENERHEATVALUE" doc="Price"/>
+	<Models>
+	<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state OK
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+addEnergyCost(stateON, asset.getParameter('E'), False, asset.getData('_price'))
+MODEL.addState(stateON)
+
+]]>
+	</Model>
+	</Models>
+</AssetModel>

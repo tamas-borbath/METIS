@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="LNG imports" label="LNG imports" picture="pictures/LNG imports.png" type="Physical" tags="MODULE:GAS,IMPORT" doc="Liquefied natural gas imports">
+	<Behavior id="MUST_RUN"         label="Force imports to be equal to Pmax*Availability" default="false"/>
+	<Behavior id="VOLUME_TARGET"    label="Use a target volume" default="false"/>
+
+	<EnergyDelivery name="PRODUCTION" default="gas" unit="@POWER"/>
+	                 
+	<AssetData id="_pmax"                type="Double" default="1000"   show="true" editable="true" label="Pmax"                   unit="@POWER"    behaviors="not MUST_RUN"                    doc="Maximal import capacity"/>
+	<AssetData id="_minLoad"             type="Double" default="0"      show="true" editable="true" label="Min load"               unit="%"         behaviors="not MUST_RUN"                    doc="Minimum import level, expressed as a percentage of the available capacity"/>
+	<AssetData id="_availability"        type="Double" default="1"      show="true" editable="true" label="Availability"           unit="[0,1]"     behaviors="not MUST_RUN"                    doc="Available import capacity, expressed as a percentage of the maximal capacity"/>
+	<AssetData id="_minimumVolume"       type="Double" default="0"      show="true" editable="true" label="Minimal target volume"  unit="@ENERGY"   behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Minimal import volume over the horizon"/>
+	<AssetData id="_storageCapacity"     type="Double" default="100000" show="true" editable="true" label="Maximal target volume"  unit="@ENERGY"   behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Maximal import volume over the horizon"/>
+	<AssetData id="_minProfile"          type="random" default="0"      show="true" editable="true" label="Minimal export profile" unit="%"         behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Minimal export profile"/>
+	<AssetData id="_storageAvailability" type="random" default="1"      show="true" editable="true" label="Maximal export profile" unit="%"         behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Maximal export profile"/>
+	<AssetData id="_imports"             type="Double" default="0"      show="true" editable="true" label="Imports"                unit="@POWER"    behaviors="MUST_RUN"                        doc="Sets inelastic imports"/>
+	<AssetData id="_productionCost"      type="Double" default="0"      show="true" editable="true" label="Cost"                   unit="@CURRENCY"                                             doc="Costs per import unit"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Asset parameters definition 
+# ---------------------------------------------------
+
+cost = asset.getData('_productionCost')
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+
+if asset.isActiveBehavior(BH_MUST_RUN):
+	stateON.setEquality( asset.getParameter('PRODUCTION'), False, asset.getData('_imports') )
+else:
+	addTargetInVolume(asset, stateON, interfaceName="PRODUCTION", isInput=False, maxVolume="_storageCapacity", minVolume="_minimumVolume" , maxProfile="_storageAvailability", minProfile="_minProfile")
+	addEnergyProduction(asset, stateON, energyDelivery='PRODUCTION', productionCost=None, pmax='_pmax')
+
+# HACK : addEnergyCost should directely manage price curves
+if getPriceCurveType(cost): #Gas market module - Price curve model
+	addRelaxedIncreasingCost(asset, energyParameterName='PRODUCTION', energyParameterIsInput=False)
+else: #Linear cost
+	addEnergyCost(stateON, asset.getParameter('PRODUCTION'), False, cost)
+
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

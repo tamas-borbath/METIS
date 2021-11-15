@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Gas production" label="Gas production" picture="pictures/Gas production.png" type="Physical" tags="MODULE:GAS" doc="Gas production asset">
+	<Behavior id="MUST_RUN"         label="Asset considered as must run energy source" default="false"/>
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization" default="false"/>
+
+	<EnergyDelivery name="PRODUCTION" default="gas" unit="@POWER"/>
+	
+	<AssetData id="_capex"          type="Double" default="0" show="true" editable="true" label="CAPEX"                 unit="@CURRENCY/@POWER/Year" doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"            type="Double" default="0" show="true" editable="true" label="Fixed Operating Costs" unit="@CURRENCY/@POWER/Year" doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"           type="Double" default="0" show="true" editable="true" label="Pmax"            unit="@POWER"            doc="Installed production capacity"/>
+	<AssetData id="_pmaxmin"        type="Double" default="0" show="true" editable="true" label="Min Pmax"        unit="@POWER"        behaviors="OPTIM_PMAX" doc="Installed capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"        type="Double" default="0" show="true" editable="true" label="Max Pmax"        unit="@POWER"        behaviors="OPTIM_PMAX" doc="Installed capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"   type="Double" default="1" show="true" editable="true" label="Availability"    unit="[0,1]"             doc="Available capacity, expressed as a percentage of the installed capacity"/>
+	<AssetData id="_productionCost" type="Double" default="0" show="true" editable="true" label="Production cost" unit="@CURRENCY/@ENERGY" doc="Production cost"/>
+	<AssetData id="_minLoad"        type="Double" default="0" show="true" editable="true" label="Min load"        unit="% of Pmax"     behaviors="not MUST_RUN"  doc="Minimum production level, expressed as a percentage of the available capacity"/>
+	
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+addEnergyProduction(asset, stateON, productionCost=None)
+
+# HACK : addEnergyProduction should manage price curves directly
+cost = asset.getData('_productionCost')
+if getPriceCurveType(cost): #Gas market module - Price curve model
+	addRelaxedIncreasingCost(asset, energyParameterName='PRODUCTION', energyParameterIsInput=False, costDataName="_productionCost")
+else: #Linear cost
+	addEnergyCost(stateON, asset.getParameter('PRODUCTION'), False, cost)
+
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

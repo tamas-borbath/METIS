@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to METIS’ documentation! &mdash; METIS V1.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/atom-one-light.css" type="text/css" />
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/parameters.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="METIS V1.4 documentation" href="#"/>
+        <link rel="next" title="Library documentation" href="libraryDoc.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> METIS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                V1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Asset models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libraryDoc.html">Library documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiDoc.html">API documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Indicators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kpiDoc.html">KPI documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoratorDoc.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assetViewsDoc.html">Asset views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpIndicatorsDoc.html">Delivery Points indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoneIndicatorsDoc.html">Zones indicators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Context actions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actionDoc.html">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Import scripts for context creation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importScriptsDoc.html">Import scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiImportScriptsDoc.html">Import scripts API documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">METIS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Welcome to METIS&#8217; documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-metis-documentation">
+<h1>Welcome to METIS&#8217; documentation!<a class="headerlink" href="#welcome-to-metis-documentation" title="Permalink to this headline">¶</a></h1>
+<p><strong>METIS</strong> is an energy modelling software created by the European Commission
+with the aim to support DG ENER’s evidence-based policy making.</p>
+<p>The software has been developed by Artelys with the support of IAEW (RWTH Aachen University),
+ConGas and Frontier Economics.</p>
+<p>This following documentation aims at providing a global understanding of METIS software operations. Both the
+underlying models and the indicators used to analyze the results of the simulation are covered by this documentation :</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Asset models</strong> : This section details the different assets that can be used to create a scenario representing a given
+energy system. The complete description of each asset can be found on page <a class="reference internal" href="libraryDoc.html"><em>Library</em></a>. The assets rely on
+complex models, with advanced features that manage several energies at an hourly granularity. To handle the associated
+model equations, an api has been developed and its documentation can be found on page <a class="reference internal" href="apiDoc.html"><em>API</em></a>.</li>
+<li><strong>Indicators</strong> : This section focuses on the indicators used in <strong>METIS</strong> to analyze the results.</li>
+<li><strong>Context actions</strong> : This section details context actions, used to perform specific scripted actions on one context</li>
+<li><strong>Import scripts for context creation</strong> : This section lists the available scripts that can be used to create a new context by importing an existing scenario from the database.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="table-of-content">
+<h1>Table of content:<a class="headerlink" href="#table-of-content" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound" id="asset-models">
+<p class="caption"><span class="caption-text">Asset models</span><a class="headerlink" href="#asset-models" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libraryDoc.html">Library documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiDoc.html">API documentation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="indicators">
+<p class="caption"><span class="caption-text">Indicators</span><a class="headerlink" href="#indicators" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kpiDoc.html">KPI documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#average-production-at-peak-demand-wh">Average production at peak demand (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#border-exchange-surplus-euro">Border exchange surplus (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#capacity-factor">Capacity factor (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#co2-emissions-t">CO2 emissions (t)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#congestion-hours-h">Congestion hours (h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#congestion-rent-euro">Congestion Rent (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#consumer-surplus-euro">Consumer Surplus (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#consumption-peak-wh">Consumption peak (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#consumption-wh">Consumption (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#curtailment-cost-euro">Curtailment cost (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#curtailment-wh">Curtailment (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#demand-peak-w">Demand peak (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#demand-wh">Demand (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#dispatchable-power-generation-capacity-w">Dispatchable power generation capacity (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#expected-unserved-demand">Expected Unserved Demand (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#expected-unserved-energy-wh">Expected Unserved Energy (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#exports-and-imports-wh">Exports and imports (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#flow-wh">Flow (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#import-capacity-w">Import capacity (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#installed-capacities-w">Installed capacities (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#investment-analysis-euro">Investment Analysis (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#investment-costs-euro">Investment costs (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#load-payment-euro">Load payment (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#loss-of-load-cost-euro">Loss of load cost (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#loss-of-load-h">Loss Of Load (h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#marginal-costs-statistics-euro-mwh">Marginal costs statistics (euro/MWh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#marginal-costs-euro-mwh">Marginal costs (euro/MWh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#minimum-unused-production-capacity-wh">Minimum unused production capacity (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#net-demand-peak-w">Net demand peak (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#net-production-wh">Net Production (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#producer-surplus-euro">Producer surplus (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#production-costs-euro">Production costs (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#production-revenue-euro">Production revenue (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#production-wh">Production (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#raw-demand-wh">Raw demand (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#reserve-sizing-w">Reserve Sizing (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#scarcity-price-hours-h">Scarcity Price Hours (h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#share-of-production-in-national-demand">Share of production in national demand (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#storage-capacity-wh">Storage capacity (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#storage-cycles-cycles">Storage cycles (cycles)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#supply-wh">Supply (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#total-costs-euro">Total costs (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#transmission-capacities-w">Transmission capacities (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#transmission-usage">Transmission usage (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kpiDoc.html#welfare-euro">Welfare (euro)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decoratorDoc.html">Decorators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#assets">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#congestion-hours-power">Congestion hours (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#congestion-rent-gas">Congestion Rent (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#congestion-rent-power">Congestion rent (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#countries">Countries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#default-gas">default (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#default-power">default (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#price-divergence-hours-power">Price divergence hours (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#transmission-capa-gas">Transmission Capa (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#transmission-capa-power">Transmission Capa (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#transmission-flows-gas">Transmission flows (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#transmission-flows-power">Transmission flows (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoratorDoc.html#transmission-usage-power">Transmission usage (Power)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assetViewsDoc.html">Asset views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#consumption-view-fuel">Consumption view (Fuel)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#consumption-view-gas">Consumption view (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#consumption-vs-production-view">Consumption vs production view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#contract-view">Contract view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#production-cost-view">Production cost view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#production-view-gas">Production view (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#production-view">Production view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#storage-view">Storage view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#transmission-consumption-view">Transmission consumption view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assetViewsDoc.html#transmission-production-view">Transmission production view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dpIndicatorsDoc.html">Delivery Points indicators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#demand-pie-chart">Demand pie chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#supply-pie-chart">Supply pie chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#cumulative-demand">Cumulative demand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#cumulative-generation">Cumulative generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#demand-and-net-demand">Demand and Net Demand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#marginal-costs-ts">Marginal Costs TS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#net-position">Net Position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpIndicatorsDoc.html#production-margin">Production margin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoneIndicatorsDoc.html">Zones indicators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoneIndicatorsDoc.html#demand-pie-chart">Demand pie chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoneIndicatorsDoc.html#supply-pie-chart">Supply pie chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoneIndicatorsDoc.html#cumulative-demand">Cumulative demand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoneIndicatorsDoc.html#cumulative-generation">Cumulative generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoneIndicatorsDoc.html#demand-and-net-demand">Demand and Net Demand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoneIndicatorsDoc.html#marginal-costs-ts">Marginal Costs TS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoneIndicatorsDoc.html#production-margin">Production margin</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="context-actions">
+<p class="caption"><span class="caption-text">Context actions</span><a class="headerlink" href="#context-actions" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actionDoc.html">Actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#changeparameters">ChangeParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#changepipelinespmax">ChangePipelinesPmax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#changetransmissionspmax">ChangeTransmissionsPmax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#freezetransmissions">FreezeTransmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#propagate-capacities">Propagate capacities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#cleanup-results">Cleanup results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#computekpis">ComputeKPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#invalidatekpis">InvalidateKPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#imbalances-generation">Imbalances generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#outages-generation">Outages generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionDoc.html#reserve-sizing">Reserve sizing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="import-scripts-for-context-creation">
+<p class="caption"><span class="caption-text">Import scripts for context creation</span><a class="headerlink" href="#import-scripts-for-context-creation" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importScriptsDoc.html">Import scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="importScriptsDoc.html#import-gas">import_gas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importScriptsDoc.html#import-power-system">import_power_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importScriptsDoc.html#import-power-system-with-demand-decomposition-by-end-use">import_power_system_with_demand_decomposition_by_end-use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importScriptsDoc.html#import-scenario-template">import_scenario_template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apiImportScriptsDoc.html">Import scripts API documentation</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="libraryDoc.html" class="btn btn-neutral float-right" title="Library documentation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, European Commission.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'V1.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/highlight.pack.js"></script>
+      <script type="text/javascript" src="_static/toc.js"></script>
+      <script type="text/javascript" src="_static/initHighlightingOnLoad.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

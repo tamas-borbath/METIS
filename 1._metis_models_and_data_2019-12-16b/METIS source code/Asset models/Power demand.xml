@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Power demand" label="Power demand" picture="pictures/ElecConsumer.png" type="financial" tags="CONTRACT,DEMAND" doc="Power demand">	
+	<EnergyPickup id="E" default="electricity" unit="@POWER"/>
+	<AssetData id="_demand"   type="Double" default="0" show="true" editable="true" label="Demand" unit="@POWER" doc="Demand"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+stateON.setEquality(asset.getParameter('E'), True, asset.getData('_demand'))
+MODEL.addState(stateON)
+
+]]>
+</Model>
+</Models>
+</AssetModel>

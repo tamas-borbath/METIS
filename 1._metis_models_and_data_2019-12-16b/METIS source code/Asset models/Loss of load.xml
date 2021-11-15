@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Loss of load" label="Loss of load" picture="pictures/Loss of load.png" type="financial" tags="SUPPLY,CONTRACT,LOSS_OF_ENERGY" doc="Loss of load">
+	<EnergyDelivery id="E" default="electricity" unit="@POWER"/>
+	<AssetData id="_price" type="Double" default="3000" show="true" editable="true" label="Price" unit="@CURRENCY/@ENERGY" doc="Price"/>
+	<Models>
+	<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state OK
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+addEnergyCost(stateON, asset.getParameter('E'), False, asset.getData('_price'))
+MODEL.addState(stateON)
+
+]]>
+	</Model>
+	</Models>
+</AssetModel>

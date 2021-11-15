@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Gas exports" label="Gas exports" picture="pictures/Gas exports.png" type="Physical" tags="MODULE:GAS,EXPORT" doc="Gas exports">
+	<Behavior id="MUST_RUN"         label="Force exports to be equal to pmax*Availability" default="false"/>
+	<Behavior id="VOLUME_TARGET"    label="Use a target volume" default="false"/>
+
+	<EnergyPickup name="CONSUMPTION" default="gas" unit="@POWER"/>
+	
+	<AssetData id="_pmax"                type="Double" default="1000"   show="true" editable="true" label="Pmax"                   unit="@POWER"    behaviors="not MUST_RUN"                    doc="Maximal export capacity"/>
+	<AssetData id="_minLoad"             type="Double" default="0"      show="true" editable="true" label="Min load"               unit="%"         behaviors="not MUST_RUN"                    doc="Minimum export level, expressed as a percentage of the available export capacity"/>
+	<AssetData id="_availability"        type="Double" default="1"      show="true" editable="true" label="Availability"           unit="[0,1]"     behaviors="not MUST_RUN"                    doc="Available export capacity, expressed as a percentage of the maximal capacity"/>
+	<AssetData id="_minimumVolume"       type="Double" default="0"      show="true" editable="true" label="Minimal target volume"  unit="@ENERGY"   behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Minimal export volume over the horizon"/>
+	<AssetData id="_storageCapacity"     type="Double" default="100000" show="true" editable="true" label="Maximal target volume"  unit="@ENERGY"   behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Maximal export volume over the horizon"/>
+	<AssetData id="_minProfile"          type="random" default="0"      show="true" editable="true" label="Minimal export profile" unit="%"         behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Minimal export profile"/>
+	<AssetData id="_storageAvailability" type="random" default="1"      show="true" editable="true" label="Maximal export profile" unit="%"         behaviors="VOLUME_TARGET and not MUST_RUN"  doc="Maximal export profile"/>
+	<AssetData id="_exports"             type="Double" default="0"      show="true" editable="true" label="Exports"                unit="@POWER"    behaviors="MUST_RUN"                        doc="Sets inelastic exports"/>
+	<AssetData id="_price"               type="Double" default="0"      show="true" editable="true" label="Price"                  unit="@CURRENCY"                                             doc="Earnings per export unit"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Asset parameters definition 
+# ---------------------------------------------------
+
+consumptionCost = - asset.getData('_price')
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+
+if asset.isActiveBehavior(BH_MUST_RUN):
+	stateON.setEquality( asset.getParameter('CONSUMPTION'), True, asset.getData('_exports') )
+else:
+	addTargetInVolume(asset, stateON, interfaceName="CONSUMPTION", isInput=True, maxVolume="_storageCapacity", minVolume="_minimumVolume" , maxProfile="_storageAvailability", minProfile="_minProfile")
+	addEnergyConsumption(asset, stateON, energyPickup='CONSUMPTION', consumptionCost=None, pmaxIn='_pmax')
+
+# HACK : addEnergyCost should directely manage price curves
+if getPriceCurveType(consumptionCost): #Gas market module - Price curve model
+	addRelaxedIncreasingCost(asset, energyParameterName='CONSUMPTION', energyParameterIsInput=True)
+else: #Linear cost
+	addEnergyCost(stateON, asset.getParameter('CONSUMPTION'), True, consumptionCost)
+
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

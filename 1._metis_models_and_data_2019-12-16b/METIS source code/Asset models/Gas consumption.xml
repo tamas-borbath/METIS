@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Gas consumption" label="Gas consumption" picture="pictures/Demand - Gas.png" type="Physical" tags="MODULE:GAS,CONSUMPTION_CONTRACT,DEMAND" doc="Gas consumption">
+	<EnergyPickup   name="CONSUMPTION" default="gas"         unit="@ENERHEATVALUE"/>
+	<EnergyDelivery name="CO2"         default="co2"         unit="@WEIGHT"/>
+	
+	<AssetData id="_demand"      type="Double" default="0"    show="true" editable="true" label="Demand"        unit="@POWER"          doc="Gas consumption"/>
+	<AssetData id="_co2Content"  type="Double" default="0.34" show="true" editable="true" label="CO2 emissions" unit="@WEIGHT/@ENERGY" doc="Yield between the CO2 emissions and the gas consumption"/>
+	<AssetData id="_cost"        type="Double" default="0"    show="true" editable="true" label="Consumption cost" unit="@WEIGHT/@ENERGY" doc="Consumption cost"/>
+	
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+energyPickup = asset.getParameter('CONSUMPTION')
+
+stateON = AssetState('ON')
+stateON.setEquality(energyPickup, True, asset.getData('_demand'))
+addEnergyYield(stateON, asset.getData('_co2Content'), energyPickup, asset.getParameter('CO2'), True, False)
+addEnergyCost(stateON, energyPickup, True, asset.getData("_cost"))
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

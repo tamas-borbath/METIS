@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="LNG terminal" label="LNG terminal" picture="pictures/LNG terminal.png" type="Physical" tags="MODULE:GAS,EXPORT,IMPORT,STORAGE,GAS_STORAGE" doc="Liquefied natural gas terminal which can be supplied in LNG and inject natural gas into the network">
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization"      default="false"/>
+	<Behavior id="DISCHARGE_TIMES"  label="Use discharge times"        default="false"/>
+	<Behavior id="USE_PMAX_IN"      label="Use PmaxIn"                 default="true"/>
+	<Behavior id="CONSTANT_VAR"     label="Force constant consumption" default="true"/>
+
+	<EnergyPickup   name="CONSUMPTION" default="gas" unit="@POWER"/>
+	<EnergyDelivery name="PRODUCTION"  default="gas" unit="@POWER"/>
+	
+	<AssetData id="_capex"           type="Double" default="60000"  show="true" editable="true" label="CAPEX"                 unit="@CURRENCY/@POWER/Year" doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"             type="Double" default="10000"  show="true" editable="true" label="Fixed Operating Costs" unit="@CURRENCY/@POWER/Year" doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"            type="Double" default="5000"   show="true" editable="true" label="Send-out capacity"     unit="@POWER"                behaviors="not OPTIM_PMAX" doc="Injection capacity"/>
+	<AssetData id="_pmaxmin"         type="Double" default="0"      show="true" editable="true" label="Min Send-out capacity" unit="@POWER"                behaviors="OPTIM_PMAX" doc="Injection capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"         type="Double" default="5000"   show="true" editable="true" label="Max Send-out capacity" unit="@POWER"                behaviors="OPTIM_PMAX" doc="Injection capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"    type="Double" default="1"      show="true" editable="true" label="Availability"          unit="%"                 doc="Available capacity, expressed as a percentage of the injection capacity"/>
+	<AssetData id="_productionCost"  type="Double" default="0"      show="true" editable="true" label="Production cost"       unit="@CURRENCY/@ENERGY" doc="Gasification costs"/>
+	<!-- Storage -->
+	<AssetData id="_storageCapex"         type="Double" default="1000"    show="true" editable="true" label="CAPEX (Storage)"          unit="@CURRENCY/@ENERGY/Year" doc="Capital expenditure for storage assets"/>
+	<AssetData id="_storageCapacity"      type="Double" default="0"       show="true" editable="true" label="Storage capacity"         unit="@ENERGY"                behaviors="(not DISCHARGE_TIMES)" doc="Storage capacity"/>
+	<AssetData id="_storageAvailability"  type="Double" default="1"       show="true" editable="true" label="Storage availability"     unit="%" doc="Storage availability, expressed as a percentage of the installed storage capacity"/>
+	<AssetData id="_initialStorageLevel"  type="Double" default="0.50"    show="true" editable="false" label="Storage initial level"   unit="%" doc="Initial storage level, expressed as a percentage of the installed storage capacity"/>
+	<AssetData id="_dischargeTime"        type="Double" default="8"       show="true" editable="true" label="Discharge time"           unit="h"                      behaviors="DISCHARGE_TIMES" doc="Discharge time"/>
+	<AssetData id="_pmaxIn"               type="Double" default="0"       show="true" editable="true" label="Injection capacity"       unit="@POWER"                 behaviors="not OPTIM_PMAX and USE_PMAX_IN" doc="Input maximal capacity"/>
+	<AssetData id="_availabilityIn"       type="Double" default="1"       show="true" editable="true" label="Input availability"       unit="%" doc="Input availability for storage assets"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+moduleStock = addDischargeStock(asset, stateON, initialStorageLevel="_initialStorageLevel", minStorageLevel=None, storageAvailability="_storageAvailability")
+addEnergyProduction(asset, stateON)
+# Add a limitation on consumption only if the behavior USE_PMAX_IN is active
+if asset.isActiveBehavior(BH_USE_PMAX_IN):
+	addEnergyConsumption(asset, stateON, availability="_availabilityIn", pmaxInOutRatio=None)
+
+# Specific constraint: to do after addDischargeStock
+forceInitialStockEqualToFinalStock(MODEL, moduleStock)
+finalize(stateON)
+
+# Specific constraint: to do after the finalize
+forceConstantInterface(MODEL, asset, "CONSUMPTION", True)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

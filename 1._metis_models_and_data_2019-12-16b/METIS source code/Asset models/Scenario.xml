@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Scenario" label="Scenario" picture="pictures/Model.png" type="modelObject" tags="MODULE:RESERVE SIZING" doc="Object containing information about the scenario">
+	<!-- Deprecated conventions. Do not reproduce. -->
+	<AssetData id="_databaseTestcase"     type="INDEXED_MATRIX" default="Null" show="true" editable="false" label="Test case numbers in DB"         unit=""       doc="Test case numbers in METIS Database"/>
+	<AssetData id="_databaseYear"         type="String"         default=""     show="true" editable="false" label="Year in DB"                      unit=""       doc="Year in METIS Database"/>
+	<AssetData id="_databaseVersion"      type="String"         default=""     show="true" editable="false" label="Version in DB"                   unit=""       doc="Version in METIS Database"/>
+	<AssetData id="_originalZones"        type="INDEXED_MATRIX" default="Null" show="true" editable="true"  label="Aggregated region of zones"      unit=""       doc="Aggregated region of zones"/>
+	<AssetData id="_aggregatedZones"      type="INDEXED_MATRIX" default="Null" show="true" editable="true"  label="Aggregated region definition"    unit=""       doc="Aggregated region definition"/>
+	<AssetData id="_installedCapacities"  type="INDEXED_MATRIX" default="Null" show="true" editable="true"  label="Installed capacities per zone"   unit="@POWER" doc="Installed capacities per zone"/>
+	<AssetData id="_meanDemands"          type="INDEXED_MATRIX" default="Null" show="true" editable="true"  label="Mean demand per zone"            unit="@POWER" doc="Mean demand per zone"/>
+	
+</AssetModel>

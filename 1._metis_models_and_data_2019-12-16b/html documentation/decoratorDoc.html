@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Decorators &mdash; METIS V1.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/atom-one-light.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/simpletree.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/parameters.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="METIS V1.4 documentation" href="index.html"/>
+        <link rel="next" title="Asset views" href="assetViewsDoc.html"/>
+        <link rel="prev" title="KPI documentation" href="kpiDoc.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METIS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                V1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Asset models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libraryDoc.html">Library documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiDoc.html">API documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Indicators</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="kpiDoc.html">KPI documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Decorators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#assets">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#congestion-hours-power">Congestion hours (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#congestion-rent-gas">Congestion Rent (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#congestion-rent-power">Congestion rent (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#countries">Countries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-gas">default (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-power">default (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#price-divergence-hours-power">Price divergence hours (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-capa-gas">Transmission Capa (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-capa-power">Transmission Capa (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-flows-gas">Transmission flows (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-flows-power">Transmission flows (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-usage-power">Transmission usage (Power)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assetViewsDoc.html">Asset views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpIndicatorsDoc.html">Delivery Points indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoneIndicatorsDoc.html">Zones indicators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Context actions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actionDoc.html">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Import scripts for context creation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importScriptsDoc.html">Import scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiImportScriptsDoc.html">Import scripts API documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">METIS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Decorators</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="decorators">
+<h1>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h1>
+<p>Decorators are indicators which can be visualized on the map.
+They include &#8220;KPI decorators&#8221; (results from the KPI views, see &#8220;KPI documentation&#8221; for more information), but also some additionnal map-oriented views, which are documented below.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/decoratorAccess.png"><img alt="decorator view" src="_images/decoratorAccess.png" style="width: 500.0px; height: 250.0px;" /></a>
+<p class="caption"><span class="caption-text">Click there to access decorators</span></p>
+</div>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/decoratorOptions.png"><img alt="decorator option view" src="_images/decoratorOptions.png" style="width: 250.0px; height: 125.0px;" /></a>
+<p class="caption"><span class="caption-text">This view enables you to configure the decorators</span></p>
+</div>
+<div class="section" id="assets">
+<h2>Assets<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h2>
+<p>This view shows all the assets of the context, physical and financial, linked to the relevant delivery point(s).
+A small arrow is present in every link between asset and delivery point to indicate the direction of the main flow.</p>
+</div>
+<div class="section" id="congestion-hours-power">
+<h2>Congestion hours (Power)<a class="headerlink" href="#congestion-hours-power" title="Permalink to this headline">¶</a></h2>
+<p>This view shows the amount of hours during which the interconnector was congested, in both directions.
+There is one arrow per direction whose size is related to its congestion time.</p>
+</div>
+<div class="section" id="congestion-rent-gas">
+<h2>Congestion Rent (Gas)<a class="headerlink" href="#congestion-rent-gas" title="Permalink to this headline">¶</a></h2>
+<p>This view shows the congestion rent of each gas interconnector, for both directions.
+There is one arrow per direction whose size is related to its congestion rent.</p>
+</div>
+<div class="section" id="congestion-rent-power">
+<h2>Congestion rent (Power)<a class="headerlink" href="#congestion-rent-power" title="Permalink to this headline">¶</a></h2>
+<p>This view shows the congestion rent of each power interconnector, for both directions.
+There is one arrow per direction whose size is related to its congestion rent.</p>
+</div>
+<div class="section" id="countries">
+<h2>Countries<a class="headerlink" href="#countries" title="Permalink to this headline">¶</a></h2>
+<p>This view shows the zones of the context, without showing the different assets</p>
+</div>
+<div class="section" id="default-gas">
+<h2>default (Gas)<a class="headerlink" href="#default-gas" title="Permalink to this headline">¶</a></h2>
+<p>This view shows all the assets of the context, physical and financial, related to the gas market.
+It also shows an arrow that is showing the flow between the assets and the relavant delivery point(s)</p>
+</div>
+<div class="section" id="default-power">
+<h2>default (Power)<a class="headerlink" href="#default-power" title="Permalink to this headline">¶</a></h2>
+<p>This view shows all the assets of the context, physical and financial, related to the power market.
+It also shows an arrow that is showing the flow between the assets and the relevant delivery point(s)</p>
+</div>
+<div class="section" id="price-divergence-hours-power">
+<h2>Price divergence hours (Power)<a class="headerlink" href="#price-divergence-hours-power" title="Permalink to this headline">¶</a></h2>
+<p>This view shows, in hours and for each interconnector, the amount of time during which the marginal price for generating electricity in the input country is higher by more than 1€/MWh then the one in the output country.
+There is one arrow per direction whose size is related to its amount of price divergence hours as defined.</p>
+</div>
+<div class="section" id="transmission-capa-gas">
+<h2>Transmission Capa (Gas)<a class="headerlink" href="#transmission-capa-gas" title="Permalink to this headline">¶</a></h2>
+<p>This view shows, for each gas interconnection and each direction, the corresponding transmission capacity.
+There is one arrow per direction whose size is related to the transmission capacity.</p>
+</div>
+<div class="section" id="transmission-capa-power">
+<h2>Transmission Capa (Power)<a class="headerlink" href="#transmission-capa-power" title="Permalink to this headline">¶</a></h2>
+<p>This view shows, for each power interconnection and each direction, the corresponding transmission capacity.
+There is one arrow per direction whose size is related to the transmission capacity.</p>
+</div>
+<div class="section" id="transmission-flows-gas">
+<h2>Transmission flows (Gas)<a class="headerlink" href="#transmission-flows-gas" title="Permalink to this headline">¶</a></h2>
+<p>This view shows, for each gas interconnection and each direction, the corresponding total flow during the length of the context.
+There is one arrow per direction whose size is related to the total flow in that direction.</p>
+</div>
+<div class="section" id="transmission-flows-power">
+<h2>Transmission flows (Power)<a class="headerlink" href="#transmission-flows-power" title="Permalink to this headline">¶</a></h2>
+<p>This view shows, for each power interconnection and each direction, the corresponding total flow during the length of the context.
+There is one arrow per direction whose size is related to the total flow in that direction.</p>
+</div>
+<div class="section" id="transmission-usage-power">
+<h2>Transmission usage (Power)<a class="headerlink" href="#transmission-usage-power" title="Permalink to this headline">¶</a></h2>
+<p>This view shows, for each power interconnection and each direction, the total usage define by the total flow during the length of the context divided by the maximum theoretical flow.
+There is one arrow per direction whose size is related to the total usage.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="assetViewsDoc.html" class="btn btn-neutral float-right" title="Asset views" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kpiDoc.html" class="btn btn-neutral" title="KPI documentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, European Commission.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'V1.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/highlight.pack.js"></script>
+      <script type="text/javascript" src="_static/toc.js"></script>
+      <script type="text/javascript" src="_static/initHighlightingOnLoad.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

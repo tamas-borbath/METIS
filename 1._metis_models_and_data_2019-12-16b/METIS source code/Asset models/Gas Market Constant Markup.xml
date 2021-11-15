@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Gas Market Constant Markup" label="Gas Market Markup Cost" picture="pictures/Model.png" type="ModelObject" editable="true" show="true" tags="MODULE:GAS" doc="Model object containing gas suppliers' mark-ups data">
+	<AssetData id="_markupCost" type="INDEXED_MATRIX" default="0" show="true" editable="true" label="Markup cost" unit="@CURRENCY/@ENERGY" doc="Constant gas price mark-ups"/>
+<Models>
+	<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Asset parameters definition 
+# ---------------------------------------------------
+
+]]>
+		</Model>
+	</Models>
+    
+    </AssetModel>

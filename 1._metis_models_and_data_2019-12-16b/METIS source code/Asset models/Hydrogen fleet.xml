@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Hydrogen fleet" label="Hydrogen fleet" picture="pictures/Co-generation.png" type="Physical" tags="PRODUCTION,MUST_RUN,CURTAILABLE,RENEWABLE,RESERVE_PRODUCTION,RESERVE_WITHOUT_CLUSTER" doc="Hydroelectric turbines">
+	<Behavior id="MUST_RUN"         label="Asset considered as must run energy source" default="false"/>
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization" default="false"/>
+	<Behavior id="RESERVE"          label="Reserve"               default="false"/>
+	
+	<EnergyDelivery name="PRODUCTION" default="electricity" unit="@POWER"/>
+	<EnergyDelivery name="CO2"               default="co2"         unit="@WEIGHT"/>
+	<EnergyDelivery name="SYNC_RESERVE_UP"   default="syncResUp"   unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="SYNC_RESERVE_DOWN" default="syncResDown" unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="MFRR_UP"           default="mfrrResUp"   unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="MFRR_DOWN"         default="mfrrResDown" unit="@POWER" behaviors="RESERVE"/>
+	
+	<AssetData id="_capex"           type="Double" default="150000" show="true" editable="true" label="CAPEX"                 unit="@CURRENCY/@POWER/Year" doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"             type="Double" default="40000"  show="true" editable="true" label="Fixed Operating Costs" unit="@CURRENCY/@POWER/Year" doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"            type="Double" default="5000"   show="true" editable="true" label="Pmax"                  unit="@POWER"                behaviors="not OPTIM_PMAX" doc="Installed power capacity"/>
+	<AssetData id="_pmaxmin"         type="Double" default="0"      show="true" editable="true" label="Min Pmax"              unit="@POWER"                behaviors="OPTIM_PMAX" doc="Installed capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"         type="Double" default="5000"   show="true" editable="true" label="Max Pmax"              unit="@POWER"                behaviors="OPTIM_PMAX" doc="Installed capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"    type="Double" default="1"      show="true" editable="true" label="Availability"          unit="%" doc="Available capacity, expressed as a percentage of the installed capacity"/>
+	<AssetData id="_productionCost"  type="Double" default="0"      show="true" editable="true" label="Production cost"       unit="@CURRENCY/@ENERGY" doc="Production cost (fuel cost not included)"/>
+	<AssetData id="_co2Content"     type="Double" default="0.0"  show="true" editable="true" label="CO2 emissions rate"    unit="@WEIGHT/@ENERGY"        doc="Yield between the CO2 emissions and the production"/>
+	<!-- Reserve -->
+	<AssetData id="_maxShareSyncReserveUp"   type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to upward sync. reserve"      behaviors="RESERVE" doc="Maximal share of upward sync. reserve in running capacity"/>
+	<AssetData id="_maxShareSyncReserveDown" type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to downward sync. reserve"    behaviors="RESERVE" doc="Maximal share of downward sync. reserve in running capacity"/>
+	<AssetData id="_maxShareMfrrUp"          type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to upward reserve"            behaviors="RESERVE" doc="Maximal share of upward mFRR and sync. reserve in running capacity"/>
+	<AssetData id="_maxShareMfrrDown"        type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to downward reserve"          behaviors="RESERVE" doc="Maximal share of downward mFRR and sync. reserve in running capacity"/>
+	<AssetData id="_syncReserveUpCost"       type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of the upward sync. reserve"   behaviors="RESERVE" doc="Operating cost of the upward sync. reserve"/>
+	<AssetData id="_syncReserveDownCost"     type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of the downward sync. reserve" behaviors="RESERVE" doc="Operating cost of the downward sync. reserve"/>
+	<AssetData id="_mfrrUpCost"              type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of upward mFRR"                behaviors="RESERVE" doc="Operating cost of upward mFRR"/>
+	<AssetData id="_mfrrDownCost"            type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of downward mFRR"              behaviors="RESERVE" doc="Operating cost of downward mFRR"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+addEnergyProduction(asset, stateON)
+addCo2Production(asset, stateON)
+addReserveProduction(asset, stateON, isFleetModeEnabled=True)
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

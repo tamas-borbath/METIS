@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Pipeline equality" label="Pipeline equality" picture="pictures/Model.png" type="modelObject" tags="MODULE:GAS" doc="Model object of a gas pipeline, used for capacity optimization, with equal capacity installed ">
+	<!-- Deprecated conventions. Do not reproduce. -->
+	<AssetData id="_setContraints" type="Boolean" default="True" show="true" editable="true" label="For capacity optimization, force both ways to be equal" unit="Boolean" doc="Boolean that enables equality of added capacities for both ways"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+if bool(asset.getData("_setContraints").getDataValue()) == True:
+	setTransmissionEquality(Crystal.getPortfolio(), F_PIPELINE)
+
+	
+]]>
+		</Model>
+	</Models>
+</AssetModel>

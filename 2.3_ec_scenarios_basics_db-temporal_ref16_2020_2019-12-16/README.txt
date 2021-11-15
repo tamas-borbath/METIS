@@ -1,0 +1,3 @@
+The data contained in this folder allows the users to run the METIS model with the European Commission scenario data that was used for the preparation of the METIS studies published in 2015-2018. Please take note that some of this data may be outdated since it builds on information as of 2014-2016.
+For own uses of the METIS model, we would recommend to update the information according to specific needs.
+For instance, technology costs may be updated using the following 2018 report published on DG ENER’s website : https://ec.europa.eu/energy/en/studies/review-technology-assumptions-decarbonisation-scenarios

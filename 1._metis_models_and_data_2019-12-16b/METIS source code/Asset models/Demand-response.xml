@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Demand-response" label="Demand-response" picture="pictures/ControllableDemand.png" type="financial" tags="MODULE:LOAD MANAGEMENT,CONTRACT,DEMAND" doc="Controllable power demand">
+    <Behavior id="MUST_RUN"              label="Non-flexible demand" default="false"/>
+
+    <EnergyPickup id="E" default="electricity"/>
+
+    <AssetData id="_demand"              type="random" default="0"      show="true" editable="true" label="Raw demand"            unit="@POWER" doc="Realistic demand (non-flexible when using MUST_RUN, or raw demand when enabling demand flexibility)"/>
+    <AssetData id="_demandCycleDuration" type="Double" default="24"     show="true" editable="true" label="Demand cycle duration" unit="h"           behaviors="not MUST_RUN" doc="Demand cycle duration, to compute a regular flexible demand from the realistic demand"/>
+    <AssetData id="_demandFirstHour"     type="Double" default="18"     show="true" editable="true" label="Demand first hour"     unit="h"           behaviors="not MUST_RUN" doc="Demand first hour, to compute a regular flexible demand from the realistic demand"/>
+    <AssetData id="_pmaxIn"              type="Double" default="1000"   show="true" editable="true" label="Pmax In"               unit="@POWER"      behaviors="not MUST_RUN" doc="Input maximal power"/>
+    <AssetData id="_storageCost"         type="Double" default="0.0001" show="true" editable="true" label="Storage cost"          unit="€/@ENERGY/h" behaviors="not MUST_RUN" doc="Cost associated with storage"/>
+    <Models>
+        <Model id= "Full">
+<![CDATA[
+
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+setDemandResponseModel(stateON, asset)
+finalize(stateON)
+
+]]>
+        </Model>
+    </Models>
+</AssetModel>

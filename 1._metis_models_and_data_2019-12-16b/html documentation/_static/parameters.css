@@ -1,0 +1,11 @@
+.wy-nav-content {
+    max-width: 2800px;
+}
+
+dl.function p{
+	overflow-x: auto;
+}
+
+paramValue{
+	color: rgb(234,147,83);
+}

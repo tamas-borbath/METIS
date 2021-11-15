@@ -1,0 +1,1942 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API documentation &mdash; METIS V1.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/atom-one-light.css" type="text/css" />
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/parameters.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="METIS V1.4 documentation" href="index.html"/>
+        <link rel="next" title="KPI documentation" href="kpiDoc.html"/>
+        <link rel="prev" title="Library documentation" href="libraryDoc.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METIS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                V1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Asset models</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="libraryDoc.html">Library documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">API documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Indicators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kpiDoc.html">KPI documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoratorDoc.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assetViewsDoc.html">Asset views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpIndicatorsDoc.html">Delivery Points indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoneIndicatorsDoc.html">Zones indicators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Context actions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actionDoc.html">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Import scripts for context creation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importScriptsDoc.html">Import scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiImportScriptsDoc.html">Import scripts API documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">METIS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>API documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-api">
+<span id="api-documentation"></span><h1>API documentation<a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="api.addCo2Production">
+<code class="descname">addCo2Production</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>co2Delivery=</em> <em> <paramValue>'CO2'</paramValue> </em>, <em>fuelPickup=</em> <em> <paramValue>'FUEL_CONSUMPTION'</paramValue> </em>, <em>co2Content=</em> <em> <paramValue>'_co2Content'</paramValue> </em>, <em>co2ContentRunningBound=</em> <em> <paramValue>'_co2ContentRunningBound'</paramValue> </em>, <em>fuelCo2Content=</em> <em> <paramValue>'_fuelCo2Content'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addCo2Production" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add CO2 production to an asset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>co2Delivery</strong> (<em>string</em>) &#8211; name of the CO2 energy</li>
+<li><strong>fuelPickup</strong> (<em>string</em>) &#8211; name of the fuel pickup</li>
+<li><strong>co2Content</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the yield between the electricity and the CO2 production</li>
+<li><strong>co2ContentRunningBound</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the additional yield between the running bound and the CO2 production when using the cluster model</li>
+<li><strong>fuelCo2Content</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the yield between the fuel consumption and the CO2 production</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FUEL BEHAVIOR</strong></p>
+<p>If the behavior <em>FUEL</em> is active, <strong>fuelCo2Content</strong> is used to define the yield between the fuel consumption and the CO2 emissions.</p>
+<blockquote>
+<div><span class="math">\(\small co2emissions = \boldsymbol{fuelCo2Content} * fuelConsumption\)</span></div></blockquote>
+<p><strong>WITHOUT FUEL BEHAVIOR</strong></p>
+<p>If the behavior <em>FUEL</em> is not active:</p>
+<blockquote>
+<div><ul class="simple">
+<li>if the behavior <em>CLUSTER</em> is not active:</li>
+</ul>
+<p><strong>co2Content</strong> is used to define the yield between the energyDelivery production and the CO2 emissions.</p>
+<p><span class="math">\(\small co2emissions = \boldsymbol{co2Content} * energyDelivery\)</span></p>
+<ul class="simple">
+<li>if the behavior <em>CLUSTER</em> is active:</li>
+</ul>
+<p>CO2 emissions are the sum of the <strong>co2Content</strong> of the energyDelivery production and the <strong>co2ContentRunningBound</strong> of the running capacity.</p>
+<p><span class="math">\(\small co2emissions = \boldsymbol{co2Content} * energyDelivery + \boldsymbol{co2ContentRunningBound} * runningCapacity\)</span></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addDSRReserveProduction">
+<code class="descname">addDSRReserveProduction</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addDSRReserveProduction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add DSR (Demand Side Response) asset reserve production constraints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTATIONS</strong>
+Two reserve lists <strong>activeReserveList</strong> and <strong>nonActiveReserveList</strong> are build according to the active behaviors of the asset.</p>
+<p>Each reserve of the <strong>activeReserveList</strong> and the <strong>nonActiveReserveList</strong> has the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>reserve.energy</strong> : name of the reserve energy (ex : <em>syncResUp</em>). The variable associated to the procurement
+of the reserve <em>reserve.energy</em> for this asset is also named <strong>reserve.energy</strong>.</li>
+<li><strong>reserve.isUp</strong> : boolean that sets the reserve direction. True if it is an upward reserve, False otherwise</li>
+<li><strong>reserve.cost</strong> : reserve production cost (defined by parameter &#8220;_mfrrProcurementCost&#8221; or &#8220;_syncReserveProcurementCost&#8221; according to the considered reserve)</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Each reserve defined in the asset model needs to be included either in the <strong>activeReserveList</strong>
+or the <strong>nonActiveReserveList</strong>.</p>
+</div>
+<p><strong>CONSTRAINTS for nonActiveReserveList</strong></p>
+<p>For each reserve in the nonActiveReserveList, the reserve procurement is set to 0.</p>
+<blockquote>
+<div><span class="math">\(\small reserve.energy = 0\)</span></div></blockquote>
+<p><strong>CONSTRAINTS for activeReserveList</strong></p>
+<p><code class="docutils literal"><span class="pre">Reserve</span> <span class="pre">production</span> <span class="pre">costs</span></code></p>
+<p>For each reserve a production cost is associated to the reserve production:</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += reserve.energy * \boldsymbol{reserve.cost}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Upper</span> <span class="pre">reserve</span> <span class="pre">procurement</span> <span class="pre">bounds</span></code></p>
+<p>The total procurement of all the reserve in the same direction cannot exceed the installed capacity of the DSR asset.</p>
+<blockquote>
+<div><p><span class="math">\(\small \sum_{res \, | \, \{res.isUp = True\}}^{reserveList}{res.energy} \leq \boldsymbol{pmax}\)</span></p>
+<p><span class="math">\(\small \sum_{res \, | \, \{res.isUp = False\}}^{reserveList}{res.energy} \leq \boldsymbol{pmax}\)</span></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addDischargeStock">
+<code class="descname">addDischargeStock</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>energyPickup=</em> <em> <paramValue>'CONSUMPTION'</paramValue> </em>, <em>initialStorageLevel=</em> <em> <paramValue>0</paramValue> </em>, <em>minStorageLevel=</em> <em> <paramValue>None</paramValue> </em>, <em>inputEfficiency=</em> <em> <paramValue>1.0</paramValue> </em>, <em>outputEfficiency=</em> <em> <paramValue>1.0</paramValue> </em>, <em>storageCapacity=</em> <em> <paramValue>'_storageCapacity'</paramValue> </em>, <em>maxStorageCapacity=</em> <em> <paramValue>'_maxStorageCapacity'</paramValue> </em>, <em>minStorageCapacity=</em> <em> <paramValue>'_minStorageCapacity'</paramValue> </em>, <em>storageCapex=</em> <em> <paramValue>'_storageCapex'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>pmaxmax=</em> <em> <paramValue>'_pmaxmax'</paramValue> </em>, <em>pmaxmin=</em> <em> <paramValue>'_pmaxmin'</paramValue> </em>, <em>dischargeTime=</em> <em> <paramValue>'_dischargeTime'</paramValue> </em>, <em>dischargeTimemax=</em> <em> <paramValue>'_maxDischargeTime'</paramValue> </em>, <em>dischargeTimemin=</em> <em> <paramValue>'_minDischargeTime'</paramValue> </em>, <em>storageAvailability=</em> <em> <paramValue>1.0</paramValue> </em>, <em>storageLossRate=</em> <em> <paramValue>'_lossRate'</paramValue> </em>, <em>storageCost=</em> <em> <paramValue>'_storageCost'</paramValue> </em>, <em>boundedSupply=</em> <em> <paramValue>'_boundedSupply'</paramValue> </em>, <em>prorataSupply=</em> <em> <paramValue>'_prorataSupply'</paramValue> </em>, <em>prorataSupplyCoef=</em> <em> <paramValue>'_prorataSupplyCoef'</paramValue> </em>, <em>fixedSupply=</em> <em> <paramValue>'_fixedSupply'</paramValue> </em>, <em>fixedDemand=</em> <em> <paramValue>'_fixedDemand'</paramValue> </em>, <em>reserveList=</em> <em> <paramValue>'DefaultReserveList'</paramValue> </em>, <em>addToModel=</em> <em> <paramValue>True</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addDischargeStock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a stock module to the asset, whose storage capacity can be implicitly defined with a <strong>dischargeTime</strong> parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>energyPickup</strong> (<em>string</em>) &#8211; name of the energy pickup parameter</li>
+<li><strong>initialStorageLevel</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the initial stock level</li>
+<li><strong>minStorageLevel</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the storage minimum level</li>
+<li><strong>inputEfficiency</strong> (<em>string or DataWrapper (or Crystal.getOne())</em>) &#8211; dataname of the input efficiency</li>
+<li><strong>outputEfficiency</strong> (<em>string or DataWrapper (or Crystal.getOne())</em>) &#8211; dataname of the output efficiency</li>
+<li><strong>storageCapacity</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the storage capacity</li>
+<li><strong>maxStorageCapacity</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the maximum storage capacity</li>
+<li><strong>minStorageCapacity</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the minimum storage capacity</li>
+<li><strong>storageCapex</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the investment cost for the stock capacity optimization</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+<li><strong>pmaxmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the maximal Pmax of the asset in capacity optimization mode</li>
+<li><strong>pmaxmin</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the minimal Pmax of the asset in capacity optimization mode</li>
+<li><strong>dischargeTime</strong> (<em>string or DataWrapper</em>) &#8211; discharge time</li>
+<li><strong>dischargeTimemax</strong> (<em>string or DataWrapper</em>) &#8211; maximal discharge time</li>
+<li><strong>dischargeTimemin</strong> (<em>string or DataWrapper</em>) &#8211; minimal discharge time</li>
+<li><strong>storageAvailability</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the storage availability of the asset</li>
+<li><strong>storageLossRate</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the loss rate applied on the asset storage</li>
+<li><strong>storageCost</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the cost of storage</li>
+<li><strong>boundedSupply</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the bounded supply to add to the asset storage</li>
+<li><strong>fixedSupply</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the fixed supply to add to the asset storage</li>
+<li><strong>fixedDemand</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the fixed demand to add to the asset storage</li>
+<li><strong>reserveList</strong> (<em>List of Reserve object</em>) &#8211; list of reserve procured by the asset</li>
+<li><strong>addToModel</strong> (<em>boolean</em>) &#8211; boolean that adds the storage module to the model if true. WARNING : the user MUST add the moduleStock to the model himself if false</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">StockModule, in case the user wants to add user constraints in the asset xml</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The function redefines some of the stockModule parameters if the behavior <em>DISCHARGE_TIMES</em> is active, before calling <a class="reference internal" href="#api.addStock" title="api.addStock"><code class="xref any py py-func docutils literal"><span class="pre">addStock</span></code></a> :</p>
+<blockquote>
+<div><span class="math">\(\small storageCapacity = pmax * dischargeTime\)</span></div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addEnergyConsumption">
+<code class="descname">addEnergyConsumption</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyPickup=</em> <em> <paramValue>'CONSUMPTION'</paramValue> </em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>availability=</em> <em> <paramValue>'_availability'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>pmaxIn=</em> <em> <paramValue>'_pmaxIn'</paramValue> </em>, <em>consumptionCost=</em> <em> <paramValue>'_consumptionCost'</paramValue> </em>, <em>pmaxInOutRatio=</em> <em> <paramValue>1</paramValue> </em>, <em>pmaxmax=</em> <em> <paramValue>'_pmaxmax'</paramValue> </em>, <em>pmaxmin=</em> <em> <paramValue>'_pmaxmin'</paramValue> </em>, <em>capex=</em> <em> <paramValue>'_capex'</paramValue> </em>, <em>foc=</em> <em> <paramValue>'_foc'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addEnergyConsumption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an energy consumption</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyPickup</strong> (<em>string</em>) &#8211; name of the energy pickup parameter</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>availability</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the availability of the asset</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+<li><strong>pmaxIn</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the PmaxIn of the asset in simulation mode (used if BH_USE_PMAX_IN is active)</li>
+<li><strong>consumptionCost</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the consumption cost of the asset</li>
+<li><strong>pmaxInOutRatio</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the ratio pmaxIn/pmaxOut in case of capacity optimization. If is None, pmaxIn is optimized independently</li>
+<li><strong>pmaxmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the maximal Pmax of the asset in capacity optimization mode</li>
+<li><strong>pmaxmin</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the minimal Pmax of the asset in capacity optimization mode</li>
+<li><strong>capex</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the investment cost for the capacity optimization</li>
+<li><strong>foc</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the fixed operating costs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>COMMON CONSTRAINTS</strong></p>
+<p><code class="docutils literal"><span class="pre">Consumption</span> <span class="pre">cost</span></code></p>
+<p>If the <strong>consumptionCost</strong> parameter is not None, a cost is added to the objective function, proportional to the consumption</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += energyPickup * \boldsymbol{consumptionCost}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Upper</span> <span class="pre">consumption</span> <span class="pre">bound</span></code></p>
+<p>The energy consumption is bounded by the availability multiplied by the maximum power.</p>
+<blockquote>
+<div><span class="math">\(\small energyPickup \leq \boldsymbol{availability} * \boldsymbol{pmax}\)</span> <a class="footnote-reference" href="#f6" id="id1">[1]</a></div></blockquote>
+<p><strong>CAPACITY OPTIMIZATION</strong> (behavior <em>OPTIM_PMAX</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Consumption</span> <span class="pre">capacity</span></code></p>
+<p>If behavior <em>OPTIM_PMAX</em> is active, the consumption upper bound becomes a variable (optimPmaxIn):</p>
+<blockquote>
+<div><span class="math">\(\small energyPickup \leq \boldsymbol{availability} * \boldsymbol{optimPmaxIn}\)</span></div></blockquote>
+<p>If pmaxInOutRatio is not None, the consumption upper bound is optimized proportionally to the 
+optimized pmax associated with the <strong>energyDelivery</strong> parameter, whose constraints should be set separately.</p>
+<p><span class="math">\(\small \boldsymbol{optimPmaxIn} = pmaxInOutRatio * \boldsymbol{optimizedPmax}\)</span></p>
+<p>If pmaxInOutRatio is None, optimPmaxIn is optimized as an independent variable, which is bounded below and above as follow.</p>
+<blockquote>
+<div><span class="math">\(\small  \boldsymbol{pmaxmin} \leq optimPmaxIn \leq \boldsymbol{pmaxmax}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Investment</span> <span class="pre">cost</span></code></p>
+<p>The cost to increase the variable optimPmaxIn depends on the annualized <strong>capex</strong> and the <strong>foc</strong> for the given technology.</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += optimPmaxIn * ( \boldsymbol{capex} + \boldsymbol{foc} )\)</span></div></blockquote>
+<table class="docutils footnote" frame="void" id="f6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>If behavior <em>USE_PMAX_IN</em> is active, the parameter <strong>pmaxIn</strong> is used instead of the <strong>pmax</strong> parameter.
+This behavior enables to have different upper bounds for production and consumption.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addEnergyProduction">
+<code class="descname">addEnergyProduction</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>productionCost=</em> <em> <paramValue>'_productionCost'</paramValue> </em>, <em>variableCost=</em> <em> <paramValue>'_variableCost'</paramValue> </em>, <em>minLoad=</em> <em> <paramValue>'_minLoad'</paramValue> </em>, <em>runningCapacityMinLoad=</em> <em> <paramValue>'_runningCapacityMinLoad'</paramValue> </em>, <em>availability=</em> <em> <paramValue>'_availability'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>pmaxmax=</em> <em> <paramValue>'_pmaxmax'</paramValue> </em>, <em>pmaxmin=</em> <em> <paramValue>'_pmaxmin'</paramValue> </em>, <em>capex=</em> <em> <paramValue>'_capex'</paramValue> </em>, <em>foc=</em> <em> <paramValue>'_foc'</paramValue> </em>, <em>minOffTime=</em> <em> <paramValue>'_minOffTime'</paramValue> </em>, <em>clusterStartingCost=</em> <em> <paramValue>'_clusterStartingCost'</paramValue> </em>, <em>runningCost=</em> <em> <paramValue>'_runningCost'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addEnergyProduction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add energy production using either a fleet or a cluster model, and with or without capacity optimization, according to the active behaviors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>productionCost</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the production cost of the asset when BH_FUEL is inactive</li>
+<li><strong>variableCost</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the production cost of the asset when BH_FUEL is active</li>
+<li><strong>minLoad</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the minimal usage. Can be &#8220;None&#8221; if there isn&#8217;t one</li>
+<li><strong>runningCapacityMinLoad</strong> (<em>string or DataWrapper</em>) &#8211; min stable production level as a % of running capacity</li>
+<li><strong>availability</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the availability of the asset</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+<li><strong>pmaxmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the maximal Pmax of the asset in capacity optimization mode</li>
+<li><strong>pmaxmin</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the minimal Pmax of the asset in capacity optimization mode</li>
+<li><strong>capex</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the investment cost for the capacity optimization</li>
+<li><strong>foc</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the fixed operating costs</li>
+<li><strong>minOffTime</strong> (<em>string or DataWrapper</em>) &#8211; minimum off-state duration (in hours)</li>
+<li><strong>clusterStartingCost</strong> (<em>string or DataWrapper</em>) &#8211; starting costs for the cluster model</li>
+<li><strong>runningCost</strong> (<em>string or DataWrapper</em>) &#8211; costs on running capacity for the cluster model</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>COMMON CONSTRAINTS</strong></p>
+<p><code class="docutils literal"><span class="pre">Variable</span> <span class="pre">and</span> <span class="pre">production</span> <span class="pre">costs</span></code></p>
+<p>If the asset is consuming fuel (behavior <em>FUEL</em> is active), a variable cost which does not include the cost for fuel is associated to the energy production:</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += energyDelivery * \boldsymbol{variableCost}\)</span></div></blockquote>
+<p>If the asset is not consuming fuel (behavior <em>FUEL</em> is inactive), the production cost which includes the cost for fuel is associated to the energy production:</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += energyDelivery * \boldsymbol{productionCost}\)</span></div></blockquote>
+<p><strong>FLEET CONSTRAINTS</strong> (behavior <em>CLUSTER</em> is inactive)</p>
+<p><code class="docutils literal"><span class="pre">Lower</span> <span class="pre">and</span> <span class="pre">upper</span> <span class="pre">production</span> <span class="pre">bounds</span></code></p>
+<p>If the asset is a must run fleet (behavior <em>MUST_RUN</em> is active), the energy production is equal to the installed capacity multiplied by the availability:</p>
+<blockquote>
+<div><span class="math">\(\small energyDelivery = \boldsymbol{pmax} * \boldsymbol{availability}\)</span></div></blockquote>
+<p>If the asset is not a must run fleet (behavior <em>MUST_RUN</em> is inactive), the energy production is bounded below and above as follow:</p>
+<blockquote>
+<div><span class="math">\(\small \boldsymbol{pmax} * \boldsymbol{availability} * \boldsymbol{minLoad} \leq energyDelivery \leq \boldsymbol{pmax} * \boldsymbol{availability}\)</span></div></blockquote>
+<p><strong>CLUSTER CONSTRAINTS</strong> (behavior <em>CLUSTER</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Running</span> <span class="pre">capacity</span></code></p>
+<p>In cluster mode, a key element is the running capacity (noted runningCapacity). This variable represents the capacity that is running (and can be used instantaneously for production).
+The actual energy production is bounded below and above by bounds that depend on the running capacity</p>
+<blockquote>
+<div><span class="math">\(\small runningCapacity * \boldsymbol{runningCapacityMinLoad} \leq energyDelivery \leq runningCapacity\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Running</span> <span class="pre">and</span> <span class="pre">starting</span> <span class="pre">costs</span></code></p>
+<p>A running cost is associated to maintaining a certain running capacity. Increasing the running capacity also comes with a cost.</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += runningCapacity * \boldsymbol{runningCost}\)</span>
+<span class="math">\(\small objectiveFunction_{(t)} += \max{(runningCapacity_{(t)} - runningCapacity_{(t-1)}},\,0) * \boldsymbol{clusterStartingCost}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Lower</span> <span class="pre">and</span> <span class="pre">upper</span> <span class="pre">bounds</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">running</span> <span class="pre">capacity</span></code></p>
+<p>The running capacity is bounded below and above as follow:</p>
+<blockquote>
+<div><span class="math">\(\small 0 \leq runningCapacity \leq \boldsymbol{pmax} * \boldsymbol{availability}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Minimum</span> <span class="pre">off-state</span> <span class="pre">duration</span></code></p>
+<p>When a part of the running capacity is switched off, this part cannot be switched on before a duration equals to <strong>minOffTime</strong>. Modelling details can be found <a class="reference external" href="http://ec.europa.eu/energy/sites/ener/files/documents/metis_technical_note_t2_-_power_market_models.pdf">here</a>.</p>
+<p><strong>CAPACITY OPTIMIZATION</strong> (behavior <em>OPTIM_PMAX</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Installed</span> <span class="pre">capacity</span></code></p>
+<p>When the installed capacity is optimized, <strong>pmax</strong> becomes a variable (optimPmax) which is bounded below and above as follow. The equations above involving <strong>pmax</strong> stay the same, aside from <strong>pmax</strong> which is replaced by the variable optimPmax</p>
+<blockquote>
+<div><span class="math">\(\small  \boldsymbol{pmaxmin} \leq optimPmax \leq \boldsymbol{pmaxmax}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Investment</span> <span class="pre">cost</span></code></p>
+<p>The cost to increase the variable optimPmax depends on the annualized <strong>capex</strong> and the <strong>foc</strong> for the given technology.</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += optimPmax * ( \boldsymbol{capex} + \boldsymbol{foc} )\)</span></div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addEnergyTransmission">
+<code class="descname">addEnergyTransmission</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyPickup=</em> <em> <paramValue>'CONSUMPTION'</paramValue> </em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>losses=</em> <em> <paramValue>'_losses'</paramValue> </em>, <em>productionCost=</em> <em> <paramValue>'_productionCost'</paramValue> </em>, <em>consumptionCost=</em> <em> <paramValue>'_consumptionCost'</paramValue> </em>, <em>availability=</em> <em> <paramValue>'_availability'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>pmaxmax=</em> <em> <paramValue>'_pmaxmax'</paramValue> </em>, <em>pmaxmin=</em> <em> <paramValue>'_pmaxmin'</paramValue> </em>, <em>capex=</em> <em> <paramValue>'_capex'</paramValue> </em>, <em>foc=</em> <em> <paramValue>'_foc'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addEnergyTransmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add energy transmission</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyPickup</strong> (<em>string</em>) &#8211; name of the energy pickup parameter</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>losses</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the losses between the energy pickup and the energy delivery of the asset</li>
+<li><strong>productionCost</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the production cost of the asset</li>
+<li><strong>consumptionCost</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the consumption cost of the asset</li>
+<li><strong>availability</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the availability of the asset</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+<li><strong>pmaxmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the maximal Pmax of the asset in capacity optimization mode</li>
+<li><strong>pmaxmin</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the minimal Pmax of the asset in capacity optimization mode</li>
+<li><strong>capex</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the investment cost for the capacity optimization</li>
+<li><strong>foc</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the fixed operating costs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>COMMON CONSTRAINTS</strong></p>
+<p><code class="docutils literal"><span class="pre">Consumption</span> <span class="pre">cost</span></code></p>
+<p>If the <strong>consumptionCost</strong> parameter is not None, a cost is added to the objective function, proportional to the consumption</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += energyPickup * \boldsymbol{consumptionCost}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Production</span> <span class="pre">cost</span></code></p>
+<p>If the <strong>productionCost</strong> parameter is not None, a cost is added to the objective function, proportional to the production</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += energyDelivery * \boldsymbol{productionCost}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Relation</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">consumption</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">production</span></code></p>
+<p>To represent potential losses, a fraction of the consumed energy is lost when the energy is going through the transmission, which 
+results to a production lower than the consumption.</p>
+<blockquote>
+<div><span class="math">\(\small energyDelivery = (1 - \boldsymbol{losses}) * energyPickup\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Upper</span> <span class="pre">consumption</span> <span class="pre">bound</span></code></p>
+<p>The energy consumption is bounded by the availability multiplied by the maximum power.</p>
+<blockquote>
+<div><span class="math">\(\small energyPickup \leq \boldsymbol{availability} * \boldsymbol{pmax}\)</span></div></blockquote>
+<p><strong>CAPACITY OPTIMIZATION</strong> (behavior <em>OPTIM_PMAX</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Installed</span> <span class="pre">capacity</span></code></p>
+<p>When the installed capacity is optimized, <strong>pmax</strong> becomes a variable (optimPmax) which is bounded below and above as follow.
+The equations above involving <strong>pmax</strong> stay the same, aside from <strong>pmax</strong> which is replaced by the variable optimPmax</p>
+<blockquote>
+<div><span class="math">\(\small  \boldsymbol{pmaxmin} \leq optimPmax \leq \boldsymbol{pmaxmax}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Investment</span> <span class="pre">cost</span></code></p>
+<p>The cost to increase the variable optimPmax depends on the annualized <strong>capex</strong> and the <strong>foc</strong> for the given technology.</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += optimPmax * ( \boldsymbol{capex} + \boldsymbol{foc} )\)</span></div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addFuelConsumption">
+<code class="descname">addFuelConsumption</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>fuelPickup=</em> <em> <paramValue>'FUEL_CONSUMPTION'</paramValue> </em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>fuelYieldOrEfficiency=</em> <em> <paramValue>'_fuelYield'</paramValue> </em>, <em>productionHeatRate=</em> <em> <paramValue>'_productionHeatRate'</paramValue> </em>, <em>runningCapaFuelConsumption=</em> <em> <paramValue>'_runningCapaFuelConsumption'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addFuelConsumption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add fuel consumption if <em>FUEL</em> behavior is active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>fuelPickup</strong> (<em>string</em>) &#8211; name of the fuel energy pickup parameter</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>fuelYieldOrEfficiency</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the fuel yield or the efficiency of the asset</li>
+<li><strong>productionHeatRate</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the production heat rate of the asset</li>
+<li><strong>runningCapaFuelConsumption</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the running capacity fuel consumption of the asset</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Introduced variables:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>fuelConsumption : fuel consumption for the given asset</li>
+<li>runningCapacity: electricity generation capacity that is running (and can be used instantaneously for production)</li>
+</ul>
+</div></blockquote>
+<p><strong>NO FUEL CONSTRAINTS</strong> (behavior <em>FUEL</em> is inactive)</p>
+<p>In this case, no fuel consumption is set for this asset.</p>
+<p><strong>FUEL CONSTRAINTS</strong> (behavior <em>FUEL</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Fleet</span> <span class="pre">constraints</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>If the behavior <em>CLUSTER</em> is inactive, <strong>fuelYieldOrEfficiency</strong> is used to define the yield between the production and the fuel consumption.</li>
+</ul>
+<p><span class="math">\(\small energyDelivery = \boldsymbol{fuelYieldOrEfficiency} * fuelConsumption\)</span></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">Cluster</span> <span class="pre">constraints</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>If the behavior <em>CLUSTER</em> is active, the total fuel consumption is divided in two parts : the fuel used to keep the running capacity turned on, and the fuel necessary to effectively produce the output energy.</li>
+</ul>
+<p><span class="math">\(\small fuelConsumption = \boldsymbol{productionHeatRate} * energyDelivery\)</span>
+<span class="math">\(\small ~~~~~~~~~~~~~~~~~~ + \boldsymbol{runningCapaFuelConsumption} * runningCapacity\)</span></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addGradients">
+<code class="descname">addGradients</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>availability=</em> <em> <paramValue>'_availability'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>gradientUp=</em> <em> <paramValue>'_gradientUp'</paramValue> </em>, <em>gradientDown=</em> <em> <paramValue>'_gradientDown'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addGradients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add gradients to an asset production if behavior <em>GRADIENTS</em> is active</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>availability</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the availability of the asset</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset</li>
+<li><strong>gradientUp</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the upper gradient bound (in %/min)</li>
+<li><strong>gradientDown</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the lower gradient bound (in %/min)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GRADIENT UNITS</strong></p>
+<p><strong>gradientUp</strong> and <strong>gradientDown</strong> are expressed as a percentage of the available power per minute: <em>%/min</em>.
+They are automatically converted to fit the current time step duration (often an hour), to be expressed as <em>%/timeStepDuration</em>.</p>
+<p><strong>GRADIENT CONSTRAINTS</strong></p>
+<p>The upward variation of the asset production is bounded by the <strong>gradientUp</strong> coefficient, and the downward variation by the <strong>gradientDown</strong> coefficient.</p>
+<blockquote>
+<div><p><span class="math">\(\small{ energyDelivery_{(t)} - energyDelivery_{(t-1)}}\)</span> <a class="footnote-reference" href="#f1" id="id2">[2]</a>
+<span class="math">\(\small{~~~~~~\geq \boldsymbol{gradientDown} * \boldsymbol{pmax} * \min{(availability_{(t)}, availability_{(t-1)})}}\)</span>
+<span class="math">\(\small{~~~~~~~~+ \boldsymbol{pmax} * \min{(availability_{(t)} - availability_{(t-1)}, 0)}}\)</span> <a class="footnote-reference" href="#f2" id="id3">[3]</a></p>
+<p><span class="math">\(\small{ energyDelivery_{(t)} - energyDelivery_{(t-1)}}\)</span>
+<span class="math">\(\small{~~~~~~\leq \boldsymbol{gradientUp} * \boldsymbol{pmax} * \min{(availability_{(t)}, availability_{(t-1)})}}\)</span>
+<span class="math">\(\small{~~~~~~~~+ \boldsymbol{pmax} * \max{(availability_{(t)} - availability_{(t-1)}, 0)}}\)</span> <a class="footnote-reference" href="#f3" id="id4">[4]</a></p>
+</div></blockquote>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>If <em>OPTIM_PMAX</em> is active, the pmax variable is used instead of the <strong>pmax</strong> parameter.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>If the availability decreases between two time steps, the gradient term in the inequality might not allow enough flexibility
+to respect the constraint <span class="math">\(\small{energyDelivery_{(t)} \leq availability_{(t)}*pmax}\)</span>. To prevent any infeasibilities, this
+term allows to decrease the energyDelivery according to the upper bound evolution of the previous constraint.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>If the availability increases between two time steps, the gradient term in the inequality might not allow enough flexibility
+to respect the constraint <span class="math">\(\small{energyDelivery_{(t)} \geq minLoad_{(t)}*pmax}\)</span>. To prevent any infeasibilities, this
+term allows to increase the energyDelivery according to the lower bound evolution of the previous constraint. In our model, the minLoad is expressed
+as a percentage of the availability. Therefore, this term allows more flexibility than necessary but simplify the models by using only the
+availability and not the minLoad.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addInitialStorageLevelBounds">
+<code class="descname">addInitialStorageLevelBounds</code><span class="sig-paren">(</span><em>asset</em>, <em>moduleStock</em>, <em>storageCapacity=</em> <em> <paramValue>'_storageCapacity'</paramValue> </em>, <em>dischargeTime=</em> <em> <paramValue>'_dischargeTime'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>initialStorageLevel=</em> <em> <paramValue>0</paramValue> </em>, <em>minInitialStorageLevel=</em> <em> <paramValue>None</paramValue> </em>, <em>maxInitialStorageLevel=</em> <em> <paramValue>None</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addInitialStorageLevelBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an upper bound and a lower bound to the initial storage level</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>moduleStock</strong> (<em>StockModule</em>) &#8211; stock module to configure</li>
+<li><strong>storageCapacity</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the storage capacity</li>
+<li><strong>dischargeTime</strong> (<em>string or DataWrapper</em>) &#8211; discharge time</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+<li><strong>initialStorageLevel</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the initial stock level</li>
+<li><strong>minInitialStorageLevel</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; minimum initial storage level</li>
+<li><strong>maxInitialStorageLevel</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; maximum initial storage level</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addReserveProduction">
+<code class="descname">addReserveProduction</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>availability=</em> <em> <paramValue>'_availability'</paramValue> </em>, <em>reserveList=</em> <em> <paramValue>'DefaultReserveList'</paramValue> </em>, <em>minLoad=</em> <em> <paramValue>'_minLoad'</paramValue> </em>, <em>runningCapacityMinLoad=</em> <em> <paramValue>'_runningCapacityMinLoad'</paramValue> </em>, <em>isQuickStart=</em> <em> <paramValue>False</paramValue> </em>, <em>isFleetModeEnabled=</em> <em> <paramValue>False</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addReserveProduction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add reserve production constraints to a production asset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the main energy delivery parameter (not reserve delivery)</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+<li><strong>availability</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the availability of the asset</li>
+<li><strong>reserveList</strong> (<em>List of Reserve objects (see: Reserve object definition in DefaultVar)</em>) &#8211; list of the reserves this asset can produced</li>
+<li><strong>minLoad</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the minimal usage. Can be &#8220;None&#8221; if there isn&#8217;t one</li>
+<li><strong>runningCapacityMinLoad</strong> (<em>string or DataWrapper</em>) &#8211; min stable production level as a % of running capacity</li>
+<li><strong>isQuickStart</strong> (<em>boolean</em>) &#8211; boolean that indicates if the asset can start fast enough to participate to manual reserve(s) with its not running capacity</li>
+<li><strong>isFleetModeEnabled</strong> (<em>boolean</em>) &#8211; boolean that indicates if the asset can run in fleet mode and provide reserve</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTATIONS</strong></p>
+<p>Each reserve of the <strong>reserveList</strong> has the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>reserve.energy</strong>: name of the reserve energy (ex : <em>syncResUp</em>)</li>
+<li><strong>reserve.isUp</strong>: boolean that sets the reserve direction. True if it is an upward reserve, False otherwise</li>
+<li><strong>reserve.isManual</strong>: boolean that sets  how the reserve is activated. True if it is activated manually, False otherwise</li>
+<li><strong>reserve.maxShare</strong>: maximal share of the running capacity (respectively available capacity) that can be used to provide automatic (respectively manual) reserve</li>
+<li><strong>reserve.cost</strong>: reserve production cost</li>
+<li><strong>reserve.delay</strong>: activation delay in hour</li>
+<li><strong>reserve.notRunningCost</strong>: cost for starting non running capacity to provide reserve</li>
+</ul>
+</div></blockquote>
+<p><strong>Introduced variables:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>runningCapacity: electricity generation capacity that is running (and can be used instantaneously for production)</li>
+<li>reserve.runningEnergy: reserve energy that can be called instantaneously since it only requires to start running capacity</li>
+<li>reserve.notRunningEnergy: reserve energy that can not be called instantaneously since it requires to start non-running capacity</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>For clarity, the equations below describe the model in cluster mode (behavior <em>CLUSTER</em> is active).
+To obtain the equations for the fleet mode:</p>
+<blockquote class="last">
+<div><blockquote>
+<div><ul class="simple">
+<li>runningCapacity should be replaced by <strong>pmax</strong> * <strong>availability</strong></li>
+<li><strong>runningCapacityMinLoad</strong> should be replaced by <strong>minLoad</strong></li>
+<li>an additional minimum generation constraint is added</li>
+</ul>
+</div></blockquote>
+<p><span class="math">\(\small energyDelivery  - \sum_{res \, | \, \{res.delay \leq reserve.delay \text{ and } res.isUp = False\}}^{reserveList}{res.energy} \geq \boldsymbol{minLoad} * (\boldsymbol{energyDelivery  + \sum_{res \, | \, \{res.isUp = True\}}^{reserveList}{res.energy}})\)</span></p>
+</div></blockquote>
+</div>
+<p><strong>NO RESERVE PRODUCTION</strong> (behavior <em>RESERVE</em> is inactive)</p>
+<p>If the behavior <em>RESERVE</em> is inactive, each reserve production is set to 0.</p>
+<blockquote>
+<div><span class="math">\(\small reserve.energy = 0\)</span></div></blockquote>
+<p><strong>RESERVE PRODUCTION</strong> (behavior <em>RESERVE</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Reserve</span> <span class="pre">production</span> <span class="pre">costs</span></code></p>
+<p>For each reserve a production cost is associated to the reserve production:</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += reserve.energy * \boldsymbol{reserve.cost}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Maximal</span> <span class="pre">participation</span></code></p>
+<p>A given unit can only allocate a part of its running capacity to produce reserve, since starting up/switching off more capacity would take longer than the available delay. This part is determined by the parameter <strong>reserve.maxShare</strong>.
+This parameter applies for the considered reserve and all the reserves in the same direction (up or down) which have a shorter activation delay than the considered reserve.</p>
+<blockquote>
+<div><span class="math">\(\small \sum_{res \, | \, \{res.delay \leq reserve.delay \text{ and } res.isUp = reserve.isUp\}}^{reserveList}{res.energy}\)</span>
+<span class="math">\(\small ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\leq runningCapacity * \boldsymbol{reserve.maxShare}\)</span></div></blockquote>
+<p>Two additional constraints involving the electricity production also applies. A given unit cannot produce more than its running capacity and less than its minimum load:</p>
+<blockquote>
+<div><ul class="simple">
+<li><span class="math">\(\small energyDelivery  + \sum_{res \, | \, \{res.delay \leq reserve.delay \text{ and } res.isUp = True\}}^{reserveList}{res.energy} \leq runningCapacity\)</span></li>
+<li><span class="math">\(\small energyDelivery  - \sum_{res \, | \, \{res.delay \leq reserve.delay \text{ and } res.isUp = False\}}^{reserveList}{res.energy} \geq runningCapacity * \boldsymbol{runningCapacityMinLoad}\)</span></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">Tertiary</span> <span class="pre">reserve</span></code></p>
+<p>For a manually (<strong>isManual</strong> is True) activated reserve (ex: <em>mFRR</em>) the equations above may slightly change for peaking and hydro units (<strong>isQuickStart</strong> is True).
+Indeed tertiary reserve activation delay may be long enough for peaking or hydro units to start up non-running capacity (reserve.notRunningEnergy) and to generate power within this delay.
+In terms of equations, it leads to substitute the runningCapacity by <strong>pmax</strong> * <strong>availability</strong> and the <strong>runningCapacityMinLoad</strong> by 0 in the equations above.</p>
+<p>Reserve production corresponding to non-running capacity comes with an additional cost:</p>
+<blockquote>
+<div><span class="math">\(\small reserve.energy = reserve.runningEnergy + reserve.notRunningEnergy\)</span>
+<span class="math">\(\small objectiveFunction += reserve.notRunningEnergy * \boldsymbol{reserve.notRunningCost}\)</span></div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addStock">
+<code class="descname">addStock</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>energyPickup=</em> <em> <paramValue>'CONSUMPTION'</paramValue> </em>, <em>initialStorageLevel=</em> <em> <paramValue>0</paramValue> </em>, <em>minStorageLevel=</em> <em> <paramValue>None</paramValue> </em>, <em>inputEfficiency=</em> <em> <paramValue>1.0</paramValue> </em>, <em>outputEfficiency=</em> <em> <paramValue>1.0</paramValue> </em>, <em>storageCapacity=</em> <em> <paramValue>'_storageCapacity'</paramValue> </em>, <em>maxStorageCapacity=</em> <em> <paramValue>'_maxStorageCapacity'</paramValue> </em>, <em>minStorageCapacity=</em> <em> <paramValue>'_minStorageCapacity'</paramValue> </em>, <em>storageCapex=</em> <em> <paramValue>'_storageCapex'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>pmaxmax=</em> <em> <paramValue>'_pmaxmax'</paramValue> </em>, <em>dischargeTime=</em> <em> <paramValue>'_dischargeTime'</paramValue> </em>, <em>storageAvailability=</em> <em> <paramValue>1.0</paramValue> </em>, <em>storageLossRate=</em> <em> <paramValue>'_lossRate'</paramValue> </em>, <em>storageCost=</em> <em> <paramValue>'_storageCost'</paramValue> </em>, <em>boundedSupply=</em> <em> <paramValue>'_boundedSupply'</paramValue> </em>, <em>prorataSupply=</em> <em> <paramValue>'_prorataSupply'</paramValue> </em>, <em>prorataSupplyCoef=</em> <em> <paramValue>'_prorataSupplyCoef'</paramValue> </em>, <em>fixedSupply=</em> <em> <paramValue>'_fixedSupply'</paramValue> </em>, <em>fixedDemand=</em> <em> <paramValue>'_fixedDemand'</paramValue> </em>, <em>reserveList=</em> <em> <paramValue>'DefaultReserveList'</paramValue> </em>, <em>addToModel=</em> <em> <paramValue>True</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addStock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a stock module to the asset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the energy delivery parameter</li>
+<li><strong>energyPickup</strong> (<em>string</em>) &#8211; name of the energy pickup parameter</li>
+<li><strong>initialStorageLevel</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the initial stock level</li>
+<li><strong>minStorageLevel</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the storage minimum level</li>
+<li><strong>inputEfficiency</strong> (<em>string or DataWrapper (or Crystal.getOne())</em>) &#8211; dataname of the input efficiency</li>
+<li><strong>outputEfficiency</strong> (<em>string or DataWrapper (or Crystal.getOne())</em>) &#8211; dataname of the output efficiency</li>
+<li><strong>storageCapacity</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the storage capacity</li>
+<li><strong>maxStorageCapacity</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the maximum storage capacity in capacity optimization mode</li>
+<li><strong>minStorageCapacity</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the minimum storage capacity in capacity optimization mode</li>
+<li><strong>storageCapex</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the investment cost for the stock capacity optimization</li>
+<li><strong>dischargeTime</strong> (<em>string or DataWrapper</em>) &#8211; discharge time (in case a fixed discharge time is used, and production capacity of the asset is optimized)</li>
+<li><strong>storageAvailability</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the storage availability of the asset</li>
+<li><strong>storageLossRate</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the loss rate applied to the asset storage</li>
+<li><strong>storageCost</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the cost of storage</li>
+<li><strong>boundedSupply</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the bounded supply to add to the asset storage</li>
+<li><strong>prorataSupply</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the prorata supply to add to the asset storage (type of bounded supply proportional to the production capacity)</li>
+<li><strong>prorataSupplyCoef</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the optionnal coefficient for the prorata supply to add to the asset storage (type of bounded supply proportional to the production capacity)</li>
+<li><strong>fixedSupply</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the fixed supply to add to the asset storage</li>
+<li><strong>fixedDemand</strong> (<em>string or DataWrapper (or &quot;None&quot;)</em>) &#8211; dataname of the fixed demand to add to the asset storage</li>
+<li><strong>reserveList</strong> (<em>list of Reserve object</em>) &#8211; list of reserve procured by the asset</li>
+<li><strong>addToModel</strong> (<em>boolean</em>) &#8211; boolean that adds the storage module to the model when true. WARNING : the user MUST add the moduleStock to the model himself if false</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">StockModule, in case the user wants to add user constraints in the asset xml</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTATIONS</strong></p>
+<p>Each reserve of the <strong>reserveList</strong> has the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>reserve.energy</strong>: name of the reserve energy (ex : <em>syncResUp</em>)</li>
+<li><strong>reserve.isUp</strong>: boolean that sets the reserve direction. True if it is an upward reserve, false if it is a downward reserve</li>
+</ul>
+</div></blockquote>
+<p><strong>Introduced variables:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>stock: level of the stock</li>
+</ul>
+</div></blockquote>
+<p><strong>COMMON CONSTRAINTS</strong></p>
+<p><code class="docutils literal"><span class="pre">Storage</span> <span class="pre">evolution</span></code></p>
+<p>The stock is filled by the <strong>energyPickup</strong> and is discharged to the <strong>energyDelivery</strong>.</p>
+<p><strong>inputEfficiency</strong> fraction of the input energy that is effectively filling the stock, models the losses when filling the stock.</p>
+<p><strong>outputEfficiency</strong> fraction of the output energy that is effectively arriving to the delivery point, models the losses when discharging the stock.</p>
+<p>Another supply can also be specified, whose hourly volume is defined in the <strong>boundedSupply</strong> parameter.</p>
+<blockquote>
+<div><span class="math">\(\small stock_{(t)} = stock_{(t-1)} + \boldsymbol{energyPickup_{(t)}} * \boldsymbol{inputEfficiency}\)</span> <a class="footnote-reference" href="#f4" id="id5">[5]</a>
+<span class="math">\(\small ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ - \boldsymbol{energyDelivery_{(t)}} * 1 / \boldsymbol{outputEfficiency}\)</span>
+<span class="math">\(\small ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ( + ~\boldsymbol{boundedSupply_{(t)}} )\)</span></div></blockquote>
+<p>If you need a bounded supply proportional to the production capacity (which can be helpful when optimizing the capacity of some technologies), you can instead specify a <strong>prorata supply</strong> .
+This prorata supply is defined by a chronique, but can also easily be redimensionned by using the parameter <strong>prorataSupplyCoef</strong>.</p>
+<blockquote>
+<div><span class="math">\(\small stock_{(t)} = stock_{(t-1)} + \boldsymbol{energyPickup_{(t)}} * \boldsymbol{inputEfficiency}\)</span> <a class="footnote-reference" href="#f4" id="id6">[5]</a>
+<span class="math">\(\small ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ - \boldsymbol{energyDelivery_{(t)}} * 1 / \boldsymbol{outputEfficiency}\)</span>
+<span class="math">\(\small ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ( + ~\boldsymbol{prorataSupply_{(t)}} * \boldsymbol{productionCapacity} * \boldsymbol{prorataSupplyCoef} )\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Initial</span> <span class="pre">storage</span> <span class="pre">level</span></code></p>
+<p>At at the first time step, the storage level is defined by <strong>initialStorageLevel</strong>, as a percentage of the storage capacity.</p>
+<blockquote>
+<div><span class="math">\(\small stock_{(0)} = \boldsymbol{initialStorageLevel} * \boldsymbol{storageCapacity}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Maximum</span> <span class="pre">storage</span> <span class="pre">level</span></code></p>
+<p>The maximum storage level is bounded by <strong>storageCapacity</strong>.</p>
+<blockquote>
+<div><span class="math">\(\small stock \leq \boldsymbol{storageCapacity} * \boldsymbol{storageAvailability}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Minimum</span> <span class="pre">storage</span> <span class="pre">level</span></code></p>
+<p>The minimum storage level is bounded by <strong>minStorageLevel</strong>. To handle long term storage plan, it is common to have a non
+zero value for the minStorageLevel only at the end of the tactical horizon. This value would have been defined according to 
+yearly storage optimization.</p>
+<blockquote>
+<div><span class="math">\(\small stock \geq \boldsymbol{minStorageLevel} * \boldsymbol{storageCapacity}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Storage</span> <span class="pre">cost</span></code></p>
+<p>Add a penalty to the global objective proportional to the storage. It is used to handle equivalent solutions, by favouring the storage discharge.
+The storageCost value needs to be very small regarding other operational costs.</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += stock * \boldsymbol{storageCost}\)</span></div></blockquote>
+<p><strong>RESERVE CONSTRAINTS</strong> (behavior <em>RESERVE</em> is active)</p>
+<p>Additional constraints on the storage evolution are necessary if the storage module can procure reserve.
+Indeed, it is necessary to make sure that the storage level is adequate if a reserve energy is used during the balancing time frame.</p>
+<p><code class="docutils literal"><span class="pre">Upward</span> <span class="pre">reserve</span></code></p>
+<p>If upward reserve is used, the storage level has to be high enough to face the higher energy demand:</p>
+<blockquote>
+<div><span class="math">\(\small \sum_{res \, | \, \{res.isUp = True\}}^{reserveList}{res.energy} \leq stock * \boldsymbol{outputEfficiency}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Downard</span> <span class="pre">reserve</span></code></p>
+<p>If downward reserve is used, the storage level has to be low enough to face the lower energy demand:</p>
+<blockquote>
+<div><span class="math">\(\small \sum_{res \, | \, \{res.isUp = False\}}^{reserveList}{res.energy} \leq (\boldsymbol{storageCapacity} - stock) * \boldsymbol{outputEfficiency}\)</span></div></blockquote>
+<p><strong>CAPACITY OPTIMIZATION</strong></p>
+<p><code class="docutils literal"><span class="pre">behavior</span> <span class="pre">OPTIM_STOCK</span> <span class="pre">is</span> <span class="pre">active</span></code></p>
+<p>If one of these two behaviors is active, the storage capacity is optimized during the simulation. Consequently,
+<strong>storageCapacity</strong> parameter is ignored, and <strong>minStorageCapacity/maxStorageCapacity</strong> are used for lower/upper-bound of the optimized storage capacity variable.</p>
+<blockquote>
+<div><span class="math">\(\small  \boldsymbol{minStorageCapacity} \leq optimStorageCapacity \leq \boldsymbol{maxStorageCapacity}\)</span></div></blockquote>
+<p>The cost to increase the variable optimStorageCapacity depends on the annualized <strong>storageCapex</strong> for the given technology.</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += optimStorageCapacity * \boldsymbol{storageCapex}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">behavior</span> <span class="pre">DISCHARGE_TIMES</span> <span class="pre">and</span> <span class="pre">behavior</span> <span class="pre">OPTIM_PMAX</span> <span class="pre">are</span> <span class="pre">active</span></code></p>
+<p>If these two behaviors are active, then only the <em>_pmax</em> parameter of the asset is optimized, and the storage capacity is
+implicitly redefined with the relation :</p>
+<blockquote>
+<div><span class="math">\(\small storageCapacity =  \boldsymbol{dischargeTime} * pmax\)</span></div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use <a class="reference internal" href="#api.addDischargeStock" title="api.addDischargeStock"><code class="xref any py py-func docutils literal"><span class="pre">addDischargeStock</span></code></a> if you want to use <em>DISCHARGE_TIMES</em> behavior</p>
+</div>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> If a <strong>storageLossRate</strong> is specified, a fraction of the storage volume is lost between two time steps.
+In the equation, <span class="math">\(\small stock_{(t-1)}\)</span> is replaced by : <span class="math">\(\small stock_{(t-1)} * e^{(-~lossRate~*~dt)}\)</span></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addTargetInVolume">
+<code class="descname">addTargetInVolume</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>interfaceName</em>, <em>isInput</em>, <em>maxVolume</em>, <em>minVolume</em>, <em>maxProfile</em>, <em>minProfile</em><span class="sig-paren">)</span><a class="headerlink" href="#api.addTargetInVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a minimum and maximum target in volume for the given interface (where the volume is the cumulative of the interface production/consumption)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>interfaceName</strong> (<em>String</em>) &#8211; name of the interface whose flow (production or consumption) must be limited in volume</li>
+<li><strong>isInput</strong> (<em>Boolean</em>) &#8211; boolean set to True if interfaceName is an energy pickup, False if it is an energy delivery</li>
+<li><strong>maxVolume</strong> (<em>double</em>) &#8211; max target in volume at the last time step of the simulation (strategic horizon)</li>
+<li><strong>minVolume</strong> (<em>double</em>) &#8211; min target in volume at the last time step of the simulation (strategic horizon)</li>
+<li><strong>maxProfile</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; maximal volume profile, expressed as a percentage of the maxVolume</li>
+<li><strong>minProfile</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; minimal volume profile, expressed as a percentage of the minVolume</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NO TARGET IN VOLUME</strong> (behavior <em>VOLUME_TARGET</em> is not active)</p>
+<p>In this case no constraints are set</p>
+<p><strong>TARGET IN VOLUME</strong> (behavior <em>VOLUME_TARGET</em> is active)</p>
+<p>Total interface production/consumption must be at the end of the simulation between minVolume and maxVolume :</p>
+<blockquote>
+<div><span class="math">\(\small \boldsymbol{minVolume} \leq  cumulativeInterface_{(t=strategic horizon)} \leq \boldsymbol{maxVolume}\)</span></div></blockquote>
+<p>Profiles (percentage) are used to limit cumulative interface production/consumption at each time-step t of the simulation :</p>
+<blockquote>
+<div><span class="math">\(\small \boldsymbol{minVolume} * \boldsymbol{minProfile_{(t)}} \leq  cumulativeInterface_{(t)} \leq \boldsymbol{maxVolume} * \boldsymbol{maxProfile_{(t)}}\)</span></div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Please note that <strong>minProfile</strong> and <strong>maxProfile</strong> are guidelines to reach at the end of the simulation a volume between the <strong>minVolume</strong> and <strong>maxVolume</strong>.
+Then both <strong>minProfile</strong> and <strong>maxProfile</strong> should be increasing from 0 at t=0- to 1 at t=strategicHorizon to be consistent with the above defined constraints.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.addTransmissionReserveProduction">
+<code class="descname">addTransmissionReserveProduction</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>energyPickup=</em> <em> <paramValue>'CONSUMPTION'</paramValue> </em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>availability=</em> <em> <paramValue>'_availability'</paramValue> </em>, <em>losses=</em> <em> <paramValue>'_losses'</paramValue> </em>, <em>reserveList=</em> <em> <paramValue>'DefaultReserveList'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api.addTransmissionReserveProduction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add reserve production constraints to a transmission asset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energyPickup</strong> (<em>string</em>) &#8211; name of the main energy pickup parameter</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the main energy delivery parameter (not reserve delivery)</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset in simulation mode</li>
+<li><strong>availability</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the availability of the asset</li>
+<li><strong>losses</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the losses between the energy pickup and the energy delivery of the asset</li>
+<li><strong>reserveList</strong> (<em>List of Reserve objects (see: Reserve object definition in DefaultVar)</em>) &#8211; list of all the reserves this asset can procure</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTATIONS</strong></p>
+<p>Each reserve of the <strong>reserveList</strong> has the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li>reserve.energy: name of the reserve energy (ex : syncResUp)</li>
+<li>reserve.isUp: boolean that determines the reserve direction. True if it is an upward reserve, False otherwise</li>
+<li>reserve.cost: reserve production cost</li>
+</ul>
+</div></blockquote>
+<p><strong>NO RESERVE PRODUCTION</strong> (behavior <em>RESERVE</em> is inactive)</p>
+<p>If the behavior <em>RESERVE</em> is inactive, each reserve production is set to 0.</p>
+<blockquote>
+<div><span class="math">\(\small reserve.energy = 0\)</span></div></blockquote>
+<p><strong>RESERVE PRODUCTION</strong> (behavior <em>RESERVE</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Upper</span> <span class="pre">reserve</span> <span class="pre">production</span> <span class="pre">bounds</span></code></p>
+<p>The upper bound for each reserve production is set to <strong>pmax</strong></p>
+<blockquote>
+<div><span class="math">\(\small reserve.energy \le \boldsymbol{pmax}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">General</span> <span class="pre">production</span> <span class="pre">bounds</span></code></p>
+<p>The total production (electricity + upward reserves) cannot exceed the available capacity (losses included) of the transmission line.</p>
+<blockquote>
+<div><span class="math">\(\small energyDelivery + \sum_{res \, | \, \{res.isUp = True\}}^{reserveList}{res.energy} \leq \boldsymbol{pmax} * \boldsymbol{availability} * ( 1 - \boldsymbol{losses})\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">General</span> <span class="pre">consumption</span> <span class="pre">bounds</span></code></p>
+<p>The total consumption (electricity + downward reserves) cannot exceed the available capacity of the transmission line.</p>
+<blockquote>
+<div><span class="math">\(\small energyPickup + \sum_{res \, | \, \{res.isUp = False\}}^{reserveList}{res.energy} \leq \boldsymbol{pmax} * \boldsymbol{availability}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Reserve</span> <span class="pre">production</span> <span class="pre">costs</span></code></p>
+<p>For each reserve a production cost is associated to the reserve production:</p>
+<blockquote>
+<div><span class="math">\(\small objectiveFunction += reserve.energy * \boldsymbol{reserve.cost}\)</span></div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#api.finalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the state to the model and runs post-treatment functions if necessary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.forceConstantInterface">
+<code class="descname">forceConstantInterface</code><span class="sig-paren">(</span><em>MODEL</em>, <em>asset</em>, <em>interfaceName</em>, <em>isInput</em><span class="sig-paren">)</span><a class="headerlink" href="#api.forceConstantInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force an interface production or consumption variable to be constant over time if <em>CONSTANT_VAR</em> behavior is active</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>MODEL</strong> (<a class="reference internal" href="#coeDoc.AssetModel" title="coeDoc.AssetModel"><em>AssetModel</em></a>) &#8211; asset model to configure</li>
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>interfaceName</strong> (<em>String</em>) &#8211; name of the interface whose flow (production or consumption) must be equal</li>
+<li><strong>isInput</strong> (<em>Boolean</em>) &#8211; boolean set to True if interfaceName is an energy pickup, False if it is an energy delivery</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.forceInitialEqualFinal">
+<code class="descname">forceInitialEqualFinal</code><span class="sig-paren">(</span><em>asset</em>, <em>moduleStock</em><span class="sig-paren">)</span><a class="headerlink" href="#api.forceInitialEqualFinal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force the final storage value to be equal to the initial storage value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>moduleStock</strong> (<em>StockModule</em>) &#8211; stock module to configure</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please note that the initial and final storage value are the ones at the begining and at the end of each simulation, then if rolling horizons
+are used then the storage value will be equal to the initial storage value at the end of each tactical horizons</p>
+</div>
+</dd></dl>
+
+<span class="target" id="module-api_Metis"></span><dl class="function">
+<dt id="api_Metis.nationalReserveProcurement">
+<code class="descname">nationalReserveProcurement</code><span class="sig-paren">(</span><em>cooperationRegions</em><span class="sig-paren">)</span><a class="headerlink" href="#api_Metis.nationalReserveProcurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the minimal reserve procurement constraint for each country inside a reserve procurement cooperation zone.
+Also set the constraints allowing transmissions to exchange reserve energy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cooperationRegions</strong> (<em>dictionary</em>) &#8211; dictionary of the cooperation regions indexed by countries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>INTRODUCTION</strong></p>
+<p>With regional cooperation, countries can share their imbalance risks to decrease global reserve sizing requirements by pooling part of it.
+Indeed, for a given level of security of supply, the total regional reserve requirement is lower.</p>
+<p>Then each country can procure reserve locally from assets from its zones, but also reserves a part of its transmission capacity to meet the total reserve requirements.</p>
+<p>Modelling details can be found <a class="reference external" href="http://ec.europa.eu/energy/sites/ener/files/documents/metis_technical_note_t2_-_power_market_models.pdf">here</a> (<em>4.5.4 Reserve sharing</em>)</p>
+<p><strong>NOTATIONS</strong></p>
+<blockquote>
+<div><p>-<span class="math">\(\small reserveAsset_{zone}^{reserve}\)</span> : reserve asset of type <em>Reserve</em> for the country <span class="math">\(\small zone\)</span> and the reserve energy <span class="math">\(\small reserve\)</span>. For each <span class="math">\(\small reserveAsset_{zone}^{reserve}\)</span>, the two following parameters are used here :</p>
+<blockquote>
+<div><ul class="simple">
+<li><span class="math">\(\small totalReserve_{zone}^{reserve}\)</span> : from parameter <strong>_demand</strong>, it represents the total reserve requirement necessary for the country <span class="math">\(\small zone\)</span> and the reserve energy <span class="math">\(\small reserve\)</span>.</li>
+<li><span class="math">\(\small localReserve_{zone}^{reserve}\)</span> : from parameter <strong>_localReserve</strong>, it represents the fraction of the total reserve requirement that needs to be procured localy for the country <span class="math">\(\small zone\)</span> and the reserve energy <span class="math">\(\small reserve\)</span>.</li>
+</ul>
+</div></blockquote>
+<p>-For a given asset from the model, the following variable is used :</p>
+<blockquote>
+<div><ul class="simple">
+<li>asset.reserve : the variable associated to the procurement of the reserve named <em>reserve</em> for this asset</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>NATIONAL RESERVE PROCUREMENT CONSTRAINTS</strong></p>
+<p>For each zone and for each reserve energy, a minimum share of the total requirement needs to be procured locally. Then, the sum of reserve procurement of all assets of the
+given zone needs to be greater than the minimum share :</p>
+<blockquote>
+<div><p>For each <span class="math">\(\small zone\)</span> and for each <span class="math">\(\small reserve\)</span> energy in the model :</p>
+<blockquote>
+<div><span class="math">\(\small \sum_{asset \in zone}{asset.reserve} \geq totalReserve_{zone}^{reserve} * localReserve_{zone}^{reserve}\)</span></div></blockquote>
+</div></blockquote>
+<p><strong>CROSS-BORDER CAPACITY RESERVATION</strong></p>
+<p>For each zone and for each reserve energy, if the total reserve requirement is not met only with local reserve procurement, then cross-border
+reservation needs to be done. For all transmissions within a cooperation region, the reserve procurement constraints needs to be set to satisfy
+this reservation. This is done with the method <a class="reference internal" href="#api.addTransmissionReserveProduction" title="api.addTransmissionReserveProduction"><code class="xref py py-func docutils literal"><span class="pre">addTransmissionReserveProduction()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_Metis.reserveSymmetryRequirement">
+<code class="descname">reserveSymmetryRequirement</code><span class="sig-paren">(</span><em>activationPerZone</em><span class="sig-paren">)</span><a class="headerlink" href="#api_Metis.reserveSymmetryRequirement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set reserve symmetry requirement constraints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>activationPerZone</strong> (<em>dictionary</em>) &#8211; for each zone, an activation value is set. 1 stands for &#8220;activate symmetry requirement&#8221;, and 0 for &#8220;no symmetry requirement&#8221;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The symmetry requirement only applies to <em>syncResUp</em> and <em>syncResDown</em> energies. If these two reserve energies are not defined in the
+model, no additional constraints are set, even if zones are listed in the <strong>activationPerZone</strong> dictionary.</p>
+</div>
+<p><strong>NOTATIONS</strong></p>
+<p>For a given asset from the model, the following variable is used :</p>
+<blockquote>
+<div><ul class="simple">
+<li>asset.reserve : the variable associated to the procurement of the reserve named <em>reserve</em> for this asset</li>
+</ul>
+</div></blockquote>
+<p><strong>CONSTRAINTS</strong></p>
+<p>For each zone of the model, if the value from <strong>activationPerZone</strong> is set to 1, then symmetry requirement constraint is set for all assets from this zone
+that can procure <em>syncResUp</em> and <em>syncResDown</em>.</p>
+<blockquote>
+<div><p>For each <span class="math">\(\small asset\)</span> with symmetry requirement :</p>
+<blockquote>
+<div><span class="math">\(\small asset.syncResUp = asset.syncResDown\)</span></div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<span class="target" id="module-api_specific"></span><dl class="function">
+<dt id="api_specific.setTransmissionEquality">
+<code class="descname">setTransmissionEquality</code><span class="sig-paren">(</span><em>portfolio</em>, <em>assetType</em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.setTransmissionEquality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a constraint imposing that the increase of installed capacity of all transmission or pipeline lines to be equal in the two ways. Only in capacity optimization mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>portfolio</strong> (<em>Portfolio</em>) &#8211; model portfolio</li>
+<li><strong>assetType</strong> (<em>String</em>) &#8211; dataname of the asset type</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For instance, for a transmission line between a zone A and a zone B, when there is capacity optimization, the constraint is :</p>
+<blockquote>
+<div><span class="math">\(\small optimP_{max}(A \rightarrow B)  - P_{maxmin}(A \rightarrow B) = optimP_{max}(B \rightarrow A)  - P_{maxmin}(B \rightarrow A)\)</span></div></blockquote>
+<p>The difference between the optimized pmax <span class="math">\(optimP_{max}\)</span> and the minimal pmax <span class="math">\(P_{maxmin}\)</span> for each ways A to B or B to A must be equal.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_specific.setPipelineReverseFlowConstraints">
+<code class="descname">setPipelineReverseFlowConstraints</code><span class="sig-paren">(</span><em>portfolio</em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.setPipelineReverseFlowConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a pipeline reverse flow constraint on all pipelines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>portfolio</strong> (<em>Portfolio</em>) &#8211; model portfolio</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+<p>For two opposing pipelines between delivery points A and B such as <span class="math">\(\small capex(A \rightarrow B) + foc(A \rightarrow B) &lt;= capex(B \rightarrow A) + foc(B \rightarrow A)\)</span>, we have :</p>
+<p><span class="math">\(\small optimPmax(A \rightarrow B) &lt;= optimPmax(B \rightarrow A)\)</span></p>
+<p>If <span class="math">\(\small capex(A \rightarrow B) + foc(A \rightarrow B) &lt;= capex(B \rightarrow A) + foc(B \rightarrow A)\)</span> and <span class="math">\(\small pmaxmin(A \rightarrow B) &gt;= pmaxmin(B \rightarrow A)\)</span>, data is considered inconsistent and an error will be returned</p>
+<p>Note: It is assumed that there is no more than one pipeline between two zones in one direction</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_specific.variableStorageInjectionCapacity">
+<code class="descname">variableStorageInjectionCapacity</code><span class="sig-paren">(</span><em>MODEL</em>, <em>asset</em>, <em>state</em>, <em>moduleStock</em>, <em>energyPickup=</em> <em> <paramValue>'CONSUMPTION'</paramValue> </em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>pmaxIn=</em> <em> <paramValue>'_pmaxIn'</paramValue> </em>, <em>storageCapacity=</em> <em> <paramValue>'_storageCapacity'</paramValue> </em>, <em>dischargeTime=</em> <em> <paramValue>'_dischargeTime'</paramValue> </em>, <em>pmaxInOutRatio=</em> <em> <paramValue>1</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.variableStorageInjectionCapacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a constraint that limits the injection capacity depending on the storage level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>MODEL</strong> (<a class="reference internal" href="#coeDoc.AssetModel" title="coeDoc.AssetModel"><em>AssetModel</em></a>) &#8211; model to configure</li>
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>moduleStock</strong> (<em>StockModule</em>) &#8211; stock module to configure</li>
+<li><strong>energyPickup</strong> (<em>string</em>) &#8211; name of the picked up energy</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the delivered energy</li>
+<li><strong>pmax</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; pmaxOut of the asset</li>
+<li><strong>pmaxIn</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; pmaxIn of the asset</li>
+<li><strong>storageCapacity</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; dataname of the storage capacity</li>
+<li><strong>dischargeTime</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; dataname of the discharge time</li>
+<li><strong>pmaxInOutRatio</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; dataname of the discharge time</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This constraint was designed to work with a regular <strong>pmax</strong> upper bound contraint on the <strong>energyPickup</strong>, often set with <a class="reference internal" href="#api.addEnergyConsumption" title="api.addEnergyConsumption"><code class="xref any py py-func docutils literal"><span class="pre">addEnergyConsumption</span></code></a>.
+For clarity reason, we assume that this constraint has already been set.</p>
+<blockquote>
+<div><ul class="simple">
+<li>If the storage level is between 0% and 50% of the storage capacity, the <strong>energyPickup</strong> is bounded by <strong>pmax</strong></li>
+<li>If the storage level is between 50% and 100% of the storage capacity, the <strong>energyPickup</strong> upper bound limitation decreases linearly from <strong>pmax</strong> to 25% of <strong>pmax</strong></li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>If behavior <em>USE_PMAX_IN</em> is active, the parameter <strong>pmaxIn</strong> is used instead of <strong>pmax</strong> for the Previous equations.</p>
+<p>If behavior <em>OPTIM_PMAX</em> is active:</p>
+<ul class="last">
+<li><p class="first"><em>DISCHARGE_TIMES</em> behavior must be active to use this contraint</p>
+</li>
+<li><p class="first"><em>USE_PMAX_IN</em> behavior value is ignored, and the storageCapacity and the <strong>pmax</strong> upper bound are defined as follows:</p>
+<blockquote>
+<div><p><span class="math">\(\small  pmax = pmaxInOutRatio * optimizedPmax\)</span></p>
+<p><span class="math">\(\small  storageCapacity = dischargeTime * optimizedPmax\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_specific.variableStorageWithdrawalCapacity">
+<code class="descname">variableStorageWithdrawalCapacity</code><span class="sig-paren">(</span><em>MODEL</em>, <em>asset</em>, <em>state</em>, <em>moduleStock</em>, <em>energyDelivery=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>storageCapacity=</em> <em> <paramValue>'_storageCapacity'</paramValue> </em>, <em>dischargeTime=</em> <em> <paramValue>'_dischargeTime'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.variableStorageWithdrawalCapacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a constraint that changes limits withdrawal capacity depending on the storage level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>MODEL</strong> (<a class="reference internal" href="#coeDoc.AssetModel" title="coeDoc.AssetModel"><em>AssetModel</em></a>) &#8211; model to configure</li>
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>moduleStock</strong> (<em>StockModule</em>) &#8211; stock module to configure</li>
+<li><strong>energyDelivery</strong> (<em>string</em>) &#8211; name of the delivered energy</li>
+<li><strong>pmax</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; pmaxOut of the asset</li>
+<li><strong>storageCapacity</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; dataname of the storage capacity</li>
+<li><strong>dischargeTime</strong> (<em>DataWrapper or None</em>) &#8211; dataname of the discharge time</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This constraint was designed to work with a regular <strong>pmax</strong> upper bound contraint on the <strong>energyDelivery</strong>, often set with <a class="reference internal" href="#api.addEnergyProduction" title="api.addEnergyProduction"><code class="xref any py py-func docutils literal"><span class="pre">addEnergyProduction</span></code></a>.
+For clarity reason, we assume that this constraint has already been set.</p>
+<blockquote>
+<div><ul class="simple">
+<li>If the storage level is between 0% and 50% of the storage capacity, the <strong>energyDelivery</strong> upper bound limitation decreases linearly from 25% of <strong>pmax</strong> to <strong>pmax</strong></li>
+<li>If the storage level is between 50% and 100% of the storage capacity, the <strong>energyDelivery</strong> is bounded by <strong>pmax</strong></li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>If behavior <em>OPTIM_PMAX</em> is active:</p>
+<ul class="last">
+<li><p class="first"><em>DISCHARGE_TIMES</em> behavior must be active to use this contraint</p>
+</li>
+<li><p class="first">The storageCapacity is defined as follows:</p>
+<blockquote>
+<div><p><span class="math">\(\small  storageCapacity = dischargeTime * optimizedPmax\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_specific.setDemandResponseModel">
+<code class="descname">setDemandResponseModel</code><span class="sig-paren">(</span><em>state</em>, <em>asset</em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.setDemandResponseModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Demand response model constraints (this model typically represents the power demand of domestic hot water storage tank with an electric boiler)</p>
+<p><strong>INTRODUCED VARIABLES</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>electricityConsumption : electricty consumption of the asset</li>
+</ul>
+</div></blockquote>
+<p><strong>NON-FLEXIBLE DEMAND</strong> (behavior <em>MUST_RUN</em> is active)</p>
+<p>The electricity consumption (input energy E) is equal to the given Raw demand timeseries :</p>
+<blockquote>
+<div><p><span class="math">\(\small \forall \text{ timesteps t : }\)</span></p>
+<blockquote>
+<div><span class="math">\(\small electricityConsumption(t) = \boldsymbol{\_demand}(t)\)</span></div></blockquote>
+</div></blockquote>
+<p><strong>FLEXIBLE DEMAND</strong> (behavior <em>MUST_RUN</em> is inactive)</p>
+<p>The model represent a useful demand that has to be satisfied periodically (<em>_demandCycleDuration</em>) at a given time (<em>_demandFirstHour</em>). This periodic demand is satisfied by a stock that can be recharged with the electricity consumption.</p>
+<p>An example is the useful demand of sanitary hot water, satisfied by a water storage tank with an electric boiler. The hot water typically has to be produced daily and be ready during morning, but the water tank can be heated anytime before this moment. In this case, the asset parameters would have the following values:</p>
+<blockquote>
+<div><ul class="simple">
+<li><span class="math">\(\small \_demandCycleDuration = 24 h\)</span></li>
+<li><span class="math">\(\small \_demandFirstHour = 6 am\)</span></li>
+</ul>
+</div></blockquote>
+<p>The periodic useful demand is calculated from the Raw demand timeseries (parameter <em>_demand</em>). The power consumption is then jointly optimized with the power production during the simulation.</p>
+<p><code class="docutils literal"><span class="pre">Equations</span></code></p>
+<p>Let <span class="math">\(\small consumptionPeriod\)</span> be the time span between two consecutive moments where the useful demand has to be satisfied. For the previous example, it would be the time span between 6am and 6am the day after.</p>
+<p>The electricity consumption is optimized according to the following constraints :</p>
+<blockquote>
+<div><p><span class="math">\(\small \forall ~consumptionPeriod\)</span></p>
+<blockquote>
+<div><span class="math">\(\small \sum_{t \in consumptionPeriod}electricityConsumption(t) = \sum_{t \in consumptionPeriod} \boldsymbol{\_demand}(t)\)</span></div></blockquote>
+<p><span class="math">\(\small \forall \text{ timesteps t : }\)</span></p>
+<blockquote>
+<div><span class="math">\(\small electricityConsumption(t) \leq \boldsymbol{\_pmaxIn}\)</span></div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_specific.setElectricVehiclesModel">
+<code class="descname">setElectricVehiclesModel</code><span class="sig-paren">(</span><em>state</em>, <em>asset</em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.setElectricVehiclesModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each electric vehicle asset represents a fleet of vehicles that can be recharged in a given location (e.g. at home, at work or on public). Vehicles are not modelled individually. Instead <strong>arrivals</strong> and <strong>departures</strong> timeseries are used to determine the evolution of vehicles connected to the charging location.</p>
+<p><strong>PARAMETERS</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Asset parameters :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>totalEV</strong> (<em>parameter name : _totalEV</em>) &#8211; Total number of vehicles</li>
+<li><strong>initialConnectedEV</strong> (<em>parameter name : _initialConnectedEV</em>) &#8211; Percentage of connected EV at t=0</li>
+<li><strong>arrivals</strong> (<em>parameter name : _arrivals</em>) &#8211; Percentage of vehicles arriving at terminal</li>
+<li><strong>departures</strong> (<em>parameter name : _departures</em>) &#8211; Percentage of vehicles leaving from terminal</li>
+<li><strong>evStorageCapacity</strong> (<em>parameter name : _evStorageCapacity</em>) &#8211; EV storage capacity</li>
+<li><strong>evRecharge</strong> (<em>parameter name : _evRecharge</em>) &#8211; Average journey discharge</li>
+<li><strong>evPmaxIn</strong> (<em>parameter name : _evPmaxIn</em>) &#8211; Average charging capacity per vehicle and per time setp</li>
+<li><strong>inputEfficiency</strong> (<em>parameter name : _inputEfficiency</em>) &#8211; EV charging efficiency</li>
+<li><strong>storageCost</strong> (<em>parameter name : _storageCost</em>) &#8211; Cost associated with storage</li>
+<li><strong>evPmaxOut</strong> (<em>parameter name : _evPmaxOut</em>) &#8211; Average Vehicle-to-grid discharging capacity</li>
+<li><strong>outputEfficiency</strong> (<em>parameter name : _outputEfficiency</em>) &#8211; EV discharging efficiency</li>
+<li><strong>productionCost</strong> (<em>parameter name : _productionCost</em>) &#8211; Production cost</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Asset input and output :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>energyPickup</strong> (<em>(parameter name : CONSUMPTION)</em>) &#8211; electricty consumption</li>
+<li><strong>energyDelivery</strong> (<em>(parameter name : PRODUCTION)</em>) &#8211; electricity production (only in case of vehicle to grid)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Other :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nbTimeSteps</strong> (<em>int</em>) &#8211; Number of time step of the simulation (strategic horizon)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>IMMEDIATE RECHARGE</strong> (behavior <em>MUST_RUN</em> is active)</p>
+<p>Vehicles are charged immediately after arrival at the terminal location. The number of time steps necessary to recharge an electric vehicle after a typical journey is defined as follows :</p>
+<blockquote>
+<div><span class="math">\(\small nbTsRecharge = \left \lceil \frac{evRecharge}{evPmaxIn ~\cdot~ inputEfficiency} \right \rceil\)</span></div></blockquote>
+<p>The electricity consumption can then be expressed according to the <strong>arrivals</strong> timeseries, the average charging capacity per time step, and the number of time step of recharge :</p>
+<blockquote>
+<div><div class="math">
+\[\begin{split}\small
+energyPickup(t) &amp;= \small \sum_{\substack{i=0 \\ t-i \geq 0}}^{nbTsRecharge-2} arrivals(t-i) \cdot totalEV \cdot evPmaxIn \cdot inputEfficiency \\
+                &amp;~~~~~~+ \small \left ( evRecharge  - inputEfficiency  \cdot evPmaxIn \cdot (nbTsRecharge-1) \right )\end{split}\]</div>
+</div></blockquote>
+<p>Please note that if the average journey discharge is not a multiple of the average charging capacity per time step (<span class="math">\(\small evPmaxIn \cdot inputEfficiency\)</span>), the last time step of recharge of a electric vehicle cannot be
+made at full capacity, since the battery will be full already. Then, during this last hour of recharge (<span class="math">\(\small nbTsRecharge-1\)</span> time steps after the arrival of the vehicle), the electric vehicle will only be recharged of the remaining
+battery capacity : <span class="math">\(\small evRecharge - inputEfficiency  \cdot evPmaxIn \cdot (nbTsRecharge-1)\)</span>.</p>
+<p>For example, with <span class="math">\(\small evRecharge = 5~kWh,~ inputEfficiency=1,~ evPmaxIn = 2~kW\)</span>:</p>
+<blockquote>
+<div>If an electric vehicle arrives at the charging location at t, it will be recharged of 2 kWh at t, and 2 kWh at t+1, but only of <span class="math">\(\small 5-2 \times 2 = 1\)</span> kWh at t+2.</div></blockquote>
+<p><strong>OPTIMIZED RECHARGE</strong> (behavior <em>MUST_RUN</em> is inactive)</p>
+<p>Recharge of all electric vehicles is jointly optimized with the electricity production during the simulation</p>
+<p>A few hypotheses are taken for the charging process:</p>
+<blockquote>
+<div><ul class="simple">
+<li>each vehicle must be totally charged before departure from terminal</li>
+<li>the average journey discharge is the same for all vehicles, and is equal to <em>evRecharge</em>. Then, each vehicle arriving at the charging location have a level of recharge equal to <span class="math">\(\small evStorageCapacity - evRecharge\)</span></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">Notations</span></code></p>
+<blockquote>
+<div><ul>
+<li><p class="first">Number of connected vehicles at each time step t :</p>
+<blockquote>
+<div><p><span class="math">\(\small connectedEV(t) = \left ( initialConnectedEV + \sum_{i=0}^{t} (arrivals(i) - departures(i)) \right ) * totalEV\)</span></p>
+</div></blockquote>
+</li>
+<li><p class="first">Global storage capacity of all connected electric vehicles at each time step t :</p>
+<blockquote>
+<div><p><span class="math">\(\small globalStorageCapacity(t) = connectedEV(t) * evStorageCapacity\)</span></p>
+</div></blockquote>
+</li>
+<li><p class="first">Quantity of energy required by all electric vehicles leaving the charging location at each time step t :</p>
+<blockquote>
+<div><p><span class="math">\(\small requiredDemandAtDepature(t) = evStorageCapacity * departures(t) * totalEV\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">Temporal</span> <span class="pre">variables</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>Energy stored by all electric vehicle in their batteries: <span class="math">\(\small stock\)</span></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">Equations</span></code></p>
+<blockquote>
+<div><ul>
+<li><p class="first">Evolution of the energy stored in all electric vehicles for all time steps t:</p>
+<p><span class="math">\(\small stock(t) = stock(t-1) + energyPickup(t) * inputEfficiency + (evStorageCapacity - evRecharge) * arrivals(t) * totalEV - requiredDemandAtDepature(t)\)</span></p>
+<p><span class="math">\(\small stock(t) \leq globalStorageCapacity(t)\)</span></p>
+<p>Storage cost : <span class="math">\(\small objectiveFunction += stock * storageCost\)</span></p>
+</li>
+<li><p class="first">Charging limitation :</p>
+<p><span class="math">\(\small energyPickup(t) \leq connectedEV(t) * evPmaxIn\)</span></p>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>VEHICLE TO GRID</strong> (behavior <em>USE_ENERGY_PRODUCTION</em> is active)</p>
+<p>In the case of <strong>OPTIMIZED RECHARGE</strong>, electric vehicles can also inject electricity to the grid if the behavior <strong>USE_ENERGY_PRODUCTION</strong> (Vehicle to grid) is active. The full battery storage capacity (<em>evStorageCapacity</em>) of each connected electric vehicle can then be used to store electricity from the grid, and restitute it later in time.</p>
+<p><code class="docutils literal"><span class="pre">Equations</span></code></p>
+<p>The following equations are added to the previous ones defined in section <strong>OPTIMIZED RECHARGE</strong>:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The stock evolution constraint is modified in order to take into account the electric vehicle injection to the grid:</p>
+<p><span class="math">\(\small stock(t) = stock(t-1) + energyPickup(t) * inputEfficiency - energyDelivery(t) * 1/outputEfficiency + (evStorageCapacity - evRecharge) * arrivals(t) * totalEV - requiredDemandAtDepature(t)\)</span></p>
+</li>
+<li><p class="first">Injection limitation :</p>
+<p><span class="math">\(\small energyDelivery(t) \leq connectedEV(t) * evPmaxOut(t)\)</span></p>
+</li>
+<li><p class="first">Electricty production cost :</p>
+<blockquote>
+<div><p><span class="math">\(\small objectiveFunction += energyDelivery * productionCost\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_specific.buildHPcapacity">
+<code class="descname">buildHPcapacity</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>temperature=</em> <em> <paramValue>'_temperature'</paramValue> </em>, <em>bivalentTemp=</em> <em> <paramValue>'_bivalentTemp'</paramValue> </em>, <em>hpCapaAtBivalentTemp=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>tempHpCapaEq0=</em> <em> <paramValue>-26.42589046</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.buildHPcapacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the HP capacity timeseries, according to the <em>temperature</em> timeseries.</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="_images/heatPumpsProduction.png"><img alt="Heat production split between the HP and the back-up heater" src="_images/heatPumpsProduction.png" style="width: 500.0px; height: 250.0px;" /></a>
+<p class="caption"><span class="caption-text">Heat production split between the HP and the back-up heater</span></p>
+</div>
+<p>For all timesteps t:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">if <span class="math">\(\small temperature(t) &gt;= bivalentTemp\)</span> :</p>
+<blockquote>
+<div><p><span class="math">\(\small heatPumpCapacity(t) = hpCapaAtBivalentTemp\)</span></p>
+</div></blockquote>
+</li>
+<li><p class="first">if <span class="math">\(\small tempHpCapaEq0 &lt; temperature(t) &lt;  bivalentTemp\)</span>:</p>
+<blockquote>
+<div><p><span class="math">\(\small heatPumpCapacity(t) = hpCapaAtBivalentTemp * \frac{temperature(t) - tempHpCapaEq0}{bivalentTemp - tempHpCapaEq0}\)</span></p>
+</div></blockquote>
+</li>
+<li><p class="first">if <span class="math">\(\small temperature(t) &lt;= tempHpCapaEq0\)</span>:</p>
+<blockquote>
+<div><p><span class="math">\(\small heatPumpCapacity(t) = 0\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="api_specific.createHeatPumpConstraints">
+<code class="descname">createHeatPumpConstraints</code><span class="sig-paren">(</span><em>asset</em>, <em>state</em>, <em>heatPumpCapacity</em>, <em>temperature=</em> <em> <paramValue>'_temperature'</paramValue> </em>, <em>copData=</em> <em> <paramValue>'_COP'</paramValue> </em>, <em>heatingDemand=</em> <em> <paramValue>'_heatingDemand'</paramValue> </em>, <em>energyPickup=</em> <em> <paramValue>'CONSUMPTION'</paramValue> </em>, <em>energyFuel=</em> <em> <paramValue>'FUEL_CONSUMPTION'</paramValue> </em>, <em>energyCO2=</em> <em> <paramValue>'CO2'</paramValue> </em>, <em>backUpHeaterYield=</em> <em> <paramValue>'_backUpHeaterYield'</paramValue> </em>, <em>fuelCo2Content=</em> <em> <paramValue>'_fuelCo2Content'</paramValue> </em>, <em>dischargeTime=</em> <em> <paramValue>'_dischargeTime'</paramValue> </em>, <em>storageCost=</em> <em> <paramValue>'_storageCost'</paramValue> </em>, <em>lossRate=</em> <em> <paramValue>'_lossRate'</paramValue> </em>, <em>backUpProductionCost=</em> <em> <paramValue>0.001</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api_specific.createHeatPumpConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the heat pump constraints</p>
+<p><strong>INTRODUCED VARIABLES</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>hpProduction : heat production of the heat pump</li>
+<li>backUpProduction : heat production of the back-up heater</li>
+<li>hpConsumption : energy consumption of the heat pump</li>
+<li>backUpConsumption : energy consumption of the back-up heater</li>
+</ul>
+</div></blockquote>
+<p><strong>COMMON CONSTRAINTS</strong></p>
+<p><code class="docutils literal"><span class="pre">Heat</span> <span class="pre">pump</span> <span class="pre">upper</span> <span class="pre">production</span> <span class="pre">bound</span></code></p>
+<blockquote>
+<div><span class="math">\(\small hpProduction \leq \boldsymbol{heatPumpCapacity}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Back-up</span> <span class="pre">heater</span> <span class="pre">upper</span> <span class="pre">production</span> <span class="pre">bound</span></code></p>
+<p>The back-up is sized in order to cover exactly the heat demand at the hour where the temperature is the lowest <span class="math">\(\small h_{T_{min}}\)</span>:</p>
+<blockquote>
+<div><p><span class="math">\(\small backUpCapacity = \boldsymbol{heatingDemand}(h_{T_{min}}) - \boldsymbol{heatPumpCapacity}(h_{T_{min}})\)</span></p>
+<p><span class="math">\(\small backUpProduction \leq backUpCapacity\)</span></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">Heat</span> <span class="pre">pump</span> <span class="pre">and</span> <span class="pre">back-up</span> <span class="pre">heater</span> <span class="pre">efficiencies</span></code></p>
+<blockquote>
+<div><p><span class="math">\(\small hpProduction = \boldsymbol{copData} * hpConsumption\)</span></p>
+<p><span class="math">\(\small backUpProduction = \boldsymbol{backUpHeaterYield} * backUpConsumption\)</span></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">Heating</span> <span class="pre">demand</span> <span class="pre">constraint</span></code></p>
+<blockquote>
+<div><ul>
+<li><p class="first">if the behavior <em>MUST_RUN</em> is active (no thermal storage):</p>
+<blockquote>
+<div><p><span class="math">\(\small hpProduction + backUpProduction = \boldsymbol{heatingDemand}\)</span></p>
+</div></blockquote>
+</li>
+<li><p class="first">if the behavior <em>MUST_RUN</em> is inactive (thermal storage):</p>
+<blockquote>
+<div><p>Please refer to the below section THERMAL STORAGE</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>ELECTRIC BACK-UP HEATER</strong> (behavior <em>GAS_BACKUP_HEATER</em> is inactive)</p>
+<p><code class="docutils literal"><span class="pre">Electricity</span> <span class="pre">consumption</span></code></p>
+<blockquote>
+<div><span class="math">\(\small \boldsymbol{energyPickup} = \boldsymbol{hpConsumption} + \boldsymbol{backUpConsumption}\)</span></div></blockquote>
+<p><strong>GAS BACK-UP HEATER</strong> (behavior <em>GAS_BACKUP_HEATER</em> is active)</p>
+<p><code class="docutils literal"><span class="pre">Electricity</span> <span class="pre">consumption</span></code></p>
+<blockquote>
+<div><span class="math">\(\small \boldsymbol{energyPickup} = \boldsymbol{hpConsumption}\)</span></div></blockquote>
+<p><code class="docutils literal"><span class="pre">Gas</span> <span class="pre">consumption</span></code></p>
+<blockquote>
+<div><span class="math">\(\small \boldsymbol{energyFuel} = \boldsymbol{backUpConsumption}\)</span></div></blockquote>
+<p><strong>THERMAL STORAGE</strong> (behavior <em>MUST_RUN</em> is inactive)</p>
+<p>If the behavior <em>MUST_RUN</em> is inactive, a thermal storage is added to store the heat production of the heat pump and the back-up heater, in order to produce heat when the electricity/gas prices are lower, and restitute it later in time :</p>
+<blockquote>
+<div><span class="math">\(\small \forall~timesteps~t : storedHeat(t) = storedHeat(t-1) * (1 - \boldsymbol{lossRate}) + hpProduction + backUpProduction - \boldsymbol{heatingDemand}\)</span></div></blockquote>
+<p>The thermal storage can store the equivalent of <em>dischargeTime</em> hours of heat production at full capacity :</p>
+<blockquote>
+<div><span class="math">\(\small storedHeat \leq \max_{t} (\boldsymbol{heatingDemand}(t)) * \boldsymbol{dischargeTime}\)</span></div></blockquote>
+</dd></dl>
+
+<span class="target" id="module-api_internal"></span><dl class="function">
+<dt id="api_internal.forceInitialStockEqualToFinalStock">
+<code class="descname">forceInitialStockEqualToFinalStock</code><span class="sig-paren">(</span><em>MODEL</em>, <em>moduleStock</em><span class="sig-paren">)</span><a class="headerlink" href="#api_internal.forceInitialStockEqualToFinalStock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force the final stock level to be equal to the initial stock level</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>MODEL</strong> (<a class="reference internal" href="#coeDoc.AssetModel" title="coeDoc.AssetModel"><em>AssetModel</em></a>) &#8211; model to configure</li>
+<li><strong>moduleStock</strong> (<em>StockModule</em>) &#8211; stock module to configure</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-UtilityFunc"></span><dl class="function">
+<dt id="UtilityFunc.addEnergyCost">
+<code class="descname">addEnergyCost</code><span class="sig-paren">(</span><em>state</em>, <em>energy</em>, <em>isInput</em>, <em>energyCost</em><span class="sig-paren">)</span><a class="headerlink" href="#UtilityFunc.addEnergyCost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a cost to the given <em>energy</em> (delivery or pickup depending on the <em>isInput</em> value)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>energy</strong> (<em>string</em>) &#8211; name of the energy as string</li>
+<li><strong>isInput</strong> (<em>boolean</em>) &#8211; cost of the energy</li>
+<li><strong>energyCost</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; cost of the energy</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Currently, linear costs are used :</strong></p>
+<ul class="simple">
+<li>If <em>isInput</em> = <strong>true</strong> :</li>
+</ul>
+<p><span class="math">\(\small objectiveFunction += energyPickup * energyCost\)</span></p>
+<ul class="simple">
+<li>If <em>isInput</em> = <strong>false</strong> :</li>
+</ul>
+<p><span class="math">\(\small objectiveFunction += energyDelivery * energyCost\)</span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="UtilityFunc.addEnergyYield">
+<code class="descname">addEnergyYield</code><span class="sig-paren">(</span><em>state</em>, <em>coef</em>, <em>energyA</em>, <em>energyB</em>, <em>isInputA=</em> <em> <paramValue>False</paramValue> </em>, <em>isInputB=</em> <em> <paramValue>False</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#UtilityFunc.addEnergyYield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a linear yield function between two energies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; state to configure</li>
+<li><strong>coef</strong> (<em>DataWrapper or float</em>) &#8211; yield between the two energies</li>
+<li><strong>energyA</strong> (<em>string</em>) &#8211; name of the energy as string</li>
+<li><strong>energyB</strong> (<em>string</em>) &#8211; name of the energy as string</li>
+<li><strong>isInputA</strong> (<em>boolean</em>) &#8211; indicate if energyA is an input or an output</li>
+<li><strong>isInputB</strong> (<em>boolean</em>) &#8211; indicate if energyB is an input or an output</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The energy flows considered rely on the *isInput* values :</strong></p>
+<ul class="simple">
+<li>If <em>isInputB</em> = <strong>true</strong> and <em>isInputA</em> = <strong>true</strong> :</li>
+</ul>
+<p><span class="math">\(\small energyBpickup = coef * energyApickup\)</span></p>
+<ul class="simple">
+<li>If <em>isInputB</em> = <strong>false</strong> and <em>isInputA</em> = <strong>true</strong> :</li>
+</ul>
+<p><span class="math">\(\small energyBdelivery = coef * energyApickup\)</span></p>
+<ul class="simple">
+<li>If <em>isInputB</em> = <strong>true</strong> and <em>isInputA</em> = <strong>false</strong> :</li>
+</ul>
+<p><span class="math">\(\small energyBpickup = coef * energyAdelivery\)</span></p>
+<ul class="simple">
+<li>If <em>isInputB</em> = <strong>false</strong> and <em>isInputA</em> = <strong>false</strong> :</li>
+</ul>
+<p><span class="math">\(\small energyBdelivery = coef * energyAdelivery\)</span></p>
+</dd></dl>
+
+<span class="target" id="module-api_GasMarket"></span><dl class="function">
+<dt id="api_GasMarket.addRelaxedIncreasingCost">
+<code class="descname">addRelaxedIncreasingCost</code><span class="sig-paren">(</span><em>asset</em>, <em>pmax=</em> <em> <paramValue>'_pmax'</paramValue> </em>, <em>costDataName=</em> <em> <paramValue>'_cost'</paramValue> </em>, <em>energyParameterName=</em> <em> <paramValue>'PRODUCTION'</paramValue> </em>, <em>energyParameterIsInput=</em> <em> <paramValue>False</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#api_GasMarket.addRelaxedIncreasingCost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an increasing piecewise linear cost function for the <strong>energyParameterName</strong> energy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<a class="reference internal" href="#coeDoc.Asset" title="coeDoc.Asset"><em>Asset</em></a>) &#8211; asset to configure</li>
+<li><strong>pmax</strong> (<em>string or DataWrapper</em>) &#8211; dataname of the Pmax of the asset</li>
+<li><strong>energyParameterName</strong> (<em>string</em>) &#8211; name of the energy parameter</li>
+<li><strong>energyParameterIsInput</strong> (<em>boolean</em>) &#8211; indicate if the energy is an input or an output</li>
+<li><strong>costDataName</strong> (<em>string</em>) &#8211; dataname of the energy cost (The associated parameter should be a MATRIX or a CURVE)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Formulation of a non decreasing cost function as the maximum over a set of linear functions.</p>
+</dd></dl>
+
+<span class="target" id="module-coeDoc"></span><dl class="class">
+<dt id="coeDoc.Asset">
+<em class="property">class </em><code class="descname">Asset</code><a class="headerlink" href="#coeDoc.Asset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asset object</p>
+<dl class="method">
+<dt id="coeDoc.Asset.getData">
+<code class="descname">getData</code><span class="sig-paren">(</span><em>dataName</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.Asset.getData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data associated with <em>dataName</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataName</strong> (<em>string</em>) &#8211; data name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">data</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper">DataWrapper</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="coeDoc.Asset.getParameter">
+<code class="descname">getParameter</code><span class="sig-paren">(</span><em>energyParameterName</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.Asset.getParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the energy name associated with <em>energyParameterName</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>energyParameterName</strong> (<em>string</em>) &#8211; energy parameter name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">energy name</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="coeDoc.AssetModel">
+<em class="property">class </em><code class="descname">AssetModel</code><a class="headerlink" href="#coeDoc.AssetModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Different models can be used for a same asset. An AssetModel represents one model</p>
+<dl class="method">
+<dt id="coeDoc.AssetModel.addState">
+<code class="descname">addState</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.AssetModel.addState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a state to an AssetModel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<a class="reference internal" href="#coeDoc.AssetState" title="coeDoc.AssetState"><em>AssetState</em></a>) &#8211; the state to be added</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="coeDoc.AssetState">
+<em class="property">class </em><code class="descname">AssetState</code><a class="headerlink" href="#coeDoc.AssetState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a possible state for an Asset</p>
+<dl class="method">
+<dt id="coeDoc.AssetState.addLowerBound">
+<code class="descname">addLowerBound</code><span class="sig-paren">(</span><em>energyName</em>, <em>isInput</em>, <em>lb</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.AssetState.addLowerBound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a lower bound constraint on a given energy of the energy asset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>energyName</strong> (<em>string</em>) &#8211; energy name</li>
+<li><strong>isInput</strong> (<em>bool</em>) &#8211; energy considered as an input or output</li>
+<li><strong>lb</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; lower bound</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="coeDoc.AssetState.addUpperBound">
+<code class="descname">addUpperBound</code><span class="sig-paren">(</span><em>energyName</em>, <em>isInput</em>, <em>ub</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.AssetState.addUpperBound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an upper bound constraint on a given energy of the energy asset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>energyName</strong> (<em>string</em>) &#8211; energy name</li>
+<li><strong>isInput</strong> (<em>bool</em>) &#8211; energy considered as an input or output</li>
+<li><strong>ub</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; upper bound</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="coeDoc.AssetState.isActiveBehavior">
+<code class="descname">isActiveBehavior</code><span class="sig-paren">(</span><em>behaviorName</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.AssetState.isActiveBehavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the behavior associated to <em>behaviorName</em> is active</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>behavior_name</strong> (<em>string</em>) &#8211; name of the behavior</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="coeDoc.AssetState.setEquality">
+<code class="descname">setEquality</code><span class="sig-paren">(</span><em>energyName</em>, <em>isInput</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.AssetState.setEquality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an equality constraint on a given energy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>energyName</strong> (<em>string</em>) &#8211; energy name</li>
+<li><strong>isInput</strong> (<em>bool</em>) &#8211; energy considered as an input or output</li>
+<li><strong>data</strong> (<a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper"><em>DataWrapper</em></a>) &#8211; numerical value to be set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="coeDoc.DataWrapper">
+<em class="property">class </em><code class="descname">DataWrapper</code><a class="headerlink" href="#coeDoc.DataWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data container used to hold different data types (float, timeSeries)</p>
+<dl class="method">
+<dt id="coeDoc.DataWrapper.getValue">
+<code class="descname">getValue</code><span class="sig-paren">(</span><em>ts</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.DataWrapper.getValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of a DataWrapper:</p>
+<blockquote>
+<div><ul class="simple">
+<li>If <em>ts</em> is not provided : the DataWrapper must contain a <strong>float</strong>. the method returns the float value of the DataWrapper</li>
+<li>If <em>ts</em> is provided : the DataWrapper must contain a <strong>TimeSeries</strong>. the method returns the value of the TimeSeries at time step <em>ts</em></li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ts</strong> (<em>int</em>) &#8211; time step</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="coeDoc.DataWrapper.setValue">
+<code class="descname">setValue</code><span class="sig-paren">(</span><em>ts</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.DataWrapper.setValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of a DataWrapper:</p>
+<blockquote>
+<div><ul class="simple">
+<li>If <em>ts</em> is not provided : the value of the DataWrapper is set at <em>val</em>. If the DataWrapper contains a timeSeries, it is converted to a float</li>
+<li>If <em>ts</em> is provided : the DataWrapper must contain a <strong>TimeSeries</strong>. the value of the TimeSeries at time step <em>ts</em> is set at <em>val</em></li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ts</strong> (<em>int</em>) &#8211; time step</li>
+<li><strong>val</strong> (<em>float</em>) &#8211; value to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="coeDoc.TimeSeries">
+<code class="descname">TimeSeries</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#coeDoc.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a time serie with all its values at 0</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>int</em>) &#8211; size of the time serie</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">timeSeries</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#coeDoc.DataWrapper" title="coeDoc.DataWrapper">DataWrapper</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kpiDoc.html" class="btn btn-neutral float-right" title="KPI documentation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="libraryDoc.html" class="btn btn-neutral" title="Library documentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, European Commission.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'V1.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/highlight.pack.js"></script>
+      <script type="text/javascript" src="_static/toc.js"></script>
+      <script type="text/javascript" src="_static/initHighlightingOnLoad.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

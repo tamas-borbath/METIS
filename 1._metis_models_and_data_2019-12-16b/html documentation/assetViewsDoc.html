@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Asset views &mdash; METIS V1.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/atom-one-light.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/simpletree.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/parameters.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="METIS V1.4 documentation" href="index.html"/>
+        <link rel="next" title="Delivery Points indicators" href="dpIndicatorsDoc.html"/>
+        <link rel="prev" title="Decorators" href="decoratorDoc.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METIS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                V1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Asset models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libraryDoc.html">Library documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiDoc.html">API documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Indicators</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="kpiDoc.html">KPI documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoratorDoc.html">Decorators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Asset views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#consumption-view-fuel">Consumption view (Fuel)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consumption-view-gas">Consumption view (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consumption-vs-production-view">Consumption vs production view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contract-view">Contract view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-cost-view">Production cost view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-view-gas">Production view (Gas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-view">Production view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storage-view">Storage view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-consumption-view">Transmission consumption view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-production-view">Transmission production view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dpIndicatorsDoc.html">Delivery Points indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoneIndicatorsDoc.html">Zones indicators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Context actions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actionDoc.html">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Import scripts for context creation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importScriptsDoc.html">Import scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiImportScriptsDoc.html">Import scripts API documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">METIS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Asset views</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asset-views">
+<h1>Asset views<a class="headerlink" href="#asset-views" title="Permalink to this headline">¶</a></h1>
+<p>Asset views are temporal views to analyze detailed results and parameters by asset.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/prodCostViewExample.png"><img alt="asset view example" src="_images/prodCostViewExample.png" style="width: 600.0px; height: 300.0px;" /></a>
+<p class="caption"><span class="caption-text">Exemple of asset view showing the asset costs at all time</span></p>
+</div>
+<p>They can be accessed from the default asset view. This view is opened by double-clicking on each asset on the map with the Assets decorator.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/assetViewAccess.png"><img alt="asset view access" src="_images/assetViewAccess.png" style="width: 750.0px; height: 375.0px;" /></a>
+<p class="caption"><span class="caption-text">How to access asset views</span></p>
+</div>
+<p>Note that some views are limited to specific and compatible technologies. (An asset view about storage will be available only for asset with storage capacity eg.)</p>
+<div class="section" id="consumption-view-fuel">
+<h2>Consumption view (Fuel)<a class="headerlink" href="#consumption-view-fuel" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows the fuel consumption of the asset, in W. It considers whether fleet mode and cluster mode, and displays the appropriate results.</p>
+<dl class="docutils">
+<dt>Stacks:</dt>
+<dd><ul class="first last simple">
+<li>(Cluster mode only) Fuel consumption from energy making</li>
+<li>(Cluster mode only) Fuel consumption from running capacity</li>
+</ul>
+</dd>
+<dt>Lines:</dt>
+<dd><ul class="first last simple">
+<li>Fuel consumption</li>
+<li>Absolute minimal fuel consumption (0 in cluster mode, as the running capaciy has no lower boundary)</li>
+<li>Absolute maximal fuel consumption calculated from installed capacity</li>
+<li>Absolute maximal fuel consumption calculated from available capacity</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="consumption-view-gas">
+<h2>Consumption view (Gas)<a class="headerlink" href="#consumption-view-gas" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows a time series of the gas consumption of the asset</p>
+</div>
+<div class="section" id="consumption-vs-production-view">
+<h2>Consumption vs production view<a class="headerlink" href="#consumption-vs-production-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows a time series of the electricity production and consumption of the selected asset, as well as the running capacity.</p>
+</div>
+<div class="section" id="contract-view">
+<h2>Contract view<a class="headerlink" href="#contract-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows the result of the financial asset, as a time series</p>
+</div>
+<div class="section" id="production-cost-view">
+<h2>Production cost view<a class="headerlink" href="#production-cost-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows the time series of the production cost of the selected asset, as a stacked chart that cumulates the following costs:
+- CO2 emission cost
+- Consumption cost
+- Fuel consumption cost
+- MFFR downward reserve cost
+- MFFR up not running cost
+- MFFR upward reserve cost
+- Production cost
+- Running cost
+- Start up cost
+- Storage cost
+- Synchronized downward reserve cost
+- Synchronized upward reserve cost</p>
+</div>
+<div class="section" id="production-view-gas">
+<h2>Production view (Gas)<a class="headerlink" href="#production-view-gas" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows a time series of the gas production of the asset as well as levels of minimal generation and available capacity.</p>
+</div>
+<div class="section" id="production-view">
+<h2>Production view<a class="headerlink" href="#production-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows a combination of time series as stacks and lines</p>
+<dl class="docutils">
+<dt>Stacks:</dt>
+<dd><ul class="first last simple">
+<li>Non reserved generation</li>
+<li>Downward MFRR</li>
+<li>Downward Synchronized Reserve</li>
+<li>Upward Synchronized Reserve</li>
+<li>Upward MFRR</li>
+</ul>
+</dd>
+<dt>Lines:</dt>
+<dd><ul class="first last simple">
+<li>Generation capacity</li>
+<li>Available capacity</li>
+<li>Running Bound</li>
+<li>Generation level</li>
+<li>Minimal Generation level</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="storage-view">
+<h2>Storage view<a class="headerlink" href="#storage-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows a combination of time series as stacks and lines</p>
+<dl class="docutils">
+<dt>Stacks:</dt>
+<dd><ul class="first last simple">
+<li>Production</li>
+<li>Fixed demand</li>
+<li>Consumption</li>
+<li>Fixed supply</li>
+<li>Bounded supply</li>
+</ul>
+</dd>
+<dt>Lines:</dt>
+<dd><ul class="first last simple">
+<li>Maximum storage capacity</li>
+<li>Available storage capacity</li>
+<li>Storage level</li>
+<li>Minimal storage level</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="transmission-consumption-view">
+<h2>Transmission consumption view<a class="headerlink" href="#transmission-consumption-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows a time series of the consumption of the selected transmission asset as well as the available consumption capacity</p>
+</div>
+<div class="section" id="transmission-production-view">
+<h2>Transmission production view<a class="headerlink" href="#transmission-production-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>test case</li>
+<li>asset</li>
+<li>data</li>
+</ul>
+</dd>
+</dl>
+<p>This view shows a time series of the generation of the selected transmission asset as well as the available production capacity</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dpIndicatorsDoc.html" class="btn btn-neutral float-right" title="Delivery Points indicators" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="decoratorDoc.html" class="btn btn-neutral" title="Decorators" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, European Commission.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'V1.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/highlight.pack.js"></script>
+      <script type="text/javascript" src="_static/toc.js"></script>
+      <script type="text/javascript" src="_static/initHighlightingOnLoad.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

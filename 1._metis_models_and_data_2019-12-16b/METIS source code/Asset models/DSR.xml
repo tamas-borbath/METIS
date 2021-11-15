@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="DSR" label="DSR" picture="pictures/DSR.png" type="Physical" tags="MODULE:RESERVE EXTRA" doc="Demand side response (reserve) configuration">
+	
+	<Behavior id="RESERVE"           label="Reserve"                                       />
+	<Behavior id="SYNC_RESERVE_UP"   label="Participation to upward synchronized reserve"  />
+	<Behavior id="SYNC_RESERVE_DOWN" label="Participation to downward synchronized reserve"/>
+	<Behavior id="MFRR_UP"           label="Participation to upward mFRR"                  />
+	<Behavior id="MFRR_DOWN"         label="Participation to downward mFRR"                />
+	
+	<EnergyDelivery name="SYNC_RESERVE_UP"   default="syncResUp"   unit="@POWER" behaviors="RESERVE and SYNC_RESERVE_UP"/>
+	<EnergyDelivery name="SYNC_RESERVE_DOWN" default="syncResDown" unit="@POWER" behaviors="RESERVE and SYNC_RESERVE_DOWN"/>
+	<EnergyDelivery name="MFRR_UP"           default="mfrrResUp"   unit="@POWER" behaviors="RESERVE and MFRR_UP"/>
+	<EnergyDelivery name="MFRR_DOWN"         default="mfrrResDown" unit="@POWER" behaviors="RESERVE and MFRR_DOWN"/>
+	
+	<AssetData id="_pmax"                       type="Double" default="0.0" show="true" editable="true" unit="@POWER"           label="Rebated pmax"                          behaviors="RESERVE"                                            doc="Installed power capacity"/>
+	<AssetData id="_syncReserveProcurementCost" type="Double" default="0.0" show="true" editable="true" unit="@CURRENCY/@POWER" label="Synchronized reserve procurement cost" behaviors="RESERVE and (SYNC_RESERVE_UP or SYNC_RESERVE_DOWN)" doc="Synchronized reserve procurement cost, for up and downward reserve"/>
+	<AssetData id="_mfrrProcurementCost"        type="Double" default="0.0" show="true" editable="true" unit="@CURRENCY/@POWER" label="mFRR reserve procurement cost"         behaviors="RESERVE and (MFRR_UP or MFRR_DOWN)"                 doc="mFRR reserve procurement cost, for up and downward reserve"/>
+	
+	<Models>
+		<Model id="Full">
+<![CDATA[
+
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+addDSRReserveProduction(asset, stateON)
+finalize(stateON)
+
+]]>
+</Model>
+</Models>
+</AssetModel>

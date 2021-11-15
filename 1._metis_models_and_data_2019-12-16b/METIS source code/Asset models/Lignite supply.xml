@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Lignite supply" label="Lignite supply" picture="pictures/Lignite supply.png" type="financial" tags="SUPPLY,CONTRACT,FUEL_SUPPLY" doc="Lignite supply">
+	<EnergyDelivery id="E" default="lignite" unit="@ENERHEATVALUE"/>
+	<AssetData id="_price" 	type="Double" default="15" show="true" editable="true" label="Price" unit="@CURRENCY/@ENERHEATVALUE" doc="Price"/>
+	<Models>
+	<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state OK
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+addEnergyCost(stateON, asset.getParameter('E'), False, asset.getData('_price'))
+MODEL.addState(stateON)
+
+]]>
+	</Model>
+	</Models>
+</AssetModel>

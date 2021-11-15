@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Generic Storage" label="Generic Storage" picture="pictures/Generic Storage.png" type="Physical" tags="PRODUCTION,CONSUMPTION,STORAGE,RESERVE_PRODUCTION,RESERVE_WITHOUT_CLUSTER,QUICK_START" doc="Generic asset to gather storage asset">
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization" default="false"/>
+	<Behavior id="DISCHARGE_TIMES"  label="Use discharge times"   default="false"/>
+	<Behavior id="RESERVE"          label="Reserve"               default="false"/>
+	
+	<EnergyPickup   name="CONSUMPTION" default="electricity" unit="@POWER"/>
+	<EnergyDelivery name="PRODUCTION"  default="electricity" unit="@POWER"/>
+	<EnergyDelivery name="SYNC_RESERVE_UP"   default="syncResUp"   unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="SYNC_RESERVE_DOWN" default="syncResDown" unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="MFRR_UP"           default="mfrrResUp"   unit="@POWER" behaviors="RESERVE"/>
+	<EnergyDelivery name="MFRR_DOWN"         default="mfrrResDown" unit="@POWER" behaviors="RESERVE"/>
+	
+	<AssetData id="_capex"                type="Double" default="390000" show="true" editable="true" label="CAPEX (Pmax)"             unit="@CURRENCY/@POWER/Year" doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"                  type="Double" default="20000"  show="true" editable="true" label="Fixed Operating Costs"    unit="@CURRENCY/@POWER/Year" doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"                 type="Double" default="10"     show="true" editable="true" label="Pmax"                     unit="@POWER"                 behaviors="not OPTIM_PMAX" doc="Installed power capacity"/>
+	<AssetData id="_pmaxmin"              type="Double" default="0"      show="true" editable="true" label="Min Pmax"                 unit="@POWER"                 behaviors="OPTIM_PMAX" doc="Installed capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"              type="Double" default="10"     show="true" editable="true" label="Max Pmax"                 unit="@POWER"                 behaviors="OPTIM_PMAX" doc="Installed capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"         type="Double" default="1"      show="true" editable="true" label="Availability"             unit="%" doc="Available capacity, expressed as a percentage of the installed capacity"/>
+	<AssetData id="_productionCost"       type="Double" default="0"      show="true" editable="true" label="Production cost"          unit="@CURRENCY/@ENERGY" doc="Production cost (fuel cost not included)"/>
+	<!-- Storage -->
+	<AssetData id="_storageCapex"         type="Double" default="390000" show="true" editable="true" label="CAPEX (Storage)"          unit="@CURRENCY/@ENERGY/Year" doc="Capital expenditure for storage assets"/>
+	<AssetData id="_storageCapacity"      type="Double" default="80"     show="true" editable="true" label="Storage capacity"         unit="@ENERGY"                behaviors="(not DISCHARGE_TIMES)" doc="Storage capacity"/>
+	<AssetData id="_dischargeTime"        type="Double" default="8"      show="true" editable="true" label="Discharge time"           unit="h"                      behaviors="DISCHARGE_TIMES" doc="Discharge time"/>
+	<AssetData id="_storageAvailability"  type="Double" default="1"      show="true" editable="true" label="Storage availability"     unit="%" doc="Storage availability, expressed as a percentage of the installed storage capacity"/>
+	<AssetData id="_inputEfficiency"      type="Double" default="1"      show="true" editable="true" label="Input efficiency"         unit="" doc="Pumping efficiency"/>
+	<AssetData id="_outputEfficiency"     type="Double" default="0.8"    show="true" editable="true" label="Output efficiency"        unit="" doc="Turbining efficiency"/>
+	<AssetData id="_lossRate"             type="Double" default="0"      show="true" editable="true" label="Loss rate"                unit="" doc="Storage loss rate"/>
+	<!-- Reserve -->
+	<AssetData id="_maxShareSyncReserveUp"   type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to upward sync. reserve"      behaviors="RESERVE" doc="Maximal share of upward sync. reserve in running capacity"/>
+	<AssetData id="_maxShareSyncReserveDown" type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to downward sync. reserve"    behaviors="RESERVE" doc="Maximal share of downward sync. reserve in running capacity"/>
+	<AssetData id="_maxShareMfrrUp"          type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to upward reserve"            behaviors="RESERVE" doc="Maximal share of upward mFRR and sync. reserve in running capacity"/>
+	<AssetData id="_maxShareMfrrDown"        type="Double" default="1"    show="true" editable="true" unit="%"                label="Max share to downward reserve"          behaviors="RESERVE" doc="Maximal share of downward mFRR and sync. reserve in running capacity"/>
+	<AssetData id="_syncReserveUpCost"       type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of the upward sync. reserve"   behaviors="RESERVE" doc="Operating cost of the upward sync. reserve"/>
+	<AssetData id="_syncReserveDownCost"     type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of the downward sync. reserve" behaviors="RESERVE" doc="Operating cost of the downward sync. reserve"/>
+	<AssetData id="_mfrrUpCost"              type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of upward mFRR"                behaviors="RESERVE" doc="Operating cost of upward mFRR"/>
+	<AssetData id="_mfrrDownCost"            type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Op. cost of downward mFRR"              behaviors="RESERVE" doc="Operating cost of downward mFRR"/>
+	<AssetData id="_mfrrUpNotRunningCost"    type="Double" default="0.00" show="true" editable="true" unit="@CURRENCY/@POWER" label="Cost for not running upward mFRR"       behaviors="RESERVE" doc="Cost associated with the mfrr reserve procurement from non-running capacity"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+addEnergyProduction(asset, stateON)
+addEnergyConsumption(asset, stateON)
+addDischargeStock(asset, stateON, inputEfficiency="_inputEfficiency", outputEfficiency="_outputEfficiency", storageAvailability="_storageAvailability")
+addReserveProduction(asset, stateON, isQuickStart=True, isFleetModeEnabled=True)
+finalize(stateON)
+
+
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

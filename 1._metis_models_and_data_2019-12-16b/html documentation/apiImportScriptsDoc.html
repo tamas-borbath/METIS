@@ -1,0 +1,834 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Import scripts API documentation &mdash; METIS V1.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/atom-one-light.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/simpletree.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/parameters.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="METIS V1.4 documentation" href="index.html"/>
+        <link rel="prev" title="Import scripts" href="importScriptsDoc.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METIS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                V1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Asset models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libraryDoc.html">Library documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiDoc.html">API documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Indicators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kpiDoc.html">KPI documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoratorDoc.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assetViewsDoc.html">Asset views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpIndicatorsDoc.html">Delivery Points indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoneIndicatorsDoc.html">Zones indicators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Context actions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actionDoc.html">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Import scripts for context creation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="importScriptsDoc.html">Import scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Import scripts API documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">METIS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Import scripts API documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-importUtils">
+<span id="import-scripts-api-documentation"></span><h1>Import scripts API documentation<a class="headerlink" href="#module-importUtils" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="importUtils.addBehaviors">
+<code class="descname">addBehaviors</code><span class="sig-paren">(</span><em>scope</em>, <em>behavior</em>, <em>infos</em>, <em>idFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>zoneFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>typeFilter=</em> <em> <paramValue>'.*'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.addBehaviors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a behavior to a container of assets/contracts/transmissions/modeObjects for a given scope</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scope</strong> (<em>string</em>) &#8211; scope name</li>
+<li><strong>behavior</strong> (<em>string</em>) &#8211; behavior name</li>
+<li><strong>infos</strong> (<em>InfosContainer</em>) &#8211; infos container (possible type for infos are assets/contracts/transmissions/modeObject)</li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the info name)</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter</li>
+<li><strong>typeFilter</strong> (<em>list of string, regex</em>) &#8211; info type filter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.allButFilter">
+<code class="descname">allButFilter</code><span class="sig-paren">(</span><em>elementsToRemove</em>, <em>exactMatch=</em> <em> <paramValue>True</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.allButFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a regex filter that excludes all patterns (either strings of regex) of the <strong>elementsToRemove</strong> list.</p>
+<dl class="docutils">
+<dt>If <strong>exactMatch</strong> = True:</dt>
+<dd><p class="first">The regex returned will exclude a string if one of the elements in <em>elementsToRemove</em> list matches <strong>exactly the string</strong>.</p>
+<blockquote class="last">
+<div><p><strong>Example</strong> : <cite>elementsToRemove = [&#8216;old&#8217;,&#8217;new&#8217;]</cite>.</p>
+<p>&#8216;old&#8217; string will not match the returned regex, but either &#8216;assetold&#8217; or &#8216;oldasset&#8217; will.</p>
+</div></blockquote>
+</dd>
+<dt>If <strong>exactMatch</strong> = False:</dt>
+<dd><p class="first">The regex returned will exclude a string if one of the elements in <em>elementsToRemove</em> list matches <strong>part of the string</strong>.</p>
+<blockquote class="last">
+<div><p><strong>Example</strong> : <cite>elementsToRemove = [&#8216;old&#8217;,&#8217;new&#8217;]</cite>.</p>
+<p>&#8216;old&#8217; string will not match the returned regex, and neither &#8216;assetold&#8217;, nor &#8216;oldasset&#8217; will.</p>
+</div></blockquote>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>elementsToRemove</strong> (<em>list of str</em>) &#8211; list of patterns to remove</li>
+<li><strong>exactMatch</strong> (<em>Boolean</em>) &#8211; Boolean to decide if the returned regex should excludes exactly or partially elements of <em>elementsToRemove</em> list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">regex</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.convertListToRegex">
+<code class="descname">convertListToRegex</code><span class="sig-paren">(</span><em>listOfElement</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.convertListToRegex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a regex that match any pattern present in <strong>listOfElement</strong>.</p>
+<p>If <code class="code docutils literal"><span class="pre">listOfElement</span> <span class="pre">=</span> <span class="pre">['elt1','elt2',...,'eltn']</span></code>, it returns the regex <code class="code docutils literal"><span class="pre">'elt1|elt2|...|eltn'</span></code></p>
+<p>If <strong>listOfElement</strong> is already a string, it returns it without modifications</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listOfElement</strong> (<em>list of str (or str)</em>) &#8211; list of elements</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">regex</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.createContext">
+<code class="descname">createContext</code><span class="sig-paren">(</span><em>contextName</em>, <em>assetsInfos</em>, <em>contractsInfos</em>, <em>transmissionsInfos</em>, <em>modelObjectInfos</em>, <em>zonesInfos</em>, <em>temporalInfos</em>, <em>temporalDataMapping</em>, <em>startDate</em>, <em>numTimeSteps</em>, <em>timeStepDuration</em>, <em>operationalHorizon</em>, <em>tacticHorizon</em>, <em>timeZone=</em> <em> <paramValue>'Etc/GMT-1'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.createContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a context in the current study with name <strong>contextName</strong></p>
+<p><strong>1. Assets creation</strong></p>
+<p>This function creates a scenario with the zones listed in <strong>zonesInfos</strong>, with the different assets listed in <strong>assetsInfos</strong>, <strong>contractsInfos</strong>, <strong>transmissionsInfos</strong> and <strong>modelObjectInfos</strong>.</p>
+<p><strong>2. Temporal information</strong></p>
+<p>All required temporal infos (for example a power demand profile, or a renewable availability) are loaded from <strong>temporalInfos</strong>. The number of weather realizations that should be loaded and the version of the data that should be used are defined in <strong>temporalDataMapping</strong>.
+To create this mapping dictionary, use the <a class="reference internal" href="#importUtils.createTemporalDataMapping" title="importUtils.createTemporalDataMapping"><code class="xref any py py-func docutils literal"><span class="pre">createTemporalDataMapping</span></code></a> method.</p>
+<p><strong>3. Simulation parameters</strong></p>
+<p>The temporal period of the context is defined with several parameters : it starts at <strong>startDate</strong>, with <strong>numTimeSteps</strong> temporal time steps (for example 365 for a context of one year with daily data). The time step duration is defined in <strong>timeStepDuration</strong> (expressed in number of minutes), and the time zone with <strong>timeZone</strong>.
+Operational and tactical horizon are defined with <strong>operationalHorizon</strong> and <strong>tacticHorizon</strong> parameters (Please refer to the technical documentation for more information about the different horizons of the simulation).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>contextName</strong> (<em>str</em>) &#8211; Name of the context</li>
+<li><strong>assetsInfos</strong> (<em>AssetInfoContainer</em>) &#8211; list of AssetInfo</li>
+<li><strong>contractsInfos</strong> (<em>ContractInfoContainer</em>) &#8211; list of ContractInfo</li>
+<li><strong>transmissionsInfos</strong> (<em>TransmissionInfoContainer</em>) &#8211; list of TransmissionInfo</li>
+<li><strong>modelObjectInfos</strong> (<em>modelObjectInfoContainer</em>) &#8211; list of ModelObjectInfo</li>
+<li><strong>zonesInfos</strong> (<em>ZonesInfosContainer</em>) &#8211; list of ZonesInfo</li>
+<li><strong>temporalInfos</strong> (<em>TemporalInfosContainer</em>) &#8211; Temporal infos</li>
+<li><strong>temporalDataMapping</strong> (<em>dict</em>) &#8211; mapping dictionary</li>
+<li><strong>startDate</strong> (<em>java.util.Date</em>) &#8211; Starting date of the simulation</li>
+<li><strong>numTimeSteps</strong> (<em>int</em>) &#8211; Number of time steps of the simulation</li>
+<li><strong>timeStepDuration</strong> (<em>int</em>) &#8211; Time steps duration in minutes</li>
+<li><strong>operationalHorizon</strong> (<em>int</em>) &#8211; Operational horizon</li>
+<li><strong>tacticHorizon</strong> (<em>int</em>) &#8211; Tactical horizon</li>
+<li><strong>timeZone</strong> (<em>str</em>) &#8211; time zone of the temporal data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.createTemporalDataMapping">
+<code class="descname">createTemporalDataMapping</code><span class="sig-paren">(</span><em>testCaseList</em>, <em>year</em>, <em>version_DB</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.createTemporalDataMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the mapping for temporal data, according to the target Year, the test case list and the version of the data that should be imported</p>
+<p>Please note that this mapping should be consistent with what is included in the loadaded temporal data. Then, if a required data does not have the specified test cases and version_DB (&#8220;Source&#8221; tag in the DB-Temporal.csv file), the import process will fail.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>testCaseList</strong> (<em>list of string</em>) &#8211; list of test cases that should be imported</li>
+<li><strong>year</strong> (<em>int</em>) &#8211; Target year of the context</li>
+<li><strong>version_DB</strong> (<em>string</em>) &#8211; Version used in the DataBase (&#8220;Source&#8221; tag in the DB-Temporal.csv file)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mapping dictionary</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.infosFilter">
+<code class="descname">infosFilter</code><span class="sig-paren">(</span><em>infos</em>, <em>idFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>zoneFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>typeFilter=</em> <em> <paramValue>'.*'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.infosFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select elements from <strong>infos</strong> according to the id, zone and type filters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>infos</strong> (<em>InfosContainer</em>) &#8211; list of infos (possible type for infos are assets/contracts/transmissions/modeObject)</li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the info name)</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter</li>
+<li><strong>typeFilter</strong> (<em>list of string, regex</em>) &#8211; info type filter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">selected infos</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">InfosContainer (same type as infos)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.loadModelObjects">
+<code class="descname">loadModelObjects</code><span class="sig-paren">(</span><em>modelObjectFilePath</em>, <em>idFilter</em>, <em>modelObjectTypeFilter</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.loadModelObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load model objects data from an Excel file, and return the ones matching the specified ID and type filters</p>
+<dl class="docutils">
+<dt>All filters can either be:</dt>
+<dd><ul class="first last simple">
+<li><strong>a list of string</strong>. In this case, all model objects matching one of the string are selected</li>
+<li><strong>a regex</strong>. In this case, all model objects matching the given regex are selected</li>
+</ul>
+</dd>
+<dt>Example :</dt>
+<dd><ul class="first last simple">
+<li><code class="code docutils literal"><span class="pre">modelObjectTypeFilter</span> <span class="pre">=</span> <span class="pre">['Reserve</span> <span class="pre">Dimensioning','Reserve</span> <span class="pre">Symmetry</span> <span class="pre">Requirement']</span></code> : select model objects whose type is Reserve Dimensioning or Reserve Symmetry Requirement</li>
+<li><code class="code docutils literal"><span class="pre">modelObjectTypeFilter</span> <span class="pre">=</span> <span class="pre">'Reserve.*'</span></code> : select model objects whose types match the given regex, in this case this means the ones starting with &#8220;Reserve&#8221; (eg &#8220;Reserve Dimensioning&#8221;, or &#8220;Reserve Symmetry Requirement&#8221;)</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>modelObjectFilePath</strong> (<em>string</em>) &#8211; Path to the model objects Excel file</li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the model object name)</li>
+<li><strong>modelObjectTypeFilter</strong> (<em>list of string, regex</em>) &#8211; model object type filter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of ModelObjectInfo</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">modelObjectInfoContainer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.loadScenarioAssets">
+<code class="descname">loadScenarioAssets</code><span class="sig-paren">(</span><em>assetFilePath</em>, <em>idFilter</em>, <em>zoneFilter</em>, <em>assetTypeFilter</em>, <em>temporalInfos</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.loadScenarioAssets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load assets data from an Excel file, and return the ones matching the specified ID, zones and type ID filters.</p>
+<dl class="docutils">
+<dt>All filters can either be:</dt>
+<dd><ul class="first last simple">
+<li><strong>a list of string</strong>. In this case, all assets matching one of the string are selected</li>
+<li><strong>a regex</strong>. In this case, all assets matching the given regex are selected</li>
+</ul>
+</dd>
+<dt>Example :</dt>
+<dd><ul class="first last simple">
+<li><code class="code docutils literal"><span class="pre">assetTypeFilter</span> <span class="pre">=</span> <span class="pre">['CCGT','OCGT']</span></code> : select assets whose type is CCGT or OCGT</li>
+<li><code class="code docutils literal"><span class="pre">assetTypeFilter</span> <span class="pre">=</span> <span class="pre">'Hydro.*'</span></code> : select assets whose types match the given regex, in this case this means the ones starting with &#8220;Hydro&#8221; (eg &#8220;Hydro fleet&#8221;, or &#8220;Hydro RoR fleet&#8221;)</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>assetFilePath</strong> (<em>string</em>) &#8211; Path to the asset Excel file</li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the asset name)</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter</li>
+<li><strong>assetTypeFilter</strong> (<em>list of string, regex</em>) &#8211; asset type filter</li>
+<li><strong>temporalInfos</strong> (<em>TemporalInfosContainer</em>) &#8211; Temporal infos</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of AssetInfo</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">AssetInfoContainer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.loadScenarioContracts">
+<code class="descname">loadScenarioContracts</code><span class="sig-paren">(</span><em>contractFilePath</em>, <em>idFilter</em>, <em>zoneFilter</em>, <em>contractTypeFilter</em>, <em>temporalInfos</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.loadScenarioContracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load contracts data from an Excel file, and return the ones matching the specified ID, zones and type ID filters.</p>
+<dl class="docutils">
+<dt>All filters can either be:</dt>
+<dd><ul class="first last simple">
+<li><strong>a list of string</strong>. In this case, all contracts matching one of the string are selected</li>
+<li><strong>a regex</strong>. In this case, all contracts matching the given regex are selected</li>
+</ul>
+</dd>
+<dt>Example :</dt>
+<dd><ul class="first last simple">
+<li><code class="code docutils literal"><span class="pre">contractTypeFilter</span> <span class="pre">=</span> <span class="pre">['Well','Power</span> <span class="pre">demand']</span></code> : select contracts whose type is Well or Power demand</li>
+<li><code class="code docutils literal"><span class="pre">contractTypeFilter</span> <span class="pre">=</span> <span class="pre">'.*supply'</span></code> : select contracts whose types match the given regex, in this case this means the ones ending with &#8220;supply&#8221; (eg &#8220;Gas supply&#8221;, or &#8220;Coal supply&#8221;)</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>contractFilePath</strong> (<em>string</em>) &#8211; Path to the contract Excel file</li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the contract name)</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter</li>
+<li><strong>contractTypeFilter</strong> (<em>list of string, regex</em>) &#8211; contract type filter</li>
+<li><strong>temporalInfos</strong> (<em>TemporalInfosContainer</em>) &#8211; Temporal infos</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of ContractInfo</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ContractInfoContainer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.loadScenarioTransmissions">
+<code class="descname">loadScenarioTransmissions</code><span class="sig-paren">(</span><em>transmissionFilePath</em>, <em>idFilter</em>, <em>zoneFilter</em>, <em>transmissionTypeFilter</em>, <em>temporalInfos</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.loadScenarioTransmissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load transmissions data from an Excel file, and return the ones matching the specified ID, zones and type ID filters.</p>
+<dl class="docutils">
+<dt>All filters can either be:</dt>
+<dd><ul class="first last simple">
+<li><strong>a list of string</strong>. In this case, all transmissions matching one of the string are selected</li>
+<li><strong>a regex</strong>. In this case, all transmissions matching the given regex are selected</li>
+</ul>
+</dd>
+<dt>Example :</dt>
+<dd><ul class="first last simple">
+<li><code class="code docutils literal"><span class="pre">transmissionTypeFilter</span> <span class="pre">=</span> <span class="pre">['Transmissions']</span></code> : select transmissions whose  type is Transmissions</li>
+<li><code class="code docutils literal"><span class="pre">transmissionTypeFilter</span> <span class="pre">=</span> <span class="pre">'.*supply'</span></code> : select transmissions whose types match the given regex, in this case this means the ones ending with &#8220;supply&#8221; (eg &#8220;Gas supply&#8221;, or &#8220;Coal supply&#8221;)</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>transmissionFilePath</strong> (<em>string</em>) &#8211; Path to the transmissions Excel file</li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the transmissions name)</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter (both input and output zones of the transmission should match zoneFilter)</li>
+<li><strong>transmissionTypeFilter</strong> (<em>list of string, regex</em>) &#8211; transmission type filter</li>
+<li><strong>temporalInfos</strong> (<em>TemporalInfosContainer</em>) &#8211; Temporal infos</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of TransmissionInfo</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">TransmissionInfoContainer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.loadTemporalData">
+<code class="descname">loadTemporalData</code><span class="sig-paren">(</span><em>temporalDataPath</em>, <em>targetYear</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.loadTemporalData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load temporal data from a temporal database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>temporalDataPath</strong> (<em>string</em>) &#8211; path to the temporal database</li>
+<li><strong>targetYear</strong> (<em>int</em>) &#8211; year that should be displayed in the Graphical User Interface</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">TemporalInfosContainer</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The temporal database must follow a specific format : the <strong>temporalDataPath</strong> data folder must contain one folder named <em>DB-temporal</em> and a csv file named <em>DB-temporal.csv</em>.
+If multiple csv files are present in the <strong>temporalDataPath</strong> data folder, only the last one in alphabetical order is considered.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">So far the year present in the dataBase is ignored during the import. Then the prevailing year is the <strong>targetYear</strong>, and if 
+the dataBase year is different, the year is shifted to the <strong>target year</strong>.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.loadZones">
+<code class="descname">loadZones</code><span class="sig-paren">(</span><em>zoneFilePath</em>, <em>shapefileID</em>, <em>zoneFilter</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.loadZones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load zones from a shapefile, and return the ones whose field <strong>shapefileID</strong> matches the specifed zone filter</p>
+<dl class="docutils">
+<dt>zoneFilter can either be:</dt>
+<dd><ul class="first last simple">
+<li><strong>a list of string</strong>. In this case, all zones matching one of the string are selected</li>
+<li><strong>a regex</strong>. In this case, all model objects matching the given regex are selected</li>
+</ul>
+</dd>
+<dt>Example :</dt>
+<dd><ul class="first last simple">
+<li><code class="code docutils literal"><span class="pre">zoneFilter</span> <span class="pre">=</span> <span class="pre">['AT','DE']</span></code> : select zones whose field <strong>shapefileID</strong> is equal to AT or DE</li>
+<li><code class="code docutils literal"><span class="pre">zoneFilter</span> <span class="pre">=</span> <span class="pre">'B.*'</span></code> : select zones whose fields <strong>shapefileID</strong> match the given regex, in this case this means the ones starting with &#8220;B&#8221; (eg &#8220;BE&#8221;, or &#8220;BG&#8221;)</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>zoneFilePath</strong> (<em>string</em>) &#8211; Path to the shapefile</li>
+<li><strong>shapefileID</strong> (<em>string</em>) &#8211; shapefileID is the name of the field that should be used to filter zone in the shapefile</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of ZonesInfo</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ZonesInfosContainer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.mergeInfos">
+<code class="descname">mergeInfos</code><span class="sig-paren">(</span><em>infos1</em>, <em>infos2</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.mergeInfos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge infos2 into infos1. Please note that this is a in-place merge into infos1 container</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the same info is present in both infos1 and infos2 (ie two infos with the same ID), then the ones from infos2 are ignored.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>infos1</strong> (<em>InfosContainer (possible info container type : zone, temporal, asset, contract, transmission, modelObject)</em>) &#8211; first infos containter</li>
+<li><strong>infos2</strong> (<em>InfosContainer (possible info container type : zone, temporal, asset, contract, transmission, modelObject)</em>) &#8211; second infos containter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Merged temporal infos (since the function is an in-place merge, it only returns the reference to infos1)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">InfosContainer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.multiplyParameter">
+<code class="descname">multiplyParameter</code><span class="sig-paren">(</span><em>infos</em>, <em>parameter</em>, <em>factor</em>, <em>idFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>zoneFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>typeFilter=</em> <em> <paramValue>'.*'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.multiplyParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply a parameter by the given <strong>factor</strong> for all infos matching the specified filters (ID, zone and type)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>infos</strong> (<em>InfosContainer</em>) &#8211; Infos containter (possible type for infos are assets/contracts/transmissions/modeObject)</li>
+<li><strong>parameter</strong> (<em>string</em>) &#8211; parameter name</li>
+<li><strong>value</strong> (<em>float</em>) &#8211; Multiplying factor</li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the info name)</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter</li>
+<li><strong>typeFilter</strong> (<em>list of string, regex</em>) &#8211; info type filter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.resetBehaviors">
+<code class="descname">resetBehaviors</code><span class="sig-paren">(</span><em>scope</em>, <em>infos</em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.resetBehaviors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset all behaviors (ie set their value to <em>False</em>) of each info of <strong>infos</strong> for the given <strong>scope</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scope</strong> (<em>string</em>) &#8211; scope name</li>
+<li><strong>infos</strong> (<em>InfosContainer</em>) &#8211; list of assets, contracts, transmissions whose behavior is initialized</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="importUtils.setInfosParameter">
+<code class="descname">setInfosParameter</code><span class="sig-paren">(</span><em>infos</em>, <em>parameter</em>, <em>value</em>, <em>idFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>zoneFilter=</em> <em> <paramValue>'.*'</paramValue> </em>, <em>typeFilter=</em> <em> <paramValue>'.*'</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#importUtils.setInfosParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set or modify a parameter value for infos matching the specified filters (ID, zone and type)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>infos</strong> (<em>InfosContainer</em>) &#8211; Infos containter (possible type for infos are assets/contracts/transmissions/modeObject)</li>
+<li><strong>parameter</strong> (<em>string</em>) &#8211; parameter name</li>
+<li><strong>value</strong> (<em>float</em>) &#8211; new value for <strong>parameter</strong></li>
+<li><strong>idFilter</strong> (<em>list of string, regex</em>) &#8211; ID filter (the ID is the info name)</li>
+<li><strong>zoneFilter</strong> (<em>list of string, regex</em>) &#8211; zone filter</li>
+<li><strong>typeFilter</strong> (<em>list of string, regex</em>) &#8211; info type filter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-metisUtils"></span><dl class="function">
+<dt id="metisUtils.saveScenarioData">
+<code class="descname">saveScenarioData</code><span class="sig-paren">(</span><em>modelObjectInfos</em>, <em>zonesListBeforeAggregation</em>, <em>zoneAggregationMap</em>, <em>assetsInfos</em>, <em>contractsInfos</em>, <em>temporalInfosContainer</em>, <em>temporalRealizations</em>, <em>year</em>, <em>version_DB</em><span class="sig-paren">)</span><a class="headerlink" href="#metisUtils.saveScenarioData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save various scenario data into a model object &#8220;Scenario data&#8221; of type &#8220;Scenario&#8221;. Most of them are used during the reserve sizing process.</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>_databaseTestcase</em> : Original test case number in the database</li>
+<li><em>_databaseYear</em> : target year of the scenario</li>
+<li><em>_databaseVersion</em> : Version used in the DataBase (&#8220;Source&#8221; tag in the DB-Temporal.csv file)</li>
+<li><em>_aggregatedZones</em> : Define for each new aggregated zone a <em>int ID</em></li>
+<li><em>_originalZones</em> : Specify for each zone (before aggregation) the <em>int ID</em> of the new aggregated zone they belong to</li>
+<li><em>_installedCapacities</em> : Installed capacities per zone of several technologies (&#8220;CCGT fleet&#8221;, &#8220;Coal fleet&#8221;, &#8220;Lignite fleet&#8221;, &#8220;Nuclear fleet&#8221;, &#8220;Solar fleet&#8221;, &#8220;Wind offshore fleet&#8221;, &#8220;Wind onshore fleet&#8221;)</li>
+<li><em>_meanDemands</em> : Mean demand per zone</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>modelObjectInfos</strong> (<em>modelObjectInfoContainer</em>) &#8211; List of model objects of the scenario</li>
+<li><strong>zonesListBeforeAggregation</strong> (<em>modelObjectInfoContainer</em>) &#8211; Original list of zone (before aggregation)</li>
+<li><strong>zoneAggregationMap</strong> (<em>dict</em>) &#8211; dictionary, whose keys are the new zone names and its elements are the corresponding aggregated zones</li>
+<li><strong>assetsInfos</strong> (<em>AssetInfoContainer</em>) &#8211; List of assets of the scenario</li>
+<li><strong>contractsInfos</strong> (<em>ContractInfoContainer</em>) &#8211; List of contracts of the scenario</li>
+<li><strong>temporalInfosContainer</strong> (<em>TemporalInfosContainer</em>) &#8211; Temporal infos of the scenario</li>
+<li><strong>temporalRealizations</strong> (<em>List of str</em>) &#8211; List of test cases of the scenario</li>
+<li><strong>year</strong> (<em>str</em>) &#8211; Target year of the scenario</li>
+<li><strong>version_DB</strong> (<em>string</em>) &#8211; Version used in the DataBase (&#8220;Source&#8221; tag in the DB-Temporal.csv file)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The &#8220;Scenario data&#8221; model object</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ModelObject of type &#8220;Scenario&#8221;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-aggregationUtils"></span><dl class="function">
+<dt id="aggregationUtils.completeAggregation">
+<code class="descname">completeAggregation</code><span class="sig-paren">(</span><em>assetsInfos</em>, <em>contractsInfos</em>, <em>transmissionsInfos</em>, <em>zonesInfos</em>, <em>zoneToAggregateDict</em>, <em>temporalInfos</em>, <em>assetsTypesFilter</em>, <em>contractsTypesFilter</em>, <em>transmissionsTypesFilter</em>, <em>aggregationTypesToSeparate=</em> <em> <paramValue>None</paramValue> </em><span class="sig-paren">)</span><a class="headerlink" href="#aggregationUtils.completeAggregation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate several zones into a single one, and merge their assets to get a single asset for each type in the newly created aggregated zone.</p>
+<p>The aggregation is applied for all assets of the same type (from <strong>assetsInfos</strong>, <strong>contractsInfos</strong> and <strong>transmissionsInfos</strong>) belonging to the same aggregated zone (defined in <strong>zoneToAggregateDict</strong>).
+The asset parameters are aggregated according to specific rules, in order to have for the aggregated asset the same behaviour as the separated assets.</p>
+<p><strong>1. Format of zoneToAggregateDict</strong></p>
+<p>Specify how zones should be aggregated together.</p>
+<p><strong>zoneToAggregateDict</strong> is a dictionary, whose keys are the names of the aggregated zones, and the value for each aggregated zone is the list of zones that should be aggregated together :</p>
+<blockquote>
+<div><ul class="simple">
+<li>example : <code class="code docutils literal"><span class="pre">{'Iberia':</span> <span class="pre">['ES','PT'],</span> <span class="pre">'NordPool':</span> <span class="pre">['NO','FI','SE']</span> <span class="pre">}</span></code></li>
+</ul>
+</div></blockquote>
+<p>The new aggregated zones (e.g &#8216;Iberia&#8217;, &#8216;NordPool&#8217;) should not contain any underscore &#8221; _ &#8221; in their name.</p>
+<p><strong>2. Partial aggregation</strong></p>
+<p>It is possible to aggregate only a subset of all assets, depending on their type. In this case, other assets will not be aggregated (but will still belong to the newly aggregated zone).
+These type filters should be defined in <strong>assetsTypesFilter</strong>, <strong>contractsTypesFilter</strong> and <strong>transmissionsTypesFilter</strong> parameters.</p>
+<p>All filters can either be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>a list of string</strong>. In this case, all assets matching one of the string are selected</li>
+<li><strong>a regex</strong>. In this case, all assets matching the given regex are selected</li>
+</ul>
+</div></blockquote>
+<p>Example :</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="code docutils literal"><span class="pre">assetTypeFilter</span> <span class="pre">=</span> <span class="pre">['CCGT','OCGT']</span></code> : select assets whose type is CCGT or OCGT</li>
+<li><code class="code docutils literal"><span class="pre">assetTypeFilter</span> <span class="pre">=</span> <span class="pre">'Hydro.*'</span></code> : select assets whose types match the given regex, in this case this means the ones starting with &#8220;Hydro&#8221; (eg &#8220;Hydro fleet&#8221;, or &#8220;Hydro RoR fleet&#8221;)</li>
+</ul>
+</div></blockquote>
+<p><strong>3. Aggregate assets based on their names</strong></p>
+<p>For assets in <strong>assetsInfos</strong> (not available for <strong>contractsInfos</strong> and <strong>transmissionsInfos</strong>), it is possible to have more than one aggregation category per asset type. This can be usefull to keep a distinction between different assets of the same type (for example Old and young CCGT present in all countries).</p>
+<p>The different categories are defined in <strong>aggregationTypesToSeparate</strong>. A list should be provided for each asset type, whose values represent the different categories. All assets whose name include the given category will be aggregated together.</p>
+<p><strong>aggregationTypesToSeparate</strong> should have the following form:</p>
+<blockquote>
+<div><p><code class="code docutils literal"><span class="pre">aggregationTypesToSeparate</span> <span class="pre">=</span> <span class="pre">{&quot;CCGT</span> <span class="pre">Fleet&quot;</span> <span class="pre">:</span> <span class="pre">[&quot;old&quot;,</span> <span class="pre">&quot;medium&quot;,</span> <span class="pre">&quot;young&quot;],</span> <span class="pre">&quot;OCGT</span> <span class="pre">Fleet&quot;</span> <span class="pre">:</span> <span class="pre">[&quot;old&quot;,</span> <span class="pre">&quot;medium&quot;,</span> <span class="pre">&quot;young&quot;]}</span></code></p>
+<p>In this case, all assets of type &#8220;CCGT Fleet&#8221; whose name contains &#8220;old&#8221; would be aggregated together (for example, &#8220;CCGT_FR_old&#8221; and &#8220;CCGT_DE_old&#8221;)</p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For an asset whose type is listed in the aggregationTypesToSeparate dict, but whose name does not match any of the possible category, no aggregation is done. 
+This means that several assets from different countries could remain if their type is listed in the dict but their id does not match any category. (for example &#8220;state-of-the-art_CCGT_FR&#8221; and &#8220;state-of-the-art_CCGT_DE&#8221; with the example of the section 2)</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>assetsInfos</strong> (<em>AssetInfosContainer</em>) &#8211; Assets infos</li>
+<li><strong>contractsInfos</strong> (<em>ContractInfosContainer</em>) &#8211; Contracts infos</li>
+<li><strong>transmissionsInfos</strong> (<em>TransmissionInfosContainer</em>) &#8211; Transmissions infos</li>
+<li><strong>zonesInfos</strong> (<em>ZonesInfosContainer</em>) &#8211; Zones infos</li>
+<li><strong>zoneToAggregateDict</strong> (<em>dict of list</em>) &#8211; Dictionary whose keys are the names of the aggregated zones, and values are lists of original zones that should be aggregated together</li>
+<li><strong>temporalInfos</strong> (<em>TemporalInfosContainer</em>) &#8211; Temporal infos</li>
+<li><strong>assetTypeFilter</strong> (<em>list of string, regex</em>) &#8211; asset type filter</li>
+<li><strong>contractTypeFilter</strong> (<em>list of string, regex</em>) &#8211; contract type filter</li>
+<li><strong>transmissionsTypesFilter</strong> (<em>list of string, regex</em>) &#8211; transmission type filter</li>
+<li><strong>aggregationTypesToSeparate</strong> (<em>dict of list</em>) &#8211; Dictionnary of types to separate, with their repective name categories</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Newly aggregated [assetsInfos, contractsInfos, transmissionsInfos, zonesInfos] in a list of 4 elements</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="importScriptsDoc.html" class="btn btn-neutral" title="Import scripts" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, European Commission.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'V1.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/highlight.pack.js"></script>
+      <script type="text/javascript" src="_static/toc.js"></script>
+      <script type="text/javascript" src="_static/initHighlightingOnLoad.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

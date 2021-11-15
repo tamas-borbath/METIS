@@ -1,0 +1,1122 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>KPI documentation &mdash; METIS V1.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/atom-one-light.css" type="text/css" />
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/parameters.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="METIS V1.4 documentation" href="index.html"/>
+        <link rel="next" title="Decorators" href="decoratorDoc.html"/>
+        <link rel="prev" title="API documentation" href="apiDoc.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METIS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                V1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Asset models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libraryDoc.html">Library documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiDoc.html">API documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Indicators</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">KPI documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#average-production-at-peak-demand-wh">Average production at peak demand (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#border-exchange-surplus-euro">Border exchange surplus (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capacity-factor">Capacity factor (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#co2-emissions-t">CO2 emissions (t)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#congestion-hours-h">Congestion hours (h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#congestion-rent-euro">Congestion Rent (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consumer-surplus-euro">Consumer Surplus (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consumption-peak-wh">Consumption peak (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consumption-wh">Consumption (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#curtailment-cost-euro">Curtailment cost (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#curtailment-wh">Curtailment (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demand-peak-w">Demand peak (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demand-wh">Demand (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dispatchable-power-generation-capacity-w">Dispatchable power generation capacity (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expected-unserved-demand">Expected Unserved Demand (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expected-unserved-energy-wh">Expected Unserved Energy (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exports-and-imports-wh">Exports and imports (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flow-wh">Flow (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-capacity-w">Import capacity (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installed-capacities-w">Installed capacities (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#investment-analysis-euro">Investment Analysis (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#investment-costs-euro">Investment costs (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-payment-euro">Load payment (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loss-of-load-cost-euro">Loss of load cost (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loss-of-load-h">Loss Of Load (h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marginal-costs-statistics-euro-mwh">Marginal costs statistics (euro/MWh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marginal-costs-euro-mwh">Marginal costs (euro/MWh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-unused-production-capacity-wh">Minimum unused production capacity (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#net-demand-peak-w">Net demand peak (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#net-production-wh">Net Production (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#producer-surplus-euro">Producer surplus (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-costs-euro">Production costs (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-revenue-euro">Production revenue (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-wh">Production (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raw-demand-wh">Raw demand (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reserve-sizing-w">Reserve Sizing (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scarcity-price-hours-h">Scarcity Price Hours (h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#share-of-production-in-national-demand">Share of production in national demand (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storage-capacity-wh">Storage capacity (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storage-cycles-cycles">Storage cycles (cycles)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supply-wh">Supply (Wh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#total-costs-euro">Total costs (euro)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-capacities-w">Transmission capacities (W)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-usage">Transmission usage (%)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#welfare-euro">Welfare (euro)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decoratorDoc.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assetViewsDoc.html">Asset views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpIndicatorsDoc.html">Delivery Points indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoneIndicatorsDoc.html">Zones indicators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Context actions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actionDoc.html">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Import scripts for context creation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importScriptsDoc.html">Import scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiImportScriptsDoc.html">Import scripts API documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">METIS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>KPI documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kpi-documentation">
+<h1>KPI documentation<a class="headerlink" href="#kpi-documentation" title="Permalink to this headline">¶</a></h1>
+<p>KPIs (Key Performance Indicators) are annual indicators. They can be used to analyse a context and to compare several contexts from the same study.
+NB: Most of them need computation results and will show no data until results are available.</p>
+<p>The KPI view can be opened by clicking on this icon on the bottom-right of the screen :</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/kpiIcon.png"><img alt="context action view" src="_images/kpiIcon.png" style="width: 100.0px; height: 50.0px;" /></a>
+<p class="caption"><span class="caption-text">Click here to access KPI view</span></p>
+</div>
+<p>A large number of KPIs can also be displayed directly on the map with a value by country or by interconnection. See the decorators documentation page.</p>
+<span class="target" id="module-Average_production_at_peak_demand"></span><div class="section" id="average-production-at-peak-demand-wh">
+<h2>Average production at peak demand (Wh)<a class="headerlink" href="#average-production-at-peak-demand-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+<li>technology</li>
+</ul>
+</dd>
+</dl>
+<p>Average peak Production per delivery point and technology for a given energy</p>
+<div class="math">
+\[\small production_{dp, techno, energy} = \sum_{t \in peak period} production_{t, dp, techno, energy}\]</div>
+</div>
+<span class="target" id="module-Border_exchange_surplus"></span><div class="section" id="border-exchange-surplus-euro">
+<h2>Border exchange surplus (euro)<a class="headerlink" href="#border-exchange-surplus-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>main energy</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>This KPI will return No data on power contexts and gas contexts without import or export contracts as it only applies to gas import and export contracts.</p>
+<p>A border exchange surplus is defined as the surplus of model outsiders, that is all actors which are not explicitly represented but are aggregated into flexible import/export assets. 
+Flexible imports and exports are optimized during simulations along with the other supplies and consumptions: imports (respectively exports) level at each time step depend on the import costs (respectively export earnings) on one hand and the endogenous marginal supply cost on the other hand. 
+The border exchange surplus represents the benefit that an outside actor receives for selling its product on the modeled network (for flexible imports) or from buying it from the network (for flexible exports).</p>
+<p>The KPI thus computes the following:</p>
+<p>For a flexible import asset:</p>
+<div class="math">
+\[\small borderExchangeSurplus_{dp, energy, asset} = \small \sum_t (prod_t^{dp, energy, techno}.(margCost_t^{dp, energy} - importPrice^{dp, energy, techno})\]</div>
+<p>For a flexible export asset:</p>
+<div class="math">
+\[\small borderExchangeSurplus_{dp, energy, asset} = \small \sum_t (prod_t^{dp, energy, techno}.(exportPrice^{dp, energy, techno} - margCost_t^{dp, energy}\]</div>
+</div>
+<span class="target" id="module-Capacity_factor"></span><div class="section" id="capacity-factor">
+<h2>Capacity factor (%)<a class="headerlink" href="#capacity-factor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>technology</li>
+</ul>
+</dd>
+</dl>
+<p>Return the capacity factor, which is the mean annual usage of a given technology relative to its installed capacity in a given delivery point:</p>
+<div class="math">
+\[\small capacityFactor_{technology, dp} = \frac{mean_t(production_t^{technology, dp})}{installedCapacity^{technology, dp}}\]</div>
+</div>
+<span class="target" id="module-CO2_emissions"></span><div class="section" id="co2-emissions-t">
+<h2>CO2 emissions (t)<a class="headerlink" href="#co2-emissions-t" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual volumes of CO2 emissions (tons) associated to the energy (electricity + reserve) production relative to a given technology</p>
+<p>It is calculated as the sum over the hours, over the assets and over the energies, of the CO2 emissions/MWh per asset multiplied by the volume of produced energy:</p>
+<div class="math">
+\[\small CO2Emissions_{dp, techno, energy} = \sum_{t,assets} CO2perMWh_{t, dp, techno, energy}*producedEnergy_{t, dp, techno, energy}\]</div>
+<p>CO2 emissions due the reserve activation (balancing) are not calculated by this KPI.</p>
+</div>
+<span class="target" id="module-Congestion_hours"></span><div class="section" id="congestion-hours-h">
+<h2>Congestion hours (h)<a class="headerlink" href="#congestion-hours-h" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>transmission</li>
+</ul>
+</dd>
+</dl>
+<p>The number of congestion hours corresponds to the number of hours over the year during which an interconnection is saturated with respect to its available capacity.
+An interconnection is considered saturated when it reaches 99.99% of its available capacity.</p>
+</div>
+<span class="target" id="module-Congestion_rent"></span><div class="section" id="congestion-rent-euro">
+<h2>Congestion Rent (euro)<a class="headerlink" href="#congestion-rent-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>energy</li>
+<li>transmission line</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>The congestion rent is the benefit made when transferring energy from a zone to another. 
+The congestion rent of a transmission line from zone <span class="math">\(Z_1\)</span> to zone <span class="math">\(Z_2\)</span> is defined as the cost saved from using a production from another zone to meet a local demand:</p>
+<div class="math">
+\[\begin{split}\small congestionRent_{Z_1 -&gt; Z_2} = \sum_t (marginalCost_t^{Z_2} - marginalCost_t^{Z_1}).exchangedPower_t^{Z_1 -&gt; Z_2}\end{split}\]</div>
+<p>It is called congestion rent, because at time steps when a line is not saturated, marginal costs in the two extremities of the line converge and the surplus is 0.
+In other words, the rent is only derived from congestions.</p>
+<p>Since the result is given for each transmission, and that transmissions are directional (e.g. transmision <span class="math">\(Z_1 -&gt; Z_2\)</span> is different from transmision <span class="math">\(Z_2 -&gt; Z_1\)</span>), one must sum the results given
+for each direction in order to have the total congestion rent associated to a transmission between two zones:</p>
+<div class="math">
+\[\begin{split}\small congestionRent_{Z_1, Z_2} = congestionRent_{Z_1 -&gt; Z_2} + congestionRent_{Z_2 -&gt; Z_1}\end{split}\]</div>
+</div>
+<span class="target" id="module-Consumer_surplus"></span><div class="section" id="consumer-surplus-euro">
+<h2>Consumer Surplus (euro)<a class="headerlink" href="#consumer-surplus-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>A consumer surplus occurs when the consumer is willing to pay more for a given product than the current market price.</p>
+<p>In classic models, consumers&#8217; benefit equals the value of loss of load (VoLL), leading to the following formulation:</p>
+<div class="math">
+\[\small consumerSurplus_{dp, energy} = \sum_t (VoLL^{dp, energy} - marginalCost_t^{dp, energy}) \times demand_t^{dp, energy}\]</div>
+<p>For a given demand, the term <span class="math">\(\small \sum_t (VoLL.demand_t)\)</span> is a constant, which does not affect comparisons between two scenarios (that have the same demand). 
+As the VoLL is arbitrary, those comparisons are usually more interesting than absolute values.
+The consumer surplus indicator therefore uses the following formula:</p>
+<div class="math">
+\[\small consumerSurplus_{dp, energy} = \sum_t - marginalCost_t^{dp, energy} \times demand_t^{dp, energy}\]</div>
+<p>NB : The KPI should thus only be used in comparison mode (between scenarios) in order to have a proper meaning.</p>
+<p>In the formula above, <span class="math">\(\small demand\)</span> is the realized demand. 
+For non-flexible demand assets, the realized demand equals the raw demand. For flexible demand assets, which may also produce energy, we have :</p>
+<div class="math">
+\[\small realizedDemand_t^a = consumption_t^a - production_t^a \ ,\forall \ demand \ asset \ a\]</div>
+<p>In case of loss of load, part of this realized demand was not really matched. But it is included in the formula to substract to the consumer surplus the cost of not matching this demand.</p>
+<p>So when properly including flexible demands and the costs of load management, the consumer surplus becomes :</p>
+<div class="math">
+\[\small consumerSurplus_{dp, energy} = \sum_{a \ demand \ asset \ with [dpCons, energyCons]==[dp, energy]} production_t^a \times marginalCost_t^{dpProd, energyProd} - consumption_t^a \times marginalCost_t^{dpCons, energyCons} - assetCost_t^a\]</div>
+</div>
+<span class="target" id="module-Consumption_peak"></span><div class="section" id="consumption-peak-wh">
+<h2>Consumption peak (Wh)<a class="headerlink" href="#consumption-peak-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (including fuels)</li>
+<li>technology</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>Return the peak of energy demand for a given technology or contract.
+We here consider the flexible demand after optimization (using the consumption of the corresponding assets).</p>
+</div>
+<span class="target" id="module-Consumption"></span><div class="section" id="consumption-wh">
+<h2>Consumption (Wh)<a class="headerlink" href="#consumption-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (including fuels)</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual volumes of energy demand for a given technology or contract.
+We here consider the flexible demand after optimization (using the consumption of the corresponding assets).</p>
+</div>
+<span class="target" id="module-Curtailment_cost"></span><div class="section" id="curtailment-cost-euro">
+<h2>Curtailment cost (euro)<a class="headerlink" href="#curtailment-cost-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>The curtailement cost represents the cost, for the system, associated to curtailing or not using RES energy production. 
+The KPI thus computes the total cost associated to the sum of annual volumes of Renewable Energy Sources (RES) production that is curtailed and annual volumes of RES production that is not used, per technology.</p>
+<p>This cost is calculated by multplying the volume of RES production that is curtailed by the value for the system associated to this RES production, which, in the case of RES assets, 
+is the difference between the incentives and the production cost.</p>
+<p>The formula used is thus the following:</p>
+<div class="math">
+\[\small curtailmentCost_{RES technology} = \small \sum_t  installedCapa_{t}^{RES technology}*availability_{t}^{RES technology} - \small \sum_t prod_{t}^{RES technology})* \small RESproductionValue^{RES technology}\]</div>
+<p>Where:</p>
+<div class="math">
+\[\small RESproductionValue_{RES technology} = incentive_{RES technology} - productionCost_{RES technology}\]</div>
+<p>Results are given for electricity and gas production</p>
+</div>
+<span class="target" id="module-Curtailment"></span><div class="section" id="curtailment-wh">
+<h2>Curtailment (Wh)<a class="headerlink" href="#curtailment-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the sum of annual volumes of production that is curtailed and annual volumes of production that is not used, per technology.
+It is calculated as the difference between the possible RES production (i.e. the installed capacity times the availability) and the actual RES production, per delivery point, per technology:</p>
+<div class="math">
+\[\small curtailment_{technology} = \sum_{RES asset} (\sum_t  installedCapacity_{t, asset}^{technology}*availability_{t, asset}^{RES asset} - \sum_t production_{t, asset}^{technology})\]</div>
+</div>
+<span class="target" id="module-Demand_peak"></span><div class="section" id="demand-peak-w">
+<h2>Demand peak (W)<a class="headerlink" href="#demand-peak-w" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>test case</li>
+<li>energy</li>
+<li>demand type</li>
+</ul>
+</dd>
+</dl>
+<p>Return the maximum value of the demand over the year, for a given scope, delivery point, energy, test case and the demand asset type.
+NB : In case of flexible demand, we here consider realized demand (after optimization)</p>
+</div>
+<span class="target" id="module-Demand"></span><div class="section" id="demand-wh">
+<h2>Demand (Wh)<a class="headerlink" href="#demand-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>test case</li>
+<li>energy</li>
+<li>demand type</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual volumes of energy demand for a given technology or contract.
+We here consider the flexible demand after optimization (using the consumption of the corresponding assets).
+For asset &#8220;Electric Vehicles&#8221; with behavior Vehicule to grid, the demand is the difference between consumption and generation of the vehicles.</p>
+</div>
+<span class="target" id="module-Dispatchable_power_generation_capacity"></span><div class="section" id="dispatchable-power-generation-capacity-w">
+<h2>Dispatchable power generation capacity (W)<a class="headerlink" href="#dispatchable-power-generation-capacity-w" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity and gas)</li>
+<li>test case</li>
+<li>technology</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual mean dispatchable capacity per delivery point and technology, i.e. the mean capacity of assets that can be switched on at will (i.e. the mean capacity of assets other than &#8220;must-run&#8221; assets). 
+The mean dispatchable capacity is calculated as the sum over the dispatchable assets, of the installed capacity times the mean availability:</p>
+<div class="math">
+\[\small meanDispatchCapa_{dp} = \sum_{asset} installedCapa_{asset}^{dp}*mean_t(availability_{t, asset})\]</div>
+<p>Where <span class="math">\(\small meanDispatchCapa_{dp}\)</span> is the mean dispatchable capacity for a given dp and <span class="math">\(\small installedCapa_{asset}^{dp}\)</span> is the installed capacity of a dispatchable asset.</p>
+</div>
+<span class="target" id="module-Expected_Unserved_Demand"></span><div class="section" id="expected-unserved-demand">
+<h2>Expected Unserved Demand (%)<a class="headerlink" href="#expected-unserved-demand" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>The Expected Unserved Demand is a metric used to measure security of supply. This is the amount of electricity, gas or reserve demand that is expected not to be met by the production means during the year.
+It is calculated as the Loss Of Load volumes (LOL) expressed relatively to the corresponding annual demand volumes, in percentage. It can be calculated for each energy independently:</p>
+<div class="math">
+\[\small EENS_{dp, energy} = \frac {LOL_{dp, energy}}{demand_{dp, energy}} (\%)\]</div>
+<p>See the &#8216;Loss of load&#8217; KPI for further documentation about the loss of load.</p>
+</div>
+<span class="target" id="module-Expected_Unserved_Energy"></span><div class="section" id="expected-unserved-energy-wh">
+<h2>Expected Unserved Energy (Wh)<a class="headerlink" href="#expected-unserved-energy-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>The Expected Unserved Energy is the annual volume of energy (including reserves) that is not served, i.e. the annual volume of a given energy that is needed but is not delivered due to a lack of generation.</p>
+</div>
+<span class="target" id="module-Exports_and_imports"></span><div class="section" id="exports-and-imports-wh">
+<h2>Exports and imports (Wh)<a class="headerlink" href="#exports-and-imports-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+<li>data type (exports or imports)</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual volumes of energy imported and exported by a given delivery point.</p>
+</div>
+<span class="target" id="module-Flows"></span><div class="section" id="flow-wh">
+<h2>Flow (Wh)<a class="headerlink" href="#flow-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>transmission</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual volumes flowing through a considered transmission line (monodirectionnal)</p>
+</div>
+<span class="target" id="module-Import_capacity"></span><div class="section" id="import-capacity-w">
+<h2>Import capacity (W)<a class="headerlink" href="#import-capacity-w" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>This KPI will return No data on power contexts and gas contexts without import or export contracts as it only applies to gas import and export contracts.</p>
+<p>Return the import capacity of a given delivery point for a given energy and a given test case.</p>
+</div>
+<span class="target" id="module-Installed_capacities"></span><div class="section" id="installed-capacities-w">
+<h2>Installed capacities (W)<a class="headerlink" href="#installed-capacities-w" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the installed capacity of a given technology, for a given delivery point and a given test case.</p>
+</div>
+<span class="target" id="module-Investment_Analysis"></span><div class="section" id="investment-analysis-euro">
+<h2>Investment Analysis (euro)<a class="headerlink" href="#investment-analysis-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>energy</li>
+<li>test case</li>
+<li>production asset</li>
+</ul>
+</dd>
+</dl>
+<p>The Investment Analysis calculates the economic profitability of a given production asset in a given delivery point, defined as the difference between the producer surplus and the investment costs for this specific asset.</p>
+<p>The producer surplus is calculated as the benefit the producer receives for selling its product on the market.
+The investment costs is the sum of the Capital Expenditure (CAPEX) and Fixed Operating Cost (FOC):</p>
+<div class="math">
+\[\small investmentAnalysis_{asset} = \small \sum_t producerSurplus_{t, asset} - investmentCosts_{asset}\]</div>
+<p>with:</p>
+<div class="math">
+\[\small investmentCosts_{asset} = \small \sum_t installedCapacity^{asset}*(CAPEX^{asset} + FOC^{asset})\]</div>
+<p>and:</p>
+<div class="math">
+\[\small producerSurplus_{asset} = \small \sum_t (production_{t, asset}.marginalCost_{t, dp, energy}) - productionCost_{asset}\]</div>
+</div>
+<span class="target" id="module-Investment_costs"></span><div class="section" id="investment-costs-euro">
+<h2>Investment costs (euro)<a class="headerlink" href="#investment-costs-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the investment costs per technology, i.e. the cost associated to building a given technology. It is equal to the technology installed capacity times the sum of the CAPEX and Fixed Operating Cost (FOC):</p>
+<div class="math">
+\[\small investmentCosts_{technology, energy} = installedCapacity^{technology, energy}*(CAPEX^{technology, energy} + FOC^{technology, energy})\]</div>
+</div>
+<span class="target" id="module-Load_payment"></span><div class="section" id="load-payment-euro">
+<h2>Load payment (euro)<a class="headerlink" href="#load-payment-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>The load payment corresponds to the price consumers must pay for the energy consumed over the year, in a given delivery point. It is calculated as the sum, over the year, of the hourly marginal cost of the delivery point
+for the corresponding energy times the hourly demand for this energy in the delivery point.</p>
+<p>For a given energy, the load payment differs depending on the scope, the load payment is computed as follows:</p>
+<div class="math">
+\[\small loadPayment_{dp, energy} = \sum_t marginalCost_t^{dp, energy}*demand_t^{dp, energy}\]</div>
+</div>
+<span class="target" id="module-Loss_of_load_cost"></span><div class="section" id="loss-of-load-cost-euro">
+<h2>Loss of load cost (euro)<a class="headerlink" href="#loss-of-load-cost-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>The loss of load cost is the cost associated to loss of load (LoL) in an energy system.
+In classic models, this cost is directly indexed on the value of loss of load (VoLL), which is the amount customers would be willing to pay in order to avoid a disruption in their electricity service.
+This leads to the following formulation:</p>
+<div class="math">
+\[\small LoLcost_{dp} = \sum_t VoLL^{dp}.LoL_t^{dp}\]</div>
+</div>
+<span class="target" id="module-Loss_of_load"></span><div class="section" id="loss-of-load-h">
+<h2>Loss Of Load (h)<a class="headerlink" href="#loss-of-load-h" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>Loss Of Load (LOL), also called Loss Of Load Expectation (LOLE) represents the number of hours per year in which there is a situation of loss of load (i.e. that supply does not meet demand). 
+It takes into account the fact that if the LOL is &#8220;too large&#8221;, then additional capacities (power plants or batteries) will be built. See KPI &#8220;Loss of load&#8221; for more details.</p>
+<div class="math">
+\[\begin{split}\small LOL_{zone} = \sum_t \mathbf 1_{\{supply_t &lt; demand_t\}}\end{split}\]</div>
+</div>
+<span class="target" id="module-Marginal_costs_statistics"></span><div class="section" id="marginal-costs-statistics-euro-mwh">
+<h2>Marginal costs statistics (euro/MWh)<a class="headerlink" href="#marginal-costs-statistics-euro-mwh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity, reserve or gas)</li>
+<li>test case</li>
+<li>statistics (min, max, average or demand average)</li>
+</ul>
+</dd>
+</dl>
+<p>Computes the minimum, maximum and average value of the marginal cost over the year for a given delivery point and energy.</p>
+<p>The KPI also computes the demand weighted (demand average) marginal cost:</p>
+<div class="math">
+\[\small demandWeightedMarginalCost_{zone, energy} = \frac{\sum_t marginalCost_t^{zone, energy}.demand_t^{zone, energy}}{\sum_t demand_t^{zone, energy}} \]</div>
+<p>The marginal cost of a given energy and a given delivery point is the variable cost of the production unit that was last called (after the costs of the different technologies were ordered in increasing order) to meet the energy demand in the delivery point.</p>
+</div>
+<span class="target" id="module-Marginal_costs"></span><div class="section" id="marginal-costs-euro-mwh">
+<h2>Marginal costs (euro/MWh)<a class="headerlink" href="#marginal-costs-euro-mwh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by:</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity, reserve or gas)</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>The marginal cost of a given energy and a given delivery point is the variable cost of the production unit that was last called (after the costs of the different technologies were ordered in increasing order) to meet the energy demand in the delivery point.</p>
+<p>This KPI computes the average value of the marginal cost over the year for a given delivery point and energy. Additional statistics can be calculated in <em>Marginal costs statistics</em> KPI</p>
+</div>
+<span class="target" id="module-Minimum_unused_production_capacity"></span><div class="section" id="minimum-unused-production-capacity-wh">
+<h2>Minimum unused production capacity (Wh)<a class="headerlink" href="#minimum-unused-production-capacity-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+<li>technology</li>
+</ul>
+</dd>
+</dl>
+<p>Minimal margin between available capacity and energy production for a given delivery point, for a given energy and a given technology:</p>
+<div class="math">
+\[\small minMargin_{dp, techno, energy} = \min_t availability_{t, dp, techno, energy}     imes pmax_{t, dp, techno, energy} - production_{t, dp, techno, energy}\]</div>
+</div>
+<span class="target" id="module-Net_demand_peak"></span><div class="section" id="net-demand-peak-w">
+<h2>Net demand peak (W)<a class="headerlink" href="#net-demand-peak-w" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>zone</li>
+<li>energy (electricity, gas)</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>Return the maximum value over the year of the net demand, which is defined as the difference between the realized energy demand and the available capacity of flexible renewable energy at a given delivery point:</p>
+<div class="math">
+\[\small netDemandPeak_{testCase, zone} = max_t(demand_t^{testCase, zone} - availableRenewableCapacity_t^{testCase, zone})\]</div>
+</div>
+<span class="target" id="module-Net_Production"></span><div class="section" id="net-production-wh">
+<h2>Net Production (Wh)<a class="headerlink" href="#net-production-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the total energy production in a given delivery point, a given energy and a given technology minus the consumption on the same period.</p>
+<div class="math">
+\[\small production_{dp, energy, techno} = \sum_t (production_{t, dp, energy, techno} - consumption_{t, dp, energy, techno})\]</div>
+</div>
+<span class="target" id="module-Producer_surplus"></span><div class="section" id="producer-surplus-euro">
+<h2>Producer surplus (euro)<a class="headerlink" href="#producer-surplus-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>reference delivery point</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>A producer surplus occurs when the producer is <strong>paid more for a given product than the minimum amount it is willing to pay for its production</strong>. It represents the <strong>benefit the producer receives for selling its product on the market</strong>.</p>
+<p>The KPI thus computes the difference between the amount an energy producer receives and the minimum amount the producer is paying for the energy it produces, i.e. the production 
+times the marginal cost (the amount the producer receives) minus the production cost and the marginal consumption cost if there is one (the amount the producer has paying).
+And to compute the producer revenue, we need to consider all its &#8220;primary energy productions&#8221; and consumptions (electricity, reserve energies,...), but not the secondary ones (fuel, co2,...).</p>
+<p>For each scope <span class="math">\(s\)</span>, test case <span class="math">\(c\)</span>, delivery points <span class="math">\(d\)</span> and technology <span class="math">\(T\)</span> :</p>
+<div class="math">
+\[\begin{split}\small productionSurplusKpi_{s, c, d, T} = \small \sum_{asset\ a\ |\ refDp(a)==d\ \\and\ technology(a)==T} ( \sum_{time\ step\ t} (\sum_{primary\ produced\ \\energy\ e\ of\ a} production_{s, c, t, a, e} \times margCost_{s, c, t, e, prodDp(a,e)} - \sum_{primary\ consumed\ \\energy\ e'\ of\ a} consumption_{s, c, t, a, e'} \times margCost_{s, c, t, e', consumptionDp(a,e')}) 
+\\ \small - productionCost_{s, c, a})\end{split}\]</div>
+<p>Where <span class="math">\(\small productionCost_{s, c, a}\)</span> is the total production cost of the asset for given scope and test case (cf the &#8220;Production costs&#8221; KPI documentation).</p>
+</div>
+<span class="target" id="module-Production_costs"></span><div class="section" id="production-costs-euro">
+<h2>Production costs (euro)<a class="headerlink" href="#production-costs-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>reference delivery point</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>The KPI computes the total production costs in a given delivery point and a given technology.</p>
+<p>So for each scope <span class="math">\(s\)</span>, test case <span class="math">\(c\)</span>, asset <span class="math">\(a\)</span> and time step <span class="math">\(t\)</span>, asset costs fall in the various categories below :</p>
+<div class="math">
+\[\small variableCost_{s, c, t, a} = production_{s, c, t, a, mainEnergy} \times (productionCost_{s, c, t, a} \times \delta_{notActive(BH\_CLUSTER)} + variableCost_{s, c, t, a} \times \delta_{isActive(BH\_CLUSTER)})\]</div>
+<div class="math">
+\[\small runningCapacityCost_{s, c, t, a} = runningCapacityCost_{s, c, t, a} \times runningBound_{s, c, t, a}\]</div>
+<div class="math">
+\[\small startUpCost_{s, c, t, a} = startUpIndexedCost_{s, c, t, a} \times startingCapacity_{s, c, t, a}\]</div>
+<div class="math">
+\[\small fuelCost_{s, c, t, a} = \small \sum_{fuelEnergy} fuelConsumption_{s, c, t, a, fuelEnergy} \times marginalCost_{s, c, t, fuelEnergy, fuelDP(fuelEnergy, a)}\]</div>
+<p>where <span class="math">\(\small fuelDP(fuelEnergy, a)\)</span> is the delivery point where the asset <span class="math">\(a\)</span> consumes the fuel energy <span class="math">\(\small fuelEnergy\)</span></p>
+<div class="math">
+\[\small consumptionCost_{s, c, t, a} = consumption_{s, c, t, a, mainEnergy} \times consumptionIndexedCost_{s, c, t, a}\]</div>
+<div class="math">
+\[\small co2EmissionsCost_{s, c, t, a} = co2Emissions_{s, c, t, a, co2Energy} \times  marginalCost_{s, c, t, co2Energy, co2DP(co2Energy,a)}\]</div>
+<p>where <span class="math">\(\small co2DP(co2Energy,a)\)</span> is the delivery point where the asset <span class="math">\(a\)</span> produces the fuel energy <span class="math">\(\small co2Energy\)</span></p>
+<div class="math">
+\[\small storageCost_{s, c, t, a} = storageLevel_{s, c, t, a} \times storageLevelIndexedCost_{s, c, t, a}\]</div>
+<p>For each reserve energy :</p>
+<div class="math">
+\[\small reserveCost_{s, c, t, a, reserveEnergy} = production_{s, c, t, a, reserveEnergy, RUNNING} \times reserveProdCost_{s, c, t, a, reserveEnergy}\]</div>
+<div class="math">
+\[\small reserveNotRunningCost_{s, c, t, a} = production_{s, c, t, a, mfrrUp, NOT\_RUNNING} \times notRunningReserveCost_{s, c, t, a, mfrrUp}\]</div>
+<p>So we can define the total <strong>production cost</strong> of an asset as :</p>
+<div class="math">
+\[\small productionCost_{s, c, a} = \sum_t variableCost_{s, c, t, a} + runningCapacityCost_{s, c, t, a} + startUpCost_{s, c, t, a} + fuelCost_{s, c, t, a} + consumptionCost_{s, c, t, a} + co2EmissionsCost_{s, c, t, a} + storageCost_{s, c, t, a}\]</div>
+<div class="math">
+\[\small + \sum_{reserveEnergy} reserveCost_{s, c, t, a, reserveEnergy} + reserveNotRunningCost_{s, c, t, a}\]</div>
+<p>NB : All costs of a given asset must always be considered together, since some costs are shared. For instance, the runningCapacityCost is linked to the electricity production as much as to the reserve production.
+Therefore, indexing these costs by energy would be misleading.
+It is also true for the indexing by delivery points : an asset could produce or consume at several delivery points, but divide its cost on several DP would be misleading and wrong. 
+For practicality purposes, we just index this KPI by <strong>reference DP</strong>, each asset having a single reference DP (classically the DP where the asset produces its main energy production).</p>
+<p>So for each scope <span class="math">\(s\)</span>, test case <span class="math">\(c\)</span>, delivery points <span class="math">\(d\)</span> and technology <span class="math">\(T\)</span>, we have :</p>
+<div class="math">
+\[\begin{split}\small productionCostKpi_{s, c, d, T} = \sum_{time\ step\ t} \sum_{asset\ a\ |\ refDp(a)==d\ \\and\ technology(a)==T} productionCost_{s, c, a}\end{split}\]</div>
+</div>
+<span class="target" id="module-Production_revenue"></span><div class="section" id="production-revenue-euro">
+<h2>Production revenue (euro)<a class="headerlink" href="#production-revenue-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual revenue received by a given technology in a given delivery point, for the energy it produces.</p>
+<p>It is calculated as the sum over the year of the production of the technology times the marginal cost within the considered delivery point:</p>
+<div class="math">
+\[\small revenue_{technology, dp} = \sum_t production_t^{technology, dp}.marginalCost_t^{dp}\]</div>
+</div>
+<span class="target" id="module-Production"></span><div class="section" id="production-wh">
+<h2>Production (Wh)<a class="headerlink" href="#production-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Total energy production in a given delivery point, for a given energy and a given technology:</p>
+<div class="math">
+\[\small production_{dp, techno, energy} = \sum_t production_{t, dp, techno, energy}\]</div>
+</div>
+<span class="target" id="module-Raw_demand"></span><div class="section" id="raw-demand-wh">
+<h2>Raw demand (Wh)<a class="headerlink" href="#raw-demand-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>test case</li>
+<li>energy</li>
+<li>demand type</li>
+</ul>
+</dd>
+</dl>
+<p>Return the annual volumes of unoptimized energy demand for a given technology or contract.
+We here consider the flexible demand before optimization (using the objective demand of the corresponding assets).</p>
+<p>For asset &#8220;Electric Vehicles&#8221; with behavior Vehicule to grid, this demand does not consider any production, since V2G is price activated.</p>
+</div>
+<span class="target" id="module-Reserve_sizing"></span><div class="section" id="reserve-sizing-w">
+<h2>Reserve Sizing (W)<a class="headerlink" href="#reserve-sizing-w" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>reserve energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>Return reserve requirements per delivery point in W (annual average values instead of annual volumes).</p>
+</div>
+<span class="target" id="module-Scarcity_price_hours"></span><div class="section" id="scarcity-price-hours-h">
+<h2>Scarcity Price Hours (h)<a class="headerlink" href="#scarcity-price-hours-h" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>Return the number of hours where marginal costs of a delivery point is higher than a certain value reflecting scarcity of production capacity at said hours.</p>
+</div>
+<span class="target" id="module-Share_of_production_in_national_demand"></span><div class="section" id="share-of-production-in-national-demand">
+<h2>Share of production in national demand (%)<a class="headerlink" href="#share-of-production-in-national-demand" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return, for each technology and for each energy, the share (in %) of the energy demand procured by the technology.</p>
+<div class="math">
+\[\small share_{dp, technology, energy} = \frac{\sum_t production_{t}^{dp, technology, energy}}{\sum_t demand_{t}^{dp, energy}}\]</div>
+<p>Because of transmissions, the result can be greater than 100% (if the delivery point is a net exporter) or lower than 100% (if the delivery point is a net importer).</p>
+</div>
+<span class="target" id="module-Storage_capacity"></span><div class="section" id="storage-capacity-wh">
+<h2>Storage capacity (Wh)<a class="headerlink" href="#storage-capacity-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity, gas and water)</li>
+<li>test case</li>
+<li>technology</li>
+<li>asset name</li>
+</ul>
+</dd>
+</dl>
+<p>Return the storage capacity per delivery point, per energy and technology (in Wh).</p>
+</div>
+<span class="target" id="module-Storage_cycles"></span><div class="section" id="storage-cycles-cycles">
+<h2>Storage cycles (cycles)<a class="headerlink" href="#storage-cycles-cycles" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity)</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>For a given delivery point, computes the equivalent number of full discharge cycles of all the cycling storage units within the delivery point, based on their annual production and their production capacity.</p>
+</div>
+<span class="target" id="module-Supply"></span><div class="section" id="supply-wh">
+<h2>Supply (Wh)<a class="headerlink" href="#supply-wh" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (any energy, fuel and reserve type)</li>
+<li>test case</li>
+<li>technology</li>
+</ul>
+</dd>
+</dl>
+<p>Return for a given delivery point, the annual volumes of production per technology, as well as the imports to the delivery point through the transmissions and the fuel supply.
+It is similar to the KPI &#8216;Production (detailed)&#8217; but it also includes imports and fuel supply.</p>
+<p>The KPI is particularly adapted for gas models as national gas demand is in large parts satisfied by imports.</p>
+</div>
+<span class="target" id="module-Total_costs"></span><div class="section" id="total-costs-euro">
+<h2>Total costs (euro)<a class="headerlink" href="#total-costs-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by:</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>Return the total costs associated to satisfying the demand (for electricity and reserve), for a given delivery point and scope, as the sum of the production costs, the loss of load costs, 
+the loss of reserve costs and the curtailment costs:</p>
+<div class="math">
+\[\begin{split}\small totalCosts{dp,scope}   &amp; = \small productionCost_t^{scope,dp} + \small lossOfLoadCost^{scope,dp} \\
+&amp; + \small lossOfReserveCost^{scope,dp} + \small CurtailmentCost^{scope,dp} \end{split}\]</div>
+</div>
+<span class="target" id="module-Transmission_capacities"></span><div class="section" id="transmission-capacities-w">
+<h2>Transmission capacities (W)<a class="headerlink" href="#transmission-capacities-w" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>energy (electricity or gas)</li>
+<li>test case</li>
+<li>transmission</li>
+</ul>
+</dd>
+</dl>
+<p>Return the capacity of each single transmission.</p>
+</div>
+<span class="target" id="module-Transmission_usage"></span><div class="section" id="transmission-usage">
+<h2>Transmission usage (%)<a class="headerlink" href="#transmission-usage" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point (dummy)</li>
+<li>energy</li>
+<li>test case</li>
+<li>transmission</li>
+</ul>
+</dd>
+</dl>
+<p>The instant transmission usage of an interconnection is the ratio of electricity or gas flowing through the transmission over its capacity.
+The KPI computes the yearly average value of instant transmission usage, for a given transmission:</p>
+<div class="math">
+\[transmissionUsage_{transmission} = \small \frac{mean(instantTransmissionUsage^{transmission})}{installedCapacity^{transmission}} (\%)\]</div>
+</div>
+<span class="target" id="module-Welfare"></span><div class="section" id="welfare-euro">
+<h2>Welfare (euro)<a class="headerlink" href="#welfare-euro" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Indexed by</dt>
+<dd><ul class="first last simple">
+<li>scope</li>
+<li>delivery point</li>
+<li>test case</li>
+</ul>
+</dd>
+</dl>
+<p>The welfare for a given delivery point is the sum of its consumer surplus, its producer surplus, the border exchange surplus and half of the congestion rent for power transmission lines connected to the delivery point:</p>
+<div class="math">
+\[\small welfare_{scope, dp, tc} = consumerSurplus_{scope, dp, tc} + producerSurplus_{scope, dp, tc} + exchangeSurplus_{scope, dp, tc} + \frac{1}{2} \sum_{transmission\ t \in dp} congestionRent_{scope, t, tc}\]</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="decoratorDoc.html" class="btn btn-neutral float-right" title="Decorators" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apiDoc.html" class="btn btn-neutral" title="API documentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, European Commission.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'V1.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/highlight.pack.js"></script>
+      <script type="text/javascript" src="_static/toc.js"></script>
+      <script type="text/javascript" src="_static/initHighlightingOnLoad.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

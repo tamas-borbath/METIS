@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Reserve Symmetry Requirement" label="Reserve Symmetry Requirement" picture="pictures/Model.png" type="modelObject" tags="MODULE:RESERVE SIZING" doc="Object defining symmetric reserve requirement constraints">
+	<!-- Deprecated conventions. Do not reproduce. -->
+	<AssetData id="_setContraints"     type="Boolean"        default="False" show="true" editable="true" label="Activate Reserve Procurement Symmetry Requirement" unit="Boolean" doc="Boolean that enables symmetric reserve procurement, for zones defined in _activationPerZone matrix"/>
+	<AssetData id="_activationPerZone" type="INDEXED_MATRIX" default="Null"  show="true" editable="true" label="Reserve Procurement Symmetry Requirement per Zone" unit="Boolean" doc="Matrix defining for each zone if reserve procurement is symmetric or not"/>
+	
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+if bool(asset.getData("_setContraints").getDataValue()) == True:
+	activationPerZone = parseIndexedMatrixWithTwoColumns(asset, indexedMatrixName="_activationPerZone")
+	reserveSymmetryRequirement(activationPerZone)
+
+]]>
+</Model>
+</Models>
+</AssetModel>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Heat Pump" label="Heat Pump" picture="pictures/Heat Pump.png" type="Physical" tags="MODULE:LOAD MANAGEMENT" doc="Heat Pump">
+	<Behavior id="GAS_BACKUP_HEATER"       label="Use a gas boiler for backup heater"            default="false"/>
+	<Behavior id="MUST_RUN"                label="Non-flexible demand (no thermal storage)"     default="true"/>
+
+	<EnergyPickup   name="CONSUMPTION"      default="electricity" unit="@POWER"/>
+	<EnergyPickup   name="FUEL_CONSUMPTION" default="gas"         unit="@POWER"         behaviors="GAS_BACKUP_HEATER"/>
+	<EnergyDelivery name="CO2"              default="co2"         unit="@WEIGHT"        behaviors="GAS_BACKUP_HEATER"/>
+
+	<AssetData id="_heatingDemand"          type="Double" default="1000"  show="true" editable="true" label="Heating demand"             unit="@ENERGY"   doc="Heating demand"/>
+	<AssetData id="_bivalentTemp"           type="Double" default="0"     show="true" editable="true" label="Bivalent temperature"       unit="°C"        doc="The temperature below which the back-up heater has to supplement the heat pump is called the bivalent temperature"/>
+	<AssetData id="_pmax"                   type="Double" default="1000"  show="true" editable="true" label="HP capacity"                unit="@POWER"    doc="Installed HP thermal capacity"/>
+	<AssetData id="_temperature"            type="Double" default="0"     show="true" editable="true" label="Heat source temperature"    unit="°C"        doc="Heat source temperature"/>
+	<AssetData id="_COP"                    type="Double" default="3"     show="true" editable="true" label="Coefficient of performance" unit="@ENERGY"   doc="Coefficient of performance"/>
+	<AssetData id="_backUpHeaterYield"      type="Double" default="1"     show="true" editable="true" label="Backup heater efficiency"        unit=""          doc="Backup heater efficiency"/>
+	<AssetData id="_fuelCo2Content"         type="Double" default="0.18"  show="true" editable="true" label="Fuel CO2 emissions"         unit="@WEIGHT/@ENERHEATVALUE" behaviors="GAS_BACKUP_HEATER" doc="Yield between the fuel consumption and the CO2 emissions"/>
+
+	<AssetData id="_dischargeTime"          type="Double" default="2"     show="true" editable="true" label="Storage discharge time"     unit="h"                      behaviors="not MUST_RUN"      doc="Storage discharge time"/>
+	<AssetData id="_storageCost"            type="Double" default="0.001" show="true" editable="true" label="Storage cost"               unit="€/@ENERGY/h"                 behaviors="not MUST_RUN"      doc="Cost associated with storage"/>
+	<AssetData id="_lossRate"               type="Double" default="0.05"  show="true" editable="true" label="Loss rate"                  unit="%/h"                    behaviors="not MUST_RUN"      doc="Storage loss rate (percentage of lost energy per time step)"/>
+
+	<AssetPrimalResult id="_Stock"                indexLabels="name" index="stock"                label="Thermal storage"           export="true" show="true" unit="@POWER" behaviors="not MUST_RUN"/>
+	<AssetPrimalResult id="_heat_pump_production" indexLabels="name" index="heat_pump_production" label="Heat pump production"      export="true" show="true" unit="@POWER"/>
+	<AssetPrimalResult id="_backup_production"    indexLabels="name" index="backup_production"    label="Back-up heater production" export="true" show="true" unit="@POWER"/>
+
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+heatPumpCapacity = buildHPcapacity(asset, stateON)
+createHeatPumpConstraints(asset, stateON, heatPumpCapacity)
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Electric Vehicles" label="Electric Vehicles" picture="pictures/EV demand.png" type="Physical" doc="Fleet of electric vehicles">
+	<Behavior id="USE_ENERGY_PRODUCTION" label="Vehicle to grid" />
+	<Behavior id="MUST_RUN"              label="Non-flexible demand" default="false"/>
+	
+	<EnergyPickup   name="CONSUMPTION" default="electricity" unit="@POWER"/>
+	<EnergyDelivery name="PRODUCTION"  default="electricity" unit="@POWER" behaviors="USE_ENERGY_PRODUCTION"/>
+
+	<AssetData id="_totalEV"             type="Double" default="1"       show="true" editable="true" label="Total number of EV"                     unit="EV"      doc="Total number of vehicles"/>
+	<AssetData id="_initialConnectedEV"  type="Double" default="0"       show="true" editable="true" label="Percentage of connected EV at t=0"      unit="%"  behaviors="not MUST_RUN" doc="Percentage of connected EV at t=0"/>
+	<AssetData id="_arrivals"            type="Double" default="0"       show="true" editable="true" label="Percentage of EV arriving at terminal"  unit="%"                           doc="Percentage of vehicles arriving at terminal"/>
+	<AssetData id="_departures"          type="Double" default="0"       show="true" editable="true" label="Percentage of EV leaving from terminal" unit="%"  behaviors="not MUST_RUN" doc="Percentage of vehicles leaving from terminal"/>
+	<AssetData id="_evStorageCapacity"   type="Double" default="7"       show="true" editable="true" label="EV storage capacity"               unit="kWh"     behaviors="not MUST_RUN" doc="EV storage capacity"/>
+	<AssetData id="_evRecharge"          type="Double" default="5"       show="true" editable="true" label="Average journey discharge"         unit="kWh"     doc="Average journey discharge"/>
+	<AssetData id="_evPmaxIn"            type="Double" default="2"       show="true" editable="true" label="Average charging capacity"         unit="kW"      doc="Average charging capacity per vehicle"/>
+	<AssetData id="_inputEfficiency"     type="Double" default="1.0"     show="true" editable="true" label="EV charging efficiency"            unit="%"       doc="EV charging efficiency"/>
+	<AssetData id="_storageCost"         type="Double" default="-0.00001" show="true" editable="true" label="Storage cost"                     unit="€/MWh/h" behaviors="not MUST_RUN" doc="Cost associated with storage"/>
+	
+	<AssetData id="_evPmaxOut"           type="Double" default="2"      show="true" editable="true" label="Average V2G discharging capacity"   unit="kW"    behaviors="USE_ENERGY_PRODUCTION and not MUST_RUN" doc="Average Vehicle-to-grid discharging capacity"/>
+	<AssetData id="_outputEfficiency"    type="Double" default="1.0"    show="true" editable="true" label="EV discharging efficiency"          unit="%"     behaviors="USE_ENERGY_PRODUCTION and not MUST_RUN" doc="EV discharging efficiency"/>
+	<AssetData id="_productionCost"      type="Double" default="0.001"  show="true" editable="true" label="Production cost"                    unit="€/MWh" behaviors="USE_ENERGY_PRODUCTION and not MUST_RUN" doc="Production cost"/>
+	
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+setElectricVehiclesModel(stateON, asset)
+finalize(stateON)
+
+
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Min reserve procurement" label="Minimum national reserve procurement" picture="pictures/Model.png" type="modelObject" tags="MODULE:RESERVE SIZING" doc="Object defining cooperation behavior between countries for reserve procurement">
+	<!-- Deprecated conventions. Do not reproduce. -->
+	<AssetData id="_setContraints"        type="Boolean"        default="False" show="true" editable="true" label="Enable regional cooperation"                 unit="Boolean" doc="Boolean that enables min reserve procurement"/>
+	<AssetData id="_regionDefinition"     type="INDEXED_MATRIX" default="Null"  show="true" editable="true" label="Region definition"                           unit="N/A"     doc="Indexed matrix (2 columns) with min reserve requirements per region"/>
+
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+
+if bool(asset.getData("_setContraints").getDataValue()) == True:
+	cooperationRegions = parseIndexedMatrixWithTwoColumns(asset, indexedMatrixName="_regionDefinition")
+	nationalReserveProcurement(cooperationRegions)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Supply contract with bound" label="Supply contract with bound" picture="pictures/Supply contractWBounds.png" type="financial" tags="SUPPLY,CONTRACT" doc="Supply contract with upper bound limit">
+	<EnergyDelivery id="E" default="electricity" unit="@POWER"/>
+	<AssetData id="_price" type="Double" default="3000" show="true" editable="true" label="Price" unit="@CURRENCY/@ENERGY" doc="Price"/>
+	<AssetData id="_pmax"  type="Double" default="1000" show="true" editable="true" label="Pmax"  unit="@POWER" doc="Installed power capacity"/>
+	<Models>
+	<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state OK
+# ---------------------------------------------------
+stateON = AssetState('ON')
+addEnergyCost(stateON, asset.getParameter('E'), False, asset.getData('_price'))
+stateON.addUpperBound( asset.getParameter('E'), False, asset.getData('_pmax') )
+MODEL.addState(stateON)
+
+]]>
+	</Model>
+	</Models>
+</AssetModel>

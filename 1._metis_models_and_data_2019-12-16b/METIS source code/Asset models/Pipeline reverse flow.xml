@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Pipeline reverse flow" label="Pipeline reverse flow" picture="pictures/Model.png" type="modelObject" tags="MODULE:GAS" doc="Model object of a gas pipeline, used for capacity optimization, with equal capacity installed in favor to the most expensive sense">
+	<!-- Deprecated conventions. Do not reproduce. -->
+	<AssetData id="_setContraints" type="Boolean" default="True" show="true" editable="true" label="For capacity optimization, with equal capacity installed in favor to the most expensive sense" unit="Boolean" doc="Boolean that enables reverse flow"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+if bool(asset.getData("_setContraints").getDataValue()) == True:
+	setPipelineReverseFlowConstraints(Crystal.getPortfolio())
+
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

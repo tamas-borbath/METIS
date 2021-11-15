@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Reserve demand" label="Reserve demand" picture="pictures/ReserveElectrique.png" type="financial" tags="CONSUMPTION_CONTRACT,DEMAND" doc="Reserve needs">
+	
+	<EnergyPickup id="E"  default="reserveEnergy" unit="@POWER"/>
+	
+	<AssetData id="_demand"       type="Double" default="0" show="true" editable="true" label="Total requirement"                                          unit="@POWER" doc="Demand"/>
+	<AssetData id="_localReserve" type="Double" default="0" show="true" editable="true" label="National procurement minimum (w.r.t the total requirement)" unit="%"      doc="Fraction of the total reserve requirement that needs to be procured localy (ie within the associated zone)"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+stateON.setEquality(asset.getParameter('E'), True, asset.getData('_demand'))
+MODEL.addState(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>

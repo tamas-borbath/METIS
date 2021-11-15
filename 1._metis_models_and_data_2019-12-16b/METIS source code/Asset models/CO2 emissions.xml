@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="CO2 emissions" label="CO2 emissions" picture="pictures/CO2 contract.png" type="financial" tags="CONTRACT" doc="CO2 emissions">
+	<EnergyPickup id="E" default="co2" unit="@WEIGHT"/>
+	<AssetData id="_price" 	type="Double" default="30" show="true" editable="true" label="Cost" unit="@CURRENCY/@WEIGHT" doc="Price"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+
+stateON = AssetState('ON')
+addEnergyCost(stateON, asset.getParameter('E'), True, asset.getData('_price'))
+MODEL.addState(stateON)
+
+]]>
+	</Model>
+	</Models>
+</AssetModel>
+

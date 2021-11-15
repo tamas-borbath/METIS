@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Import contract" label="Import contract" picture="pictures/Import contract.png" type="financial" tags="SUPPLY,CONTRACT,IMPORT" doc="Power import contract, to model an import contract from a country not explicitly modeled in the context">
+	<EnergyDelivery id="E" default="electricity" unit="@POWER"/>
+	<AssetData id="_imports" type="Double" default="0" show="true" editable="true" label="Imports" unit="@POWER" doc="Imports"/>
+	<Models>
+	<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state OK
+# ---------------------------------------------------
+stateON = AssetState('ON')
+stateON.setEquality( asset.getParameter('E'), False, asset.getData('_imports') )
+MODEL.addState(stateON)
+
+]]>
+	</Model>
+	</Models>
+</AssetModel>

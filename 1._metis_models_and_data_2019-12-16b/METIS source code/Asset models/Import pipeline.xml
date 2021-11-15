@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- #################################################### -->
+<!-- Copyright (c) 2015-2017 by European Commission.      -->
+<!-- All Rights Reserved.                                 -->
+<!-- #################################################### -->
+<AssetModel name="Import pipeline" label="Import pipeline" picture="pictures/Pipeline.png" type="Physical" tags="MODULE:GAS,TRANSMISSION,IMPORT,EXPORT" doc="Import gas pipeline">
+	<Behavior id="OPTIM_PMAX"       label="Capacity optimization" default="false"/>
+	
+	<EnergyPickup   name="CONSUMPTION" default="gas" unit="@POWER"/>
+	<EnergyDelivery name="PRODUCTION"  default="gas" unit="@POWER"/>
+	
+	<AssetData id="_capex"           type="Double" default="90000" show="true" editable="true" label="CAPEX"                 unit="@CURRENCY/@POWER/Year"                            doc="Capital expenditure (only used for capacity optimization)"/>
+	<AssetData id="_foc"             type="Double" default="10000" show="true" editable="true" label="Fixed Operating Costs" unit="@CURRENCY/@POWER/Year"                            doc="Fixed Operating Costs (only used for capacity optimization)"/>
+	<AssetData id="_pmax"            type="Double" default="1000"  show="true" editable="true" label="Capacity"              unit="@POWER"                behaviors="not OPTIM_PMAX" doc="Installed power capacity"/>
+	<AssetData id="_pmaxmin"         type="Double" default="0"     show="true" editable="true" label="Minimal Capacity"      unit="@POWER"                behaviors="OPTIM_PMAX"     doc="Installed capacity lower bound for capacity optimization"/>
+	<AssetData id="_pmaxmax"         type="Double" default="1000"  show="true" editable="true" label="Maximal Capacity"      unit="@POWER"                behaviors="OPTIM_PMAX"     doc="Installed capacity upper bound for capacity optimization"/>
+	<AssetData id="_availability"    type="Double" default="1"     show="true" editable="true" label="Availability"          unit="%"                                                doc="Available capacity, expressed as a percentage of the installed capacity"/>
+	<AssetData id="_productionCost"  type="Double" default="0.002" show="true" editable="true" label="Injection cost"        unit="@CURRENCY/@ENERGY"                                doc="Production cost (fuel cost not included)"/>
+	<AssetData id="_entryFee"        type="Double" default="0.002" show="true" editable="true" label="Entry fee"             unit="@CURRENCY/@ENERGY"                                doc="Entry fee"/>
+	<AssetData id="_consumptionCost" type="Double" default="0.002" show="true" editable="true" label="Withdrawal cost"       unit="@CURRENCY/@ENERGY"                                doc="Consumption costs"/>
+	<AssetData id="_exitFee"         type="Double" default="0.002" show="true" editable="true" label="Exit fee"              unit="@CURRENCY/@ENERGY"                                doc="Exit fee"/>
+	<AssetData id="_losses"          type="Double" default="0.001" show="true" editable="true" label="Losses"                unit="%"                                                doc="Transmission losses"/>
+	<Models>
+		<Model id= "Full">
+<![CDATA[
+
+# ---------------------------------------------------
+# Modelling asset state ON
+# ---------------------------------------------------
+stateON = AssetState('ON')
+
+# Computing overall cost to set on incoming flows (consumption cost + network exit fee)
+overallConsumptionCost  = getAssetData(asset, "_consumptionCost", dataName=LABELS[CONSUMPTION_COST], mustExist=False)
+exitFee = getAssetData(asset, "_exitFee", mustExist=False)
+if exitFee is not None:
+    overallConsumptionCost += exitFee
+
+# Computing overall cost to set on outcoming flows (production cost + network entry fee)
+overallProductionCost  = getAssetData(asset, "_productionCost", dataName=LABELS[PRODUCTION_COST], mustExist=False)
+entryFee = getAssetData(asset, "_entryFee", mustExist=False)
+if entryFee is not None:
+    overallProductionCost += entryFee
+
+addEnergyTransmission(asset, stateON, consumptionCost = overallConsumptionCost, productionCost = overallProductionCost)
+finalize(stateON)
+
+]]>
+		</Model>
+	</Models>
+</AssetModel>
